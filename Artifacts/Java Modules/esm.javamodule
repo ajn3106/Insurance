@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<nsJavaModule:JavaModule xmlns:nsJavaModule="http://xcp.emc.com/javamodule" urn="urn:ajwf:com.emc.xcp.artifact.javamodule.category:Artifacts/Java Modules/esm.javamodule"
-categoryId="com.emc.xcp.artifact.javamodule.category" name="esm"
-label="ESM Operations" implementationClass="com.spr.ajwf.modules.esm.ESMModule">
-<implementationJars contentPath="content/modules/ajwf_modules.jar"/>
-</nsJavaModule:JavaModule>

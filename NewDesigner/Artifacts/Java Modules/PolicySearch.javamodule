@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsJavaModule:JavaModule xmlns:nsJavaModule="http://xcp.emc.com/javamodule" 
+	urn="urn:xyz:com.emc.xcp.artifact.javamodule.category:Artifacts/Java Modules/PolicySearch.javamodule" 
+	categoryId="com.emc.xcp.artifact.javamodule.category" 
+	name="PolicySearch" label="PolicySearch" 
+	implementationClass="com.spr.ecm.SearchPolicy">
+<implementationJars contentPath="content/modules/emc_modules.jar"/>
+</nsJavaModule:JavaModule>

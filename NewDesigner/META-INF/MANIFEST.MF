@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Require-Bundle: xcp.xcpcore;bundle-version="2.1.1", xcpcomm.xcpcommons
+ ;bundle-version="2.1.1", xcpui.xcpui;bundle-version="2.1.1"
+Bundle-ClassPath: .
+Bundle-Version: 1.0.0.201604191537
+EMC-XCP-ExecutionEnvironment: com.emc.executionenvironment.xcp:2.1.6
+Bundle-Name: NewDesigner
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: xyz.NewDesigner
+NAMESPACE: xyz
+

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsDatatypes:Relation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" urn="urn:xyz:com.emc.xcp.artifact.relation:Artifacts/Relationships/vehicle_policy.relationship" categoryId="com.emc.xcp.artifact.relation" name="vehicle_policy" label="Vehicle-Policy" targetRoleName="policy" targetRoleLabel="Policy" fromCardinality="-1" subjectRoleName="vehicle" subjectRoleLabel="Vehicle" toCardinality="1" bidirectional="true">
+  <from xsi:type="nsDatatypes:BusinessObject" href="urn:xyz:com.emc.xcp.artifact.bo:Artifacts/Business Objects/vehicle.businessobj#/"/>
+  <to xsi:type="nsDatatypes:BusinessObject" href="urn:xyz:com.emc.xcp.artifact.bo:Artifacts/Business Objects/policy.businessobj#/"/>
+  <qualifyingAttributes name="start_date" label="Start date">
+    <type xsi:type="nsAttributeDatatypes:DateTimeType"/>
+  </qualifyingAttributes>
+  <qualifyingAttributes name="end_date" label="End date">
+    <type xsi:type="nsAttributeDatatypes:DateTimeType"/>
+  </qualifyingAttributes>
+  <qualifyingAttributes name="notes" label="Notes">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="1024"/>
+  </qualifyingAttributes>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_relate_vehicle_policy_vehicle" label="Relate Vehicle-Policy Vehicle" implCategoryId="com.emc.xcp.artifact.relation">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="targetId">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="start_date" label="Start date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="end_date" label="End date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="notes" label="Notes">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType xsi:type="nsDataserviceContract:RelateActionType" type="Relate">
+      <target href="urn:xyz:com.emc.xcp.artifact.bo:Artifacts/Business Objects/vehicle.businessobj#/"/>
+    </actionType>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_relate_vehicle_policy_policy" label="Relate Vehicle-Policy Policy" implCategoryId="com.emc.xcp.artifact.relation">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="targetId">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="start_date" label="Start date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="end_date" label="End date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="notes" label="Notes">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType xsi:type="nsDataserviceContract:RelateActionType" type="Relate">
+      <target href="urn:xyz:com.emc.xcp.artifact.bo:Artifacts/Business Objects/policy.businessobj#/"/>
+    </actionType>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_update_vehicle_policy" label="Update Vehicle-Policy" implCategoryId="com.emc.xcp.artifact.relation">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="start_date" label="Start date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="end_date" label="End date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="notes" label="Notes">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Update"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_delete_vehicle_policy" label="Delete Vehicle-Policy" implCategoryId="com.emc.xcp.artifact.relation">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Delete"/>
+  </dataActionContracts>
+</nsDatatypes:Relation>
