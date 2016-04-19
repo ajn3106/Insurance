@@ -1,0 +1,184 @@
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for ecm:Insurance:war:1.0.0
+[WARNING] The expression ${version} is deprecated. Please use ${project.version} instead.
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Insurance 1.0.0
+[INFO] ------------------------------------------------------------------------
+Downloading: http://localhost:2910/maven/org/apache/maven/plugins/maven-clean-plugin/2.4.1/maven-clean-plugin-2.4.1.pom
+Downloaded: http://localhost:2910/maven/org/apache/maven/plugins/maven-clean-plugin/2.4.1/maven-clean-plugin-2.4.1.pom (5 KB at 19.3 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/maven/plugins/maven-clean-plugin/2.4.1/maven-clean-plugin-2.4.1.jar
+Downloaded: http://localhost:2910/maven/org/apache/maven/plugins/maven-clean-plugin/2.4.1/maven-clean-plugin-2.4.1.jar (23 KB at 499.9 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/maven/plugins/maven-surefire-plugin/2.10/maven-surefire-plugin-2.10.pom
+Downloaded: http://localhost:2910/maven/org/apache/maven/plugins/maven-surefire-plugin/2.10/maven-surefire-plugin-2.10.pom (11 KB at 585.0 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/maven/surefire/surefire/2.10/surefire-2.10.pom
+Downloaded: http://localhost:2910/maven/org/apache/maven/surefire/surefire/2.10/surefire-2.10.pom (12 KB at 612.8 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/maven/plugins/maven-surefire-plugin/2.10/maven-surefire-plugin-2.10.jar
+Downloaded: http://localhost:2910/maven/org/apache/maven/plugins/maven-surefire-plugin/2.10/maven-surefire-plugin-2.10.jar (30 KB at 466.5 KB/sec)
+Downloading: http://localhost:2910/maven/com/emc/xcp/builder/xcp-dar/1.0.11/xcp-dar-1.0.11.pom
+Downloaded: http://localhost:2910/maven/com/emc/xcp/builder/xcp-dar/1.0.11/xcp-dar-1.0.11.pom (3 KB at 146.6 KB/sec)
+Downloading: http://localhost:2910/maven/com/emc/xcp/builder/xcp-dar/1.0.11/xcp-dar-1.0.11.jar
+Downloaded: http://localhost:2910/maven/com/emc/xcp/builder/xcp-dar/1.0.11/xcp-dar-1.0.11.jar (13 KB at 287.2 KB/sec)
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ Insurance ---
+[INFO] Deleting D:\software\xCPDesigner_win32_2.1\xCPDesigner\Applications\Insurance\Insurance\target
+[INFO] 
+[INFO] --- xcp-validate:1.0.9:run (xcp-validate) @ Insurance ---
+Downloading: http://localhost:2910/maven/org/apache/maven/plugin-tools/maven-plugin-annotations/3.3/maven-plugin-annotations-3.3.pom
+Downloaded: http://localhost:2910/maven/org/apache/maven/plugin-tools/maven-plugin-annotations/3.3/maven-plugin-annotations-3.3.pom (2 KB at 93.6 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/maven/plugin-tools/maven-plugin-tools/3.3/maven-plugin-tools-3.3.pom
+Downloaded: http://localhost:2910/maven/org/apache/maven/plugin-tools/maven-plugin-tools/3.3/maven-plugin-tools-3.3.pom (13 KB at 617.6 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/maven/maven-parent/24/maven-parent-24.pom
+Downloaded: http://localhost:2910/maven/org/apache/maven/maven-parent/24/maven-parent-24.pom (37 KB at 1605.4 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/apache/14/apache-14.pom
+Downloaded: http://localhost:2910/maven/org/apache/apache/14/apache-14.pom (15 KB at 759.8 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.pom
+Downloaded: http://localhost:2910/maven/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.pom (2 KB at 117.7 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/maven/maven/3.0/maven-3.0.pom
+Downloaded: http://localhost:2910/maven/org/apache/maven/maven/3.0/maven-3.0.pom (22 KB at 1068.6 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/maven/maven-parent/15/maven-parent-15.pom
+Downloaded: http://localhost:2910/maven/org/apache/maven/maven-parent/15/maven-parent-15.pom (24 KB at 1116.2 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/apache/6/apache-6.pom
+Downloaded: http://localhost:2910/maven/org/apache/apache/6/apache-6.pom (13 KB at 657.7 KB/sec)
+Downloading: http://localhost:2910/maven/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.pom
+Downloaded: http://localhost:2910/maven/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.pom (4 KB at 203.5 KB/sec)
+Downloading: http://localhost:2910/maven/org/sonatype/plexus/plexus-build-api/0.0.7/plexus-build-api-0.0.7.pom
+Downloaded: http://localhost:2910/maven/org/sonatype/plexus/plexus-build-api/0.0.7/plexus-build-api-0.0.7.pom (4 KB at 208.6 KB/sec)
+Downloading: http://localhost:2910/maven/org/sonatype/spice/spice-parent/15/spice-parent-15.pom
+Downloaded: http://localhost:2910/maven/org/sonatype/spice/spice-parent/15/spice-parent-15.pom (9 KB at 453.5 KB/sec)
+Downloading: http://localhost:2910/maven/org/sonatype/forge/forge-parent/5/forge-parent-5.pom
+Downloaded: http://localhost:2910/maven/org/sonatype/forge/forge-parent/5/forge-parent-5.pom (9 KB at 453.7 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.pom
+Downloaded: http://localhost:2910/maven/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.pom (6 KB at 265.9 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/httpcomponents/httpcomponents-client/4.1.1/httpcomponents-client-4.1.1.pom
+Downloaded: http://localhost:2910/maven/org/apache/httpcomponents/httpcomponents-client/4.1.1/httpcomponents-client-4.1.1.pom (12 KB at 582.7 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/httpcomponents/project/4.1.1/project-4.1.1.pom
+Downloaded: http://localhost:2910/maven/org/apache/httpcomponents/project/4.1.1/project-4.1.1.pom (17 KB at 779.8 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.pom
+Downloaded: http://localhost:2910/maven/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.pom (9 KB at 429.6 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/httpcomponents/httpcomponents-core/4.1/httpcomponents-core-4.1.pom
+Downloaded: http://localhost:2910/maven/org/apache/httpcomponents/httpcomponents-core/4.1/httpcomponents-core-4.1.pom (9 KB at 464.7 KB/sec)
+Downloading: http://localhost:2910/maven/com/caucho/hessian/4.0.7/hessian-4.0.7.pom
+Downloaded: http://localhost:2910/maven/com/caucho/hessian/4.0.7/hessian-4.0.7.pom (549 B at 38.3 KB/sec)
+Downloading: http://localhost:2910/maven/org/apache/maven/plugin-tools/maven-plugin-annotations/3.3/maven-plugin-annotations-3.3.jar
+Downloading: http://localhost:2910/maven/org/sonatype/plexus/plexus-build-api/0.0.7/plexus-build-api-0.0.7.jar
+Downloading: http://localhost:2910/maven/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar
+Downloading: http://localhost:2910/maven/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar
+Downloading: http://localhost:2910/maven/commons-codec/commons-codec/1.4/commons-codec-1.4.jar
+Downloading: http://localhost:2910/maven/com/caucho/hessian/4.0.7/hessian-4.0.7.jar
+Downloaded: http://localhost:2910/maven/org/sonatype/plexus/plexus-build-api/0.0.7/plexus-build-api-0.0.7.jar (9 KB at 184.1 KB/sec)
+Downloaded: http://localhost:2910/maven/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar (177 KB at 3335.8 KB/sec)
+Downloaded: http://localhost:2910/maven/org/apache/maven/plugin-tools/maven-plugin-annotations/3.3/maven-plugin-annotations-3.3.jar (14 KB at 204.6 KB/sec)
+Downloaded: http://localhost:2910/maven/com/caucho/hessian/4.0.7/hessian-4.0.7.jar (376 KB at 6053.7 KB/sec)
+Downloaded: http://localhost:2910/maven/commons-codec/commons-codec/1.4/commons-codec-1.4.jar (57 KB at 847.7 KB/sec)
+Downloaded: http://localhost:2910/maven/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar (343 KB at 4697.3 KB/sec)
+[WARNING] Widget results_list: Property "Hide Context Menu when" is empty.
+[ERROR] Unexpected error occured whilst validating project 'Insurance' on behalf of Maven build
+Artifacts/Java Modules/GetFilesForContentDelivery.javamodule
+com.emc.xcp.artifactmanager.internal.ArtifactFileNotFoundException: Artifacts/Java Modules/GetFilesForContentDelivery.javamodule
+	at com.emc.xcp.artifactmanager.internal.builder.ProjectArtifactContainer.read(ProjectArtifactContainer.java:199)
+	at com.emc.xcp.artifactmanager.internal.DataModelPersistanceServiceManager.load0(DataModelPersistanceServiceManager.java:464)
+	at com.emc.xcp.artifactmanager.internal.DataModelPersistanceServiceManager.load(DataModelPersistanceServiceManager.java:411)
+	at com.emc.xcp.artifactmanager.internal.DataModelPersistanceServiceManager.read(DataModelPersistanceServiceManager.java:609)
+	at com.emc.xcp.artifactmanager.internal.ArtifactManager.getDataModel(ArtifactManager.java:651)
+	at com.emc.xcp.artifactmanager.internal.builder.EclipseArtifactManager.getDataModel(EclipseArtifactManager.java:301)
+	at com.emc.xcp.artifactmanager.internal.Artifact.getArtifactDataModel(Artifact.java:26)
+	at internal.com.emc.xcp.builder.validation.project.ProjectValidator.validate(ProjectValidator.java:78)
+	at internal.com.emc.xcp.builder.model.validator.XCPValidateCommand.execute(XCPValidateCommand.java:40)
+	at internal.com.emc.xcp.builder.build.maven.MavenHookManager.execute(MavenHookManager.java:29)
+	at internal.com.emc.xcp.builder.build.maven.MavenHookServlet.doPost(MavenHookServlet.java:51)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:755)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+	at org.eclipse.equinox.http.registry.internal.ServletManager$ServletWrapper.service(ServletManager.java:180)
+	at org.eclipse.equinox.http.servlet.internal.ServletRegistration.service(ServletRegistration.java:61)
+	at org.eclipse.equinox.http.servlet.internal.ProxyServlet.processAlias(ProxyServlet.java:128)
+	at org.eclipse.equinox.http.servlet.internal.ProxyServlet.service(ProxyServlet.java:68)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+	at org.eclipse.equinox.http.jetty.internal.HttpServerManager$InternalHttpServiceServlet.service(HttpServerManager.java:384)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:598)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:486)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1065)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:413)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:192)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:999)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:117)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:111)
+	at org.eclipse.jetty.server.Server.handle(Server.java:346)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:454)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:900)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:954)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:851)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:77)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:606)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:46)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:603)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:538)
+	at java.lang.Thread.run(Thread.java:662)
+
+[ERROR] Unexpected error occured whilst validating project 'Insurance' on behalf of Maven build
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 5.455s
+[INFO] Finished at: Thu Apr 14 14:48:41 IST 2016
+[INFO] Final Memory: 8M/19M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal com.emc.xcp.builder:xcp-validate:1.0.9:run (xcp-validate) on project Insurance: Xcp mojo executing command 'validate' for project 'Insurance' failed unexpectedly: com.emc.xcp.artifactmanager.internal.ArtifactFileNotFoundException: Artifacts/Java Modules/GetFilesForContentDelivery.javamodule
+[ERROR] at com.emc.xcp.artifactmanager.internal.builder.ProjectArtifactContainer.read(ProjectArtifactContainer.java:199)
+[ERROR] at com.emc.xcp.artifactmanager.internal.DataModelPersistanceServiceManager.load0(DataModelPersistanceServiceManager.java:464)
+[ERROR] at com.emc.xcp.artifactmanager.internal.DataModelPersistanceServiceManager.load(DataModelPersistanceServiceManager.java:411)
+[ERROR] at com.emc.xcp.artifactmanager.internal.DataModelPersistanceServiceManager.read(DataModelPersistanceServiceManager.java:609)
+[ERROR] at com.emc.xcp.artifactmanager.internal.ArtifactManager.getDataModel(ArtifactManager.java:651)
+[ERROR] at com.emc.xcp.artifactmanager.internal.builder.EclipseArtifactManager.getDataModel(EclipseArtifactManager.java:301)
+[ERROR] at com.emc.xcp.artifactmanager.internal.Artifact.getArtifactDataModel(Artifact.java:26)
+[ERROR] at internal.com.emc.xcp.builder.validation.project.ProjectValidator.validate(ProjectValidator.java:78)
+[ERROR] at internal.com.emc.xcp.builder.model.validator.XCPValidateCommand.execute(XCPValidateCommand.java:40)
+[ERROR] at internal.com.emc.xcp.builder.build.maven.MavenHookManager.execute(MavenHookManager.java:29)
+[ERROR] at internal.com.emc.xcp.builder.build.maven.MavenHookServlet.doPost(MavenHookServlet.java:51)
+[ERROR] at javax.servlet.http.HttpServlet.service(HttpServlet.java:755)
+[ERROR] at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+[ERROR] at org.eclipse.equinox.http.registry.internal.ServletManager$ServletWrapper.service(ServletManager.java:180)
+[ERROR] at org.eclipse.equinox.http.servlet.internal.ServletRegistration.service(ServletRegistration.java:61)
+[ERROR] at org.eclipse.equinox.http.servlet.internal.ProxyServlet.processAlias(ProxyServlet.java:128)
+[ERROR] at org.eclipse.equinox.http.servlet.internal.ProxyServlet.service(ProxyServlet.java:68)
+[ERROR] at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+[ERROR] at org.eclipse.equinox.http.jetty.internal.HttpServerManager$InternalHttpServiceServlet.service(HttpServerManager.java:384)
+[ERROR] at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:598)
+[ERROR] at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:486)
+[ERROR] at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+[ERROR] at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1065)
+[ERROR] at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:413)
+[ERROR] at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:192)
+[ERROR] at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:999)
+[ERROR] at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:117)
+[ERROR] at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:111)
+[ERROR] at org.eclipse.jetty.server.Server.handle(Server.java:346)
+[ERROR] at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:454)
+[ERROR] at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:900)
+[ERROR] at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:954)
+[ERROR] at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:851)
+[ERROR] at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+[ERROR] at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:77)
+[ERROR] at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:606)
+[ERROR] at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:46)
+[ERROR] at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:603)
+[ERROR] at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:538)
+[ERROR] at java.lang.Thread.run(Thread.java:662)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

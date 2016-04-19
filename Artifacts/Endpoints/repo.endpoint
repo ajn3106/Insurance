@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsEndpoint:RepositoryEndpoint xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:nsEndpoint="http://xcp.emc.com/endpoint" urn="urn:ecm:com.emc.xcp.artifact.endpoint:Artifacts/Endpoints/repo.endpoint" categoryId="com.emc.xcp.artifact.endpoint" name="repo" label="repo" docbrokerHostName="192.168.56.150" repositoryName="flxdbase" username="flxd" password="DM_ENCR_TEXT_V2=AAAAEEEdO2PUiDrnWhsZna+xcm+5gTPRBxRjcY4A1G6S/4+zC6MJLVBwF3mUYOEQRSHh4jyXvAvyqNpfF8213cQtTrM="/>

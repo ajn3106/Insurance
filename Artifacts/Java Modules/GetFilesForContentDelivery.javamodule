@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsJavaModule:JavaModule xmlns:nsJavaModule="http://xcp.emc.com/javamodule" urn="urn:ajwf:com.emc.xcp.artifact.javamodule.category:Artifacts/Java Modules/GetFilesForContentDelivery.javamodule"
+categoryId="com.emc.xcp.artifact.javamodule.category" name="GetFilesForContentDelivery"
+label="Get Files For Content Delivery" implementationClass="com.spr.ajwf.xmlparser.GetFilesForContentDelivery">
+<implementationJars contentPath="content/modules/ajwf_modules.jar"/>
+</nsJavaModule:JavaModule>

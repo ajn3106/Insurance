@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsPicklist:Picklist xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsPicklist="http://xcp.emc.com/picklist" urn="urn:ecm:com.emc.xcp.artifact.picklist:Artifacts/Picklists/vehicle_make.picklist" categoryId="com.emc.xcp.artifact.picklist" name="vehicle_make" label="Vehicle make">
+  <type xsi:type="nsAttributeDatatypes:StringType"/>
+  <entries label="Ford Motor Company" value="FORD"/>
+  <entries label="volkswagen" value="VOLK"/>
+  <entries label="Toyota" value="TOYO"/>
+  <entries label="Hundai" value="HUN"/>
+</nsPicklist:Picklist>
