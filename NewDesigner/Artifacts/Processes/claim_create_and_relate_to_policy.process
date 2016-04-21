@@ -105,7 +105,7 @@
         <fgColor/>
       </textStyle>
     </uiinfo>
-    <performerConfig xsi:type="nsActivity:SvcDefBasedOutboundPerformerConfiguration" timeout="60" serviceDefinition="&lt;?xml version=&quot;1.0&quot;?>&#xA;&lt;ServiceDefinition xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;activity.xsd&quot;>&#xA;    &lt;Name>Create&lt;/Name>&#xA;    &lt;RuntimeModuleName>CreateRuntimeModule&lt;/RuntimeModuleName>&#xA;    &lt;DesignModuleName>CreateDesigntimeModule&lt;/DesignModuleName>&#xA;    &lt;Configuration>&#xA;        &lt;Parameter>&#xA;            &lt;Name>CREATE_FROM&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[CREATE_FROM_MODEL]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>MODEL_URN&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[urn:xyz:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>MODEL_LABEL&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[Claim]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>MODEL_TYPE_NAME&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[xyz_claim]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>DESTINATION&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[DESTINATION_FOLDER_PATH]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;    &lt;/Configuration>&#xA;    &lt;InputMsgCopyRules>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Concat&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>25&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>&quot;Claim for&quot;&lt;/Value>&#xA;                &lt;Value>/Process Data/Variables/vehicle_id&lt;/Value>&#xA;                &lt;Value>/Process Data/Variables/incident_location&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/name&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>41&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>&quot;/NewDesigner&quot;&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/dest_folder_path[0]&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>89&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Variables/incident_date&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/{claim}incident_date&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>105&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Variables/incident_location&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/{claim}incident_location&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>121&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Variables/amount&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/{claim}amount&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>137&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Variables/vehicle_in_motion&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/{claim}vehicle_in_motion&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>153&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>&quot;0&quot;&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/{claim}claim_status&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;    &lt;/InputMsgCopyRules>&#xA;    &lt;OutputMsgCopyRules>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>57&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/create/Id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/Process Data/Packages/claim/r_object_id&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;    &lt;/OutputMsgCopyRules>&#xA;    &lt;CorrelationMsgCopyRules/>&#xA;    &lt;UserDefinedInputTreeNodes/>&#xA;    &lt;UserDefinedOutputTreeNodes/>&#xA;    &lt;InputSchemaConfigs/>&#xA;    &lt;OutputSchemaConfigs/>&#xA;&lt;/ServiceDefinition>&#xA;">
+    <performerConfig xsi:type="nsActivity:SvcDefBasedOutboundPerformerConfiguration" timeout="60" serviceDefinition="&lt;?xml version=&quot;1.0&quot;?>&#xA;&lt;ServiceDefinition xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;activity.xsd&quot;>&#xA;    &lt;Name>Create&lt;/Name>&#xA;    &lt;RuntimeModuleName>CreateRuntimeModule&lt;/RuntimeModuleName>&#xA;    &lt;DesignModuleName>CreateDesigntimeModule&lt;/DesignModuleName>&#xA;    &lt;Configuration>&#xA;        &lt;Parameter>&#xA;            &lt;Name>CREATE_FROM&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[CREATE_FROM_MODEL]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>MODEL_URN&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[urn:xyz:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>MODEL_LABEL&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[Claim]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>MODEL_TYPE_NAME&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[xyz_claim]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>DESTINATION&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[DESTINATION_FOLDER_PATH]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;    &lt;/Configuration>&#xA;    &lt;InputMsgCopyRules>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>25&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Execution Data/workflow/id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/name&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>169&lt;/XPosition>&#xA;                &lt;YPosition>41&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>&quot;/NewDesigner&quot;&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/dest_folder_path[0]&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>89&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Variables/incident_date&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/{claim}incident_date&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>105&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Variables/incident_location&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/{claim}incident_location&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>121&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Variables/amount&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/{claim}amount&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>137&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Variables/vehicle_in_motion&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/{claim}vehicle_in_motion&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>153&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>&quot;0&quot;&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/create/{claim}claim_status&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;    &lt;/InputMsgCopyRules>&#xA;    &lt;OutputMsgCopyRules>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>57&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/create/Id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/Process Data/Packages/claim/r_object_id&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;    &lt;/OutputMsgCopyRules>&#xA;    &lt;CorrelationMsgCopyRules/>&#xA;    &lt;UserDefinedInputTreeNodes/>&#xA;    &lt;UserDefinedOutputTreeNodes/>&#xA;    &lt;InputSchemaConfigs/>&#xA;    &lt;OutputSchemaConfigs/>&#xA;&lt;/ServiceDefinition>&#xA;">
       <performer>
         <dataResolutionConfig xsi:type="nsCommon:PredefinedResolutionConfig"/>
       </performer>
@@ -114,41 +114,41 @@
     <packageCharacteristics key="//@processData/@packages[name='claim']">
       <value visible="true" mandatory="false" versionLabel="CURRENT"/>
     </packageCharacteristics>
-    <variableCharacteristics key="//@processData/@variables[name='amount']">
-      <value visible="true"/>
-    </variableCharacteristics>
-    <variableCharacteristics key="//@processData/@variables[name='policy_id']">
-      <value visible="true"/>
-    </variableCharacteristics>
     <variableCharacteristics key="//@processData/@variables[name='incident_location']">
       <value visible="true"/>
     </variableCharacteristics>
-    <variableCharacteristics key="//@processData/@variables[name='vehicle_in_motion']">
+    <variableCharacteristics key="//@processData/@variables[name='amount']">
       <value visible="true"/>
     </variableCharacteristics>
     <variableCharacteristics key="//@processData/@variables[name='vehicle_id']">
       <value visible="true"/>
     </variableCharacteristics>
     <variableCharacteristics key="//@processData/@variables[name='incident_date']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='policy_id']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='vehicle_in_motion']">
       <value visible="true"/>
     </variableCharacteristics>
     <eventConfigs label="Activity Completed">
       <triggerType type="PROCESS_ACTIVITY_COMPLETED"/>
     </eventConfigs>
   </activities>
-  <activities name="Set Process Data" activityType="END" description="" priority="Medium" taskName="" taskInstructions="" sourceFlows="//@flows[name='L2']">
+  <activities name="Relate Policy and Vehicle to Claim" description="" priority="Medium" taskName="" taskInstructions="" sourceFlows="//@flows[name='L2']" destFlows="//@flows[name='L3']">
     <trigger expectedEventName="" canRunMultipleTimes="true"/>
     <transition xsi:type="nsActivity:AllFlowsTransition"/>
     <timers/>
     <calendar flag="Performer"/>
     <uiinfo imageScale="100" image="activity_autoint_48x32_proc.png">
-      <topLeftPoint x="250" y="165"/>
+      <topLeftPoint x="248" y="172"/>
       <textStyle fontName="Dialog" fontSize="10">
         <bgColor/>
         <fgColor/>
       </textStyle>
     </uiinfo>
-    <performerConfig xsi:type="nsActivity:SvcDefBasedOutboundPerformerConfiguration" timeout="60" serviceDefinition="&lt;?xml version=&quot;1.0&quot;?>&#xA;&lt;ServiceDefinition xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;activity.xsd&quot;>&#xA;    &lt;Name>Process Data Mapping&lt;/Name>&#xA;    &lt;RuntimeModuleName>PackageCopyRuntimeModule&lt;/RuntimeModuleName>&#xA;    &lt;DesignModuleName>PackageCopyDesignModule&lt;/DesignModuleName>&#xA;    &lt;Configuration/>&#xA;    &lt;InputMsgCopyRules>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>137&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Packages/claim/parent_id_xyz_vehicle2claim/xyz_vehicle/r_object_id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/Process Data/Variables/vehicle_id&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;    &lt;/InputMsgCopyRules>&#xA;    &lt;OutputMsgCopyRules/>&#xA;    &lt;CorrelationMsgCopyRules/>&#xA;    &lt;UserDefinedInputTreeNodes/>&#xA;    &lt;UserDefinedOutputTreeNodes/>&#xA;    &lt;InputSchemaConfigs/>&#xA;    &lt;OutputSchemaConfigs/>&#xA;&lt;/ServiceDefinition>&#xA;">
+    <performerConfig xsi:type="nsActivity:SvcDefBasedOutboundPerformerConfiguration" timeout="60" serviceDefinition="&lt;?xml version=&quot;1.0&quot;?>&#xA;&lt;ServiceDefinition xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;activity.xsd&quot;>&#xA;    &lt;Name>Process Data Mapping&lt;/Name>&#xA;    &lt;RuntimeModuleName>PackageCopyRuntimeModule&lt;/RuntimeModuleName>&#xA;    &lt;DesignModuleName>PackageCopyDesignModule&lt;/DesignModuleName>&#xA;    &lt;Configuration/>&#xA;    &lt;InputMsgCopyRules>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>189&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Variables/vehicle_id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/Process Data/Packages/claim/child_id_xyz_claim_vehicle/xyz_vehicle/r_object_id&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;    &lt;/InputMsgCopyRules>&#xA;    &lt;OutputMsgCopyRules/>&#xA;    &lt;CorrelationMsgCopyRules/>&#xA;    &lt;UserDefinedInputTreeNodes/>&#xA;    &lt;UserDefinedOutputTreeNodes/>&#xA;    &lt;InputSchemaConfigs/>&#xA;    &lt;OutputSchemaConfigs/>&#xA;&lt;/ServiceDefinition>&#xA;">
       <performer>
         <dataResolutionConfig xsi:type="nsCommon:PredefinedResolutionConfig"/>
       </performer>
@@ -157,10 +157,16 @@
     <packageCharacteristics key="//@processData/@packages[name='claim']">
       <value visible="true" mandatory="false" versionLabel="CURRENT"/>
     </packageCharacteristics>
-    <variableCharacteristics key="//@processData/@variables[name='amount']">
+    <variableCharacteristics key="//@processData/@variables[name='policy_id']">
       <value visible="true"/>
     </variableCharacteristics>
-    <variableCharacteristics key="//@processData/@variables[name='policy_id']">
+    <variableCharacteristics key="//@processData/@variables[name='incident_date']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='vehicle_id']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='amount']">
       <value visible="true"/>
     </variableCharacteristics>
     <variableCharacteristics key="//@processData/@variables[name='incident_location']">
@@ -169,10 +175,47 @@
     <variableCharacteristics key="//@processData/@variables[name='vehicle_in_motion']">
       <value visible="true"/>
     </variableCharacteristics>
-    <variableCharacteristics key="//@processData/@variables[name='vehicle_id']">
+    <eventConfigs label="Activity Completed">
+      <triggerType type="PROCESS_ACTIVITY_COMPLETED"/>
+    </eventConfigs>
+  </activities>
+  <activities name="Call Process" activityType="END" description="" priority="Medium" taskName="" taskInstructions="" sourceFlows="//@flows[name='L3']">
+    <trigger expectedEventName="" canRunMultipleTimes="true"/>
+    <transition xsi:type="nsActivity:AllFlowsTransition"/>
+    <timers/>
+    <calendar flag="Performer"/>
+    <uiinfo imageScale="100" image="subprocess_invoke_48x32_proc.png">
+      <topLeftPoint x="354" y="161"/>
+      <textStyle fontName="Dialog" fontSize="10">
+        <bgColor/>
+        <fgColor/>
+      </textStyle>
+    </uiinfo>
+    <performerConfig xsi:type="nsActivity:SvcDefBasedOutboundPerformerConfiguration" timeout="60" serviceDefinition="&lt;?xml version=&quot;1.0&quot;?>&#xA;&lt;ServiceDefinition xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;activity.xsd&quot;>&#xA;    &lt;Name>Start Sub-Process&lt;/Name>&#xA;    &lt;RuntimeModuleName>StartSubProcessRuntimeModule&lt;/RuntimeModuleName>&#xA;    &lt;DesignModuleName>StartSubProcessDesignModule&lt;/DesignModuleName>&#xA;    &lt;Configuration>&#xA;        &lt;Parameter>&#xA;            &lt;Name>START_SUB_PROCESS_START_ACTIVITY&lt;/Name>&#xA;            &lt;Value xsi:nil=&quot;true&quot;>&lt;![CDATA[]]>&lt;/Value>&#xA;            &lt;Type>ID&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>START_SUB_PROCESS_LABEL&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[Approve Reject Claim]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>START_SUB_PROCESS_START_ACTIVITY_ALL&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[START_SUB_PROCESS_START_ACTIVITY_ALL_YES]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>START_SUB_PROCESS_NAME&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[urn:xyz:com.emc.ide.artifact.process:Artifacts/Processes/approve_reject_claim.process]]>&lt;/Value>&#xA;            &lt;Type>ID&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>START_SUB_PROCESS_LAUNCH_MODE&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[START_SUB_PROCESS_LAUNCH_ASYNC]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>START_SUB_PROCESS_VERSION&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[START_SUB_PROCESS_CONFIGURED_VERSION]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;    &lt;/Configuration>&#xA;    &lt;InputMsgCopyRules>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>105&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Packages/claim/r_object_id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/Process/Process Data/Packages/claim/r_object_id&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;    &lt;/InputMsgCopyRules>&#xA;    &lt;OutputMsgCopyRules/>&#xA;    &lt;CorrelationMsgCopyRules/>&#xA;    &lt;UserDefinedInputTreeNodes/>&#xA;    &lt;UserDefinedOutputTreeNodes/>&#xA;    &lt;InputSchemaConfigs/>&#xA;    &lt;OutputSchemaConfigs/>&#xA;&lt;/ServiceDefinition>&#xA;">
+      <performer>
+        <dataResolutionConfig xsi:type="nsCommon:PredefinedResolutionConfig"/>
+      </performer>
+      <methodFailure/>
+    </performerConfig>
+    <packageCharacteristics key="//@processData/@packages[name='claim']">
+      <value visible="true" mandatory="false" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='policy_id']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='vehicle_in_motion']">
       <value visible="true"/>
     </variableCharacteristics>
     <variableCharacteristics key="//@processData/@variables[name='incident_date']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='incident_location']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='vehicle_id']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='amount']">
       <value visible="true"/>
     </variableCharacteristics>
     <eventConfigs label="Activity Completed">
@@ -229,8 +272,14 @@
       <labelStyle fontName="Helvetica" fontSize="10"/>
     </uiinfo>
   </flows>
-  <flows name="L2" from="//@activities[name='Create']" to="//@activities[name='Set%20Process%20Data']">
+  <flows name="L2" from="//@activities[name='Create']" to="//@activities[name='Relate%20Policy%20and%20Vehicle%20to%20Claim']">
     <uiinfo destActivityLocIndex="4">
+      <line/>
+      <labelStyle fontName="Helvetica" fontSize="10"/>
+    </uiinfo>
+  </flows>
+  <flows name="L3" from="//@activities[name='Relate%20Policy%20and%20Vehicle%20to%20Claim']" to="//@activities[name='Call%20Process']">
+    <uiinfo destActivityLocIndex="1">
       <line/>
       <labelStyle fontName="Helvetica" fontSize="10"/>
     </uiinfo>
@@ -245,13 +294,13 @@
       </textStyle>
     </startActivityUIInfo>
     <endActivityUIInfo imageScale="100" image="palette/event_end_32_proc.png">
-      <topLeftPoint x="352" y="163"/>
+      <topLeftPoint x="460" y="158"/>
       <textStyle fontName="Dialog" fontSize="10">
         <bgColor/>
         <fgColor/>
       </textStyle>
     </endActivityUIInfo>
-    <endSequenceFlowUIInfo destActivityLocIndex="4">
+    <endSequenceFlowUIInfo destActivityLocIndex="1">
       <line/>
       <labelStyle fontName="Helvetica" fontSize="10"/>
     </endSequenceFlowUIInfo>

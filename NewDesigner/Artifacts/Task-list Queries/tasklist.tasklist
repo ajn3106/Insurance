@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tasklist:TaskListSearch xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:tasklist="http://xcp.emc.com/search/tasklist" urn="urn:xyz:com.emc.xcp.artifact.search.tasklist:Artifacts/Task-list Queries/tasklist.tasklist" categoryId="com.emc.xcp.artifact.search.tasklist" name="tasklist" label="tasklist">
+  <datasource categoryId="com.emc.xcp.artifact.dataservice.datasourcecontract" name="tasklist" label="tasklist" implCategoryId="com.emc.xcp.artifact.search.tasklist">
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="Result Count">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </outputs>
+    <outputs xsi:type="nsDataserviceContract:ArrayElement" name="Results">
+      <item xsi:type="nsDataserviceContract:StructureElement" name="Items">
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="task_name" label="Task Name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="task_subject" label="Subject">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="task_date_sent" label="Sent Date">
+          <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="task_sent_by" label="Sender">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="process_name" label="Process Name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="task_performer_name" label="Performer Name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="task_state" label="State" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="workqueue_name" label="Work Queue Name" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="process_system_name" label="Process System Name" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="activity_system_name" label="Activity System Name" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="is_rejectable" label="Is Rejectable" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="is_repeatable" label="Is Repeatable" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="is_delegable" label="Is Delegable" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+        </elements>
+      </item>
+    </outputs>
+    <primaryElement>
+      <dataModel href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#/"/>
+    </primaryElement>
+  </datasource>
+  <columns label="Task Name">
+    <contextSelection>
+      <parentRef>
+        <parentRef selectionName="task_list" selectionLabel="Task List"/>
+        <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#//@attributes.13"/>
+    </contextSelection>
+  </columns>
+  <columns label="Subject">
+    <contextSelection>
+      <parentRef>
+        <parentRef selectionName="task_list" selectionLabel="Task List"/>
+        <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#//@attributes.0"/>
+    </contextSelection>
+  </columns>
+  <columns label="Sent Date">
+    <contextSelection>
+      <parentRef>
+        <parentRef selectionName="task_list" selectionLabel="Task List"/>
+        <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#//@attributes.4"/>
+    </contextSelection>
+  </columns>
+  <columns label="Sender">
+    <contextSelection>
+      <parentRef>
+        <parentRef selectionName="task_list" selectionLabel="Task List"/>
+        <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#//@attributes.3"/>
+    </contextSelection>
+  </columns>
+  <columns label="Process Name">
+    <contextSelection>
+      <parentRef>
+        <parentRef selectionName="task_list" selectionLabel="Task List"/>
+        <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#//@attributes.14"/>
+    </contextSelection>
+  </columns>
+  <columns label="Performer Name">
+    <contextSelection>
+      <parentRef>
+        <parentRef selectionName="task_list" selectionLabel="Task List"/>
+        <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#//@attributes.8"/>
+    </contextSelection>
+  </columns>
+  <defaultSort ascending="true"/>
+</tasklist:TaskListSearch>

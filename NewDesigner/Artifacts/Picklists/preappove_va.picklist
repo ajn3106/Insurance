@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsPicklist:Picklist xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsPicklist="http://xcp.emc.com/picklist" urn="urn:xyz:com.emc.xcp.artifact.picklist:Artifacts/Picklists/preappove_va.picklist" categoryId="com.emc.xcp.artifact.picklist" name="preappove_va" label="Preappove Va">
+  <type xsi:type="nsAttributeDatatypes:IntegerType"/>
+  <entries label="Pre-Approved" value="1"/>
+  <entries label="Denied" value="3"/>
+</nsPicklist:Picklist>

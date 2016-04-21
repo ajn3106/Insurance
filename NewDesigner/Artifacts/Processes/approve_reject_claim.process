@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsProcess:Process xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsActivity="http://documentum.com/bpm/activity" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsCommon="http://documentum.com/common" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:nsProcess="http://documentum.com/bpm/process" urn="urn:xyz:com.emc.ide.artifact.process:Artifacts/Processes/approve_reject_claim.process" categoryId="com.emc.ide.artifact.process" name="approve_reject_claim" label="Approve Reject Claim" description="" webServiceTargetNamespace="" workflowInstructions="">
+  <activities name="Initiate" activityType="INITIATE" priority="Medium" taskName="" taskInstructions="" destFlows="//@flows[name='L1']">
+    <trigger canRunMultipleTimes="true"/>
+    <transition xsi:type="nsActivity:AllFlowsTransition"/>
+    <uiinfo imageScale="100" image="palette/event_start_32_proc.png">
+      <topLeftPoint x="50" y="150"/>
+      <textStyle fontName="Dialog" fontSize="10">
+        <bgColor/>
+        <fgColor/>
+      </textStyle>
+    </uiinfo>
+    <performerConfig xsi:type="nsActivity:DefaultInitiatePerformerConfiguration"/>
+    <packageCharacteristics key="//@processData/@packages[name='claim']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='approved']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <taskContract categoryId="com.emc.ide.artifact.process.activity.taskcontract" name="approve_reject_claim_initiate" label="Initiate">
+      <dataServiceContracts xsi:type="nsDataserviceContract:DataActionContract" categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_create_test_initiate" label="Initiate Process Approve Reject Claim" implCategoryId="com.emc.ide.artifact.process.activity.taskcontract">
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processVariables" label="Variables">
+          <elements xsi:type="nsDataserviceContract:AttributeElement" name="approved" label="approved">
+            <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processPackages" label="Packages">
+          <elements xsi:type="nsDataserviceContract:StructureElement" name="claim" label="claim">
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="attachments" label="Attachments" repeating="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <primaryElement name="test_initiate" dataModel="//@activities[name='Initiate']/@taskContract"/>
+        <actionType type="Create"/>
+      </dataServiceContracts>
+    </taskContract>
+  </activities>
+  <activities name="First Approval" activityType="BEGIN" priority="Medium" taskName="" taskInstructions="Approve or reject" sourceFlows="//@flows[name='L1']" destFlows="//@flows[name='L3']">
+    <trigger numOfInputFlows="1" expectedEventName="" canRunMultipleTimes="true"/>
+    <transition xsi:type="nsActivity:AllFlowsTransition"/>
+    <timers/>
+    <calendar flag="Performer"/>
+    <uiinfo imageScale="100" image="palette/activity_manual_48x32_proc.png">
+      <topLeftPoint x="153" y="151"/>
+      <textStyle fontName="Dialog" fontSize="10">
+        <bgColor/>
+        <fgColor/>
+      </textStyle>
+    </uiinfo>
+    <performerConfig xsi:type="nsActivity:ManualPerformerConfiguration">
+      <performerList>
+        <performers xsi:type="nsActivity:Group">
+          <dataResolutionConfig xsi:type="nsCommon:AppRoleResolutionConfig">
+            <appRole href="urn:xyz:com.emc.xcp.artifact.approle:Artifacts/Roles/newclerk.role#/"/>
+          </dataResolutionConfig>
+        </performers>
+      </performerList>
+      <performerOperation/>
+    </performerConfig>
+    <packageCharacteristics key="//@processData/@packages[name='claim']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='approved']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <eventConfigs label="Activity Started">
+      <triggerType type="PROCESS_ACTIVITY_STARTED"/>
+    </eventConfigs>
+    <eventConfigs label="Task Started">
+      <triggerType type="PROCESS_TASK_STARTED"/>
+    </eventConfigs>
+    <eventConfigs label="Task Acquired">
+      <triggerType type="PROCESS_TASK_ACQUIRED"/>
+    </eventConfigs>
+    <eventConfigs label="Task Delegated">
+      <triggerType type="PROCESS_TASK_DELEGATED"/>
+    </eventConfigs>
+    <eventConfigs label="Task Suspended">
+      <triggerType type="PROCESS_TASK_SUSPENDED"/>
+    </eventConfigs>
+    <eventConfigs label="Task Unsuspended">
+      <triggerType type="PROCESS_TASK_UNSUSPENDED"/>
+    </eventConfigs>
+    <eventConfigs label="Task Completed">
+      <triggerType type="PROCESS_TASK_COMPLETED"/>
+    </eventConfigs>
+    <eventConfigs label="Activity Completed">
+      <triggerType type="PROCESS_ACTIVITY_COMPLETED"/>
+    </eventConfigs>
+    <taskContract categoryId="com.emc.ide.artifact.process.activity.taskcontract" name="approve_reject_claim_first_approval" label="First Approval">
+      <dataServiceContracts xsi:type="nsDataserviceContract:DataActionContract" categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_repeat_test_manual_task" label="Repeat task First Approval (Approve Reject Claim)" implCategoryId="com.emc.ide.artifact.process.activity.taskcontract">
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processVariables" label="Variables">
+          <elements xsi:type="nsDataserviceContract:AttributeElement" name="approved" label="approved">
+            <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processPackages" label="Packages">
+          <elements xsi:type="nsDataserviceContract:StructureElement" name="claim" label="claim">
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="amount" label="Amount">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="claim_status" label="Claim Status">
+              <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_date" label="Incident Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_location" label="Incident Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="vehicle_in_motion" label="Vehicle in motion">
+              <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="attachments" label="Attachments" repeating="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id" label="id">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="userName" label="userName" required="true" repeating="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <primaryElement name="test_manual_task" dataModel="//@activities[name='First%20Approval']/@taskContract"/>
+        <actionType type="RepeatTask"/>
+      </dataServiceContracts>
+      <dataServiceContracts xsi:type="nsDataserviceContract:DataActionContract" categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_update_test_manual_task" label="Update task First Approval (Approve Reject Claim)" implCategoryId="com.emc.ide.artifact.process.activity.taskcontract">
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processVariables" label="Variables">
+          <elements xsi:type="nsDataserviceContract:AttributeElement" name="approved" label="approved">
+            <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processPackages" label="Packages">
+          <elements xsi:type="nsDataserviceContract:StructureElement" name="claim" label="claim">
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="amount" label="Amount">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="claim_status" label="Claim Status">
+              <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_date" label="Incident Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_location" label="Incident Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="vehicle_in_motion" label="Vehicle in motion">
+              <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="attachments" label="Attachments" repeating="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id" label="id">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <primaryElement name="test_manual_task" dataModel="//@activities[name='First%20Approval']/@taskContract"/>
+        <actionType type="UpdateTask"/>
+      </dataServiceContracts>
+      <dataServiceContracts xsi:type="nsDataserviceContract:DataActionContract" categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_delegate_test_manual_task" label="Delegate task First Approval (Approve Reject Claim) " implCategoryId="com.emc.ide.artifact.process.activity.taskcontract">
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processVariables" label="Variables">
+          <elements xsi:type="nsDataserviceContract:AttributeElement" name="approved" label="approved">
+            <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processPackages" label="Packages">
+          <elements xsi:type="nsDataserviceContract:StructureElement" name="claim" label="claim">
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="amount" label="Amount">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="claim_status" label="Claim Status">
+              <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_date" label="Incident Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_location" label="Incident Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="vehicle_in_motion" label="Vehicle in motion">
+              <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="attachments" label="Attachments" repeating="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id" label="id">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="userName" label="userName" required="true" repeating="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <primaryElement name="test_manual_task" dataModel="//@activities[name='First%20Approval']/@taskContract"/>
+        <actionType type="DelegateTask"/>
+      </dataServiceContracts>
+      <dataServiceContracts xsi:type="nsDataserviceContract:DataActionContract" categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_complete_test_manual_task" label="Complete task First Approval (Approve Reject Claim)" implCategoryId="com.emc.ide.artifact.process.activity.taskcontract">
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processVariables" label="Variables">
+          <elements xsi:type="nsDataserviceContract:AttributeElement" name="approved" label="approved">
+            <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processPackages" label="Packages">
+          <elements xsi:type="nsDataserviceContract:StructureElement" name="claim" label="claim">
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="amount" label="Amount">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="claim_status" label="Claim Status">
+              <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_date" label="Incident Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_location" label="Incident Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="vehicle_in_motion" label="Vehicle in motion">
+              <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="attachments" label="Attachments" repeating="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id" label="id">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <primaryElement name="test_manual_task" dataModel="//@activities[name='First%20Approval']/@taskContract"/>
+        <actionType type="CompleteTask"/>
+      </dataServiceContracts>
+    </taskContract>
+  </activities>
+  <activities name="Decision Split" description="" priority="Medium" taskName="" taskInstructions="" sourceFlows="//@flows[name='L3']" destFlows="//@flows[name='L2'] //@flows[name='L5']">
+    <trigger expectedEventName="" canRunMultipleTimes="true"/>
+    <transition xsi:type="nsActivity:ConditionalTransition">
+      <resolver>
+        <conditions name="RouteCase">
+          <conditionExpression exprStr="process.Variables.approved!=3"/>
+          <returnValues xsi:type="nsCommon:InternalReferenceResolutionConfig">
+            <reference refValue="//@flows[name='L2']"/>
+          </returnValues>
+        </conditions>
+        <conditions name="EXCEPTIONAL">
+          <returnValues xsi:type="nsCommon:InternalReferenceResolutionConfig">
+            <reference refValue="//@flows[name='L5']"/>
+          </returnValues>
+        </conditions>
+      </resolver>
+    </transition>
+    <timers/>
+    <calendar flag="Performer"/>
+    <uiinfo imageScale="100" image="decision_split_32_proc.png">
+      <topLeftPoint x="266" y="149"/>
+      <textStyle fontName="Dialog" fontSize="10">
+        <bgColor/>
+        <fgColor/>
+      </textStyle>
+    </uiinfo>
+    <performerConfig xsi:type="nsActivity:NoOpOutboundPerformerConfiguration" timeout="60">
+      <performer>
+        <dataResolutionConfig xsi:type="nsCommon:PredefinedResolutionConfig"/>
+      </performer>
+      <methodFailure/>
+    </performerConfig>
+    <packageCharacteristics key="//@processData/@packages[name='claim']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='approved']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <eventConfigs label="Activity Completed">
+      <triggerType type="PROCESS_ACTIVITY_COMPLETED"/>
+    </eventConfigs>
+  </activities>
+  <activities name="Second approval" priority="Medium" taskName="" taskInstructions="Approve or reject" sourceFlows="//@flows[name='L2']" destFlows="//@flows[name='L4']">
+    <trigger expectedEventName="" canRunMultipleTimes="true"/>
+    <transition xsi:type="nsActivity:AllFlowsTransition"/>
+    <timers/>
+    <calendar flag="Performer"/>
+    <uiinfo imageScale="100" image="palette/activity_manual_48x32_proc.png">
+      <topLeftPoint x="264" y="57"/>
+      <textStyle fontName="Dialog" fontSize="10">
+        <bgColor/>
+        <fgColor/>
+      </textStyle>
+    </uiinfo>
+    <performerConfig xsi:type="nsActivity:ManualPerformerConfiguration">
+      <performerList>
+        <performers xsi:type="nsActivity:Group">
+          <dataResolutionConfig xsi:type="nsCommon:AppRoleResolutionConfig">
+            <appRole href="urn:xyz:com.emc.xcp.artifact.approle:Artifacts/Roles/second_approver.role#/"/>
+          </dataResolutionConfig>
+        </performers>
+      </performerList>
+      <performerOperation/>
+    </performerConfig>
+    <packageCharacteristics key="//@processData/@packages[name='claim']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='approved']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <eventConfigs label="Activity Started">
+      <triggerType type="PROCESS_ACTIVITY_STARTED"/>
+    </eventConfigs>
+    <eventConfigs label="Task Started">
+      <triggerType type="PROCESS_TASK_STARTED"/>
+    </eventConfigs>
+    <eventConfigs label="Task Acquired">
+      <triggerType type="PROCESS_TASK_ACQUIRED"/>
+    </eventConfigs>
+    <eventConfigs label="Task Delegated">
+      <triggerType type="PROCESS_TASK_DELEGATED"/>
+    </eventConfigs>
+    <eventConfigs label="Task Suspended">
+      <triggerType type="PROCESS_TASK_SUSPENDED"/>
+    </eventConfigs>
+    <eventConfigs label="Task Unsuspended">
+      <triggerType type="PROCESS_TASK_UNSUSPENDED"/>
+    </eventConfigs>
+    <eventConfigs label="Task Completed">
+      <triggerType type="PROCESS_TASK_COMPLETED"/>
+    </eventConfigs>
+    <eventConfigs label="Activity Completed">
+      <triggerType type="PROCESS_ACTIVITY_COMPLETED"/>
+    </eventConfigs>
+    <taskContract categoryId="com.emc.ide.artifact.process.activity.taskcontract" name="approve_reject_claim_second_approval" label="Second approval">
+      <dataServiceContracts xsi:type="nsDataserviceContract:DataActionContract" categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_repeat_test_manual_task_1" label="Repeat task Second approval (Approve Reject Claim)" implCategoryId="com.emc.ide.artifact.process.activity.taskcontract">
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processVariables" label="Variables">
+          <elements xsi:type="nsDataserviceContract:AttributeElement" name="approved" label="approved">
+            <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processPackages" label="Packages">
+          <elements xsi:type="nsDataserviceContract:StructureElement" name="claim" label="claim">
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="amount" label="Amount">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="claim_status" label="Claim Status">
+              <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_date" label="Incident Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_location" label="Incident Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="vehicle_in_motion" label="Vehicle in motion">
+              <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="attachments" label="Attachments" repeating="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id" label="id">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="userName" label="userName" required="true" repeating="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <primaryElement name="test_manual_task_1" dataModel="//@activities[name='Second%20approval']/@taskContract"/>
+        <actionType type="RepeatTask"/>
+      </dataServiceContracts>
+      <dataServiceContracts xsi:type="nsDataserviceContract:DataActionContract" categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_update_test_manual_task_1" label="Update task Second approval (Approve Reject Claim)" implCategoryId="com.emc.ide.artifact.process.activity.taskcontract">
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processVariables" label="Variables">
+          <elements xsi:type="nsDataserviceContract:AttributeElement" name="approved" label="approved">
+            <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processPackages" label="Packages">
+          <elements xsi:type="nsDataserviceContract:StructureElement" name="claim" label="claim">
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="amount" label="Amount">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="claim_status" label="Claim Status">
+              <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_date" label="Incident Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_location" label="Incident Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="vehicle_in_motion" label="Vehicle in motion">
+              <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="attachments" label="Attachments" repeating="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id" label="id">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <primaryElement name="test_manual_task_1" dataModel="//@activities[name='Second%20approval']/@taskContract"/>
+        <actionType type="UpdateTask"/>
+      </dataServiceContracts>
+      <dataServiceContracts xsi:type="nsDataserviceContract:DataActionContract" categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_delegate_test_manual_task_1" label="Delegate task Second approval (Approve Reject Claim) " implCategoryId="com.emc.ide.artifact.process.activity.taskcontract">
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processVariables" label="Variables">
+          <elements xsi:type="nsDataserviceContract:AttributeElement" name="approved" label="approved">
+            <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processPackages" label="Packages">
+          <elements xsi:type="nsDataserviceContract:StructureElement" name="claim" label="claim">
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="amount" label="Amount">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="claim_status" label="Claim Status">
+              <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_date" label="Incident Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_location" label="Incident Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="vehicle_in_motion" label="Vehicle in motion">
+              <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="attachments" label="Attachments" repeating="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id" label="id">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="userName" label="userName" required="true" repeating="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <primaryElement name="test_manual_task_1" dataModel="//@activities[name='Second%20approval']/@taskContract"/>
+        <actionType type="DelegateTask"/>
+      </dataServiceContracts>
+      <dataServiceContracts xsi:type="nsDataserviceContract:DataActionContract" categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_complete_test_manual_task_1" label="Complete task Second approval (Approve Reject Claim)" implCategoryId="com.emc.ide.artifact.process.activity.taskcontract">
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processVariables" label="Variables">
+          <elements xsi:type="nsDataserviceContract:AttributeElement" name="approved" label="approved">
+            <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:StructureElement" name="processPackages" label="Packages">
+          <elements xsi:type="nsDataserviceContract:StructureElement" name="claim" label="claim">
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="amount" label="Amount">
+              <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="claim_status" label="Claim Status">
+              <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_date" label="Incident Date">
+              <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_location" label="Incident Location">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="vehicle_in_motion" label="Vehicle in motion">
+              <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+            </elements>
+            <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+              <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+            </elements>
+          </elements>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="attachments" label="Attachments" repeating="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id" label="id">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </inputs>
+        <primaryElement name="test_manual_task_1" dataModel="//@activities[name='Second%20approval']/@taskContract"/>
+        <actionType type="CompleteTask"/>
+      </dataServiceContracts>
+    </taskContract>
+  </activities>
+  <activities name="Manage rejection or Approval" activityType="END" description="" priority="Medium" taskName="" taskInstructions="" sourceFlows="//@flows[name='L4'] //@flows[name='L5']">
+    <trigger numOfInputFlows="1" expectedEventName="" canRunMultipleTimes="true"/>
+    <transition xsi:type="nsActivity:AllFlowsTransition"/>
+    <timers/>
+    <calendar flag="Performer"/>
+    <uiinfo imageScale="100" image="activity_autoint_48x32_proc.png">
+      <topLeftPoint x="422" y="163"/>
+      <textStyle fontName="Dialog" fontSize="10">
+        <bgColor/>
+        <fgColor/>
+      </textStyle>
+    </uiinfo>
+    <performerConfig xsi:type="nsActivity:SvcDefBasedOutboundPerformerConfiguration" timeout="60" serviceDefinition="&lt;?xml version=&quot;1.0&quot;?>&#xA;&lt;ServiceDefinition xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;activity.xsd&quot;>&#xA;    &lt;Name>Invoke Java&lt;/Name>&#xA;    &lt;RuntimeModuleName>BOFModuleRuntimeModule&lt;/RuntimeModuleName>&#xA;    &lt;DesignModuleName>InvokeJavaActivityPanel&lt;/DesignModuleName>&#xA;    &lt;Configuration>&#xA;        &lt;Parameter>&#xA;            &lt;Name>BOF_METHOD_NAME_CONFIG_PARAM&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[manageClaim]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>BOF_INTERFACE_NAME_CONFIG_PARAM&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[com.spr.ecm.manageclaim.ManageClaim]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>arg0Type&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[int]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>BOF_MODULE_NAME_CONFIG_PARAM&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[urn:xyz:com.emc.xcp.artifact.javamodule.category:Artifacts/Java Modules/ManageClaim.javamodule]]>&lt;/Value>&#xA;            &lt;Type>ModuleName&lt;/Type>&#xA;        &lt;/Parameter>&#xA;        &lt;Parameter>&#xA;            &lt;Name>arg1Type&lt;/Name>&#xA;            &lt;Value>&lt;![CDATA[com.documentum.fc.common.IDfId]]>&lt;/Value>&#xA;            &lt;Type>String&lt;/Type>&#xA;        &lt;/Parameter>&#xA;    &lt;/Configuration>&#xA;    &lt;InputMsgCopyRules>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>25&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Variables/approved&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/Arguments/arg0(1)&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;        &lt;MappingRule>&#xA;            &lt;FunctionName>Copy&lt;/FunctionName>&#xA;            &lt;Location>&#xA;                &lt;XPosition>175&lt;/XPosition>&#xA;                &lt;YPosition>41&lt;/YPosition>&#xA;            &lt;/Location>&#xA;            &lt;From>&#xA;                &lt;Value>/Process Data/Packages/claim/r_object_id&lt;/Value>&#xA;            &lt;/From>&#xA;            &lt;To>/Arguments/arg1(3)&lt;/To>&#xA;            &lt;RuleType>RULE_TYPE_FOR_ALL&lt;/RuleType>&#xA;            &lt;TargetWriteOption>TARGET_WRITE_OVERWRITE&lt;/TargetWriteOption>&#xA;        &lt;/MappingRule>&#xA;    &lt;/InputMsgCopyRules>&#xA;    &lt;OutputMsgCopyRules/>&#xA;    &lt;CorrelationMsgCopyRules/>&#xA;    &lt;UserDefinedInputTreeNodes/>&#xA;    &lt;UserDefinedOutputTreeNodes/>&#xA;    &lt;InputSchemaConfigs/>&#xA;    &lt;OutputSchemaConfigs/>&#xA;&lt;/ServiceDefinition>&#xA;">
+      <performer>
+        <dataResolutionConfig xsi:type="nsCommon:PredefinedResolutionConfig"/>
+      </performer>
+      <methodFailure/>
+    </performerConfig>
+    <packageCharacteristics key="//@processData/@packages[name='claim']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+    <variableCharacteristics key="//@processData/@variables[name='approved']">
+      <value visible="true"/>
+    </variableCharacteristics>
+    <eventConfigs label="Activity Completed">
+      <triggerType type="PROCESS_ACTIVITY_COMPLETED"/>
+    </eventConfigs>
+  </activities>
+  <processData>
+    <variables xsi:type="nsProcess:SimpleVariable">
+      <attribute name="approved" label="approved">
+        <type xsi:type="nsAttributeDatatypes:IntegerType"/>
+        <defaultValue exprStr="0"/>
+      </attribute>
+    </variables>
+    <packages name="claim">
+      <type xsi:type="nsDatatypes:Folder" href="urn:xyz:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder#/"/>
+    </packages>
+    <packageCharacteristics key="//@processData/@packages[name='claim']">
+      <value visible="true" mandatory="true" versionLabel="CURRENT"/>
+    </packageCharacteristics>
+  </processData>
+  <flows name="L1" from="//@activities[name='Initiate']" to="//@activities[name='First%20Approval']">
+    <uiinfo destActivityLocIndex="4">
+      <line/>
+      <labelStyle fontName="Helvetica" fontSize="10"/>
+    </uiinfo>
+  </flows>
+  <flows name="L3" from="//@activities[name='First%20Approval']" to="//@activities[name='Decision%20Split']">
+    <uiinfo destActivityLocIndex="4">
+      <line/>
+      <labelStyle fontName="Helvetica" fontSize="10"/>
+    </uiinfo>
+  </flows>
+  <flows name="L2" from="//@activities[name='Decision%20Split']" to="//@activities[name='Second%20approval']">
+    <uiinfo srcActivityLocIndex="4" destActivityLocIndex="3">
+      <line/>
+      <labelStyle fontName="Helvetica" fontSize="10"/>
+    </uiinfo>
+  </flows>
+  <flows name="L4" from="//@activities[name='Second%20approval']" to="//@activities[name='Manage%20rejection%20or%20Approval']">
+    <uiinfo>
+      <line multiSegment="true">
+        <points x="288" y="51"/>
+        <points x="466" y="51"/>
+        <points x="466" y="145"/>
+        <points x="446" y="145"/>
+      </line>
+      <labelStyle fontName="Helvetica" fontSize="10"/>
+    </uiinfo>
+  </flows>
+  <flows name="L5" from="//@activities[name='Decision%20Split']" to="//@activities[name='Manage%20rejection%20or%20Approval']">
+    <uiinfo destActivityLocIndex="4">
+      <line/>
+      <labelStyle fontName="Helvetica" fontSize="10"/>
+    </uiinfo>
+  </flows>
+  <defaultSettings/>
+  <processUIInfo>
+    <startActivityUIInfo imageScale="100" image="palette/event_start_32_proc.png">
+      <topLeftPoint x="50" y="150"/>
+      <textStyle fontName="Dialog" fontSize="10">
+        <bgColor/>
+        <fgColor/>
+      </textStyle>
+    </startActivityUIInfo>
+    <endActivityUIInfo imageScale="100" image="palette/event_end_32_proc.png">
+      <topLeftPoint x="532" y="152"/>
+      <textStyle fontName="Dialog" fontSize="10">
+        <bgColor/>
+        <fgColor/>
+      </textStyle>
+    </endActivityUIInfo>
+    <endSequenceFlowUIInfo destActivityLocIndex="4">
+      <line/>
+      <labelStyle fontName="Helvetica" fontSize="10"/>
+    </endSequenceFlowUIInfo>
+  </processUIInfo>
+  <eventConfigs label="Workflow Started">
+    <triggerType type="PROCESS_WORKFLOW_STARTED"/>
+  </eventConfigs>
+  <eventConfigs label="Workflow changed state">
+    <triggerType type="PROCESS_WORKFLOW_CHANGESTATE"/>
+  </eventConfigs>
+  <eventConfigs label="Workflow Aborted">
+    <triggerType type="PROCESS_WORKFLOW_ABORTED"/>
+  </eventConfigs>
+  <eventConfigs label="Workflow completed">
+    <triggerType type="PROCESS_WORKFLOW_COMPLETED"/>
+  </eventConfigs>
+</nsProcess:Process>
