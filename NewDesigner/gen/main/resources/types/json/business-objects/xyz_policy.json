@@ -1,0 +1,62 @@
+{
+  "name" : "business-object-type",
+  "type" : "xyz_policy",
+  "label" : "Policy",
+  "parent" : "${contextPath}types/business-objects/xcp_rootbo",
+  "properties" : [ {
+    "name" : "first_name",
+    "label" : "First Name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "last_name",
+    "label" : "Last Name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "new_string",
+    "label" : "Address",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "age",
+    "label" : "Age",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "coverage",
+    "label" : "Coverage",
+    "type" : "float"
+  }, {
+    "name" : "end_date",
+    "label" : "End date",
+    "type" : "datetime"
+  } ],
+  "relationships" : {
+    "target" : [ {
+      "rel" : "http://identifiers.emc.com/linkrel/target",
+      "name" : "xyz_vehicle_policy",
+      "type" : "${contextPath}types/relationships/xyz_vehicle_policy"
+    } ]
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "${contextPath}types/business-objects/xyz_policy"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/instances",
+    "href" : "${contextPath}business-objects/xyz_policy"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/defaults",
+    "href" : "${contextPath}types/business-objects/xyz_policy/defaults"
+  }, {
+    "rel" : "type"
+  }, {
+    "rel" : "edit"
+  }, {
+    "rel" : "canonical"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/delete"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/relations"
+  } ]
+}

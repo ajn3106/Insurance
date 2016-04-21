@@ -1,0 +1,26 @@
+{
+  "name" : "business-object-type",
+  "type" : "xyz_abc",
+  "label" : "abc",
+  "parent" : "${contextPath}types/business-objects/xcp_rootbo",
+  "links" : [ {
+    "rel" : "self",
+    "href" : "${contextPath}types/business-objects/xyz_abc"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/instances",
+    "href" : "${contextPath}business-objects/xyz_abc"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/defaults",
+    "href" : "${contextPath}types/business-objects/xyz_abc/defaults"
+  }, {
+    "rel" : "type"
+  }, {
+    "rel" : "edit"
+  }, {
+    "rel" : "canonical"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/delete"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/relations"
+  } ]
+}

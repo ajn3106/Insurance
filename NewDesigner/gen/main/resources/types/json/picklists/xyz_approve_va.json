@@ -1,0 +1,14 @@
+{
+  "name" : "picklist",
+  "type" : "xyz_approve_va",
+  "label" : "Approve VA",
+  "entries" : [ {
+    "label" : "Approved",
+    "value" : "2",
+    "type" : "integer"
+  }, {
+    "label" : "Denied",
+    "value" : "3",
+    "type" : "integer"
+  } ]
+}

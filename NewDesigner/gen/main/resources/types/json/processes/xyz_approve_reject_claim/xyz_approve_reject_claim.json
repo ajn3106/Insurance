@@ -1,0 +1,128 @@
+{
+  "name" : "process-type",
+  "type" : "xyz_approve_reject_claim",
+  "label" : "Approve Reject Claim",
+  "runnable-stateless" : false,
+  "urn" : "urn:xyz:com.emc.ide.artifact.process:Artifacts/Processes/approve_reject_claim.process",
+  "properties" : [ {
+    "name" : "process_id",
+    "label" : "process_id",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "status",
+    "label" : "status",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "id",
+    "label" : "id",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "r_runtime_state",
+    "label" : "r_runtime_state",
+    "type" : "integer"
+  }, {
+    "name" : "correlation_identifier",
+    "label" : "correlation_identifier",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "object_name",
+    "label" : "object_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "r_creator_name",
+    "label" : "r_creator_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "r_start_date",
+    "label" : "r_start_date",
+    "type" : "datetime"
+  }, {
+    "name" : "supervisor_name",
+    "label" : "supervisor_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "supervisor_address",
+    "label" : "supervisor_address",
+    "type" : "string",
+    "length" : 64
+  } ],
+  "tasks" : [ {
+    "rel" : "http://identifiers.emc.com/linkrel/task",
+    "href" : "${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_initiate"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/task",
+    "href" : "${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_first_approval"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/task",
+    "href" : "${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_decision_split"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/task",
+    "href" : "${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_second_approval"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/task",
+    "href" : "${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_manage_rejection_or"
+  } ],
+  "flows" : [ {
+    "source" : "${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_initiate",
+    "target" : "${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_first_approval",
+    "flow-type" : "regular"
+  }, {
+    "source" : "${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_first_approval",
+    "target" : "${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_decision_split",
+    "flow-type" : "regular"
+  }, {
+    "source" : "${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_decision_split",
+    "target" : "${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_second_approval",
+    "flow-type" : "regular"
+  }, {
+    "source" : "${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_second_approval",
+    "target" : "${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_manage_rejection_or",
+    "flow-type" : "regular"
+  }, {
+    "source" : "${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_decision_split",
+    "target" : "${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_manage_rejection_or",
+    "flow-type" : "regular"
+  } ],
+  "data" : {
+    "packages" : [ {
+      "name" : "claim",
+      "label" : "claim",
+      "mandatory" : true,
+      "visible" : true,
+      "version-label" : "CURRENT",
+      "type" : "${contextPath}types/folders/xyz_claim"
+    } ],
+    "variables" : [ {
+      "name" : "approved",
+      "label" : "approved",
+      "type" : "integer",
+      "repeating" : false,
+      "default-value" : "0",
+      "mandatory" : false
+    } ]
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "${contextPath}types/processes/xyz_approve_reject_claim"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/instances",
+    "href" : "${contextPath}processes/xyz_approve_reject_claim"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/halt"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/resume"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/terminate"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/tasks"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/attachments"
+  } ]
+}

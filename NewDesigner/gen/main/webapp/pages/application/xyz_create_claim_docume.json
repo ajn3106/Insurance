@@ -1,0 +1,188 @@
+{
+  "cls" : "xyz_create_claim_docume",
+  "padding" : "0",
+  "border" : false,
+  "pageTitle" : "${_UI_Page_xyz_create_claim_docume_title}",
+  "xtype" : "xcp_form",
+  "items" : [ {
+    "xtype" : "xcp_action_container",
+    "actions" : [ {
+      "xcpId" : "policy_search",
+      "actionModel" : "xyz_policy_search_outputs",
+      "inputModelName" : "xyz_policy_search_inputs",
+      "actionType" : "datasource",
+      "autoLoad" : true,
+      "pageSize" : 10,
+      "outputType" : "Array",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "input_last_name",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_create_claim_docume_policy_search_input_last_name_1",
+          "events" : [ "last_name.change" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+          "input_last_name" : ["last_name" ]
+        }
+      } ],
+      "autoLoad" : false
+    }, {
+      "xcpId" : "da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate",
+      "actionModel" : "xyz_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate",
+      "actionType" : "create",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "processVariables.amount",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_create_claim_docume_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate_processVariables_amount_1",
+          "events" : [ "fragment.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "processVariables.incident_date",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_create_claim_docume_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate_processVariables_incident_date_1",
+          "events" : [ "fragment.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "processVariables.incident_location",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_create_claim_docume_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate_processVariables_incident_location_1",
+          "events" : [ "fragment.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "processVariables.vehicle_id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_create_claim_docume_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate_processVariables_vehicle_id_1",
+          "events" : [ "vehicle.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "processVariables.vehicle_in_motion",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_create_claim_docume_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate_processVariables_vehicle_in_motion_1",
+          "events" : [ "fragment.change" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+          "processVariables.amount" : ["fragment" ],
+          "processVariables.incident_date" : ["fragment" ],
+          "processVariables.incident_location" : ["fragment" ],
+          "processVariables.vehicle_id" : ["vehicle" ],
+          "processVariables.vehicle_in_motion" : ["fragment" ]
+        }
+      } ]
+    }, {
+      "xcpId" : "vehicles_related_to",
+      "actionModel" : "xyz_vehicles_related_to_outputs",
+      "inputModelName" : "xyz_vehicles_related_to_inputs",
+      "actionType" : "datasource",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "input_object_id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_create_claim_docume_vehicles_related_to_input_object_id_1",
+          "events" : [ "policy.change" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+          "input_object_id" : ["policy" ]
+        }
+      } ],
+      "autoLoad" : false,
+      "invokerEvents" : ["policy.change" ]
+    } ]
+  }, {
+    "xcpId" : "column_box",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "last_name",
+        "xtype" : "xcp_text_input",
+        "fieldLabel" : "${_UI_Page_xyz_create_claim_docume_last_name_fieldLabel}",
+        "hstretch" : true,
+        "valueType" : "STRING"
+      }, {
+        "xcpId" : "policy",
+        "xtype" : "xcp_dropdown_list",
+        "fieldLabel" : "${_UI_Page_xyz_create_claim_docume_policy_fieldLabel}",
+        "valueField" : "id",
+        "displayField" : "coverage",
+        "store" : "policy_search",
+        "valueType" : "STRING"
+      }, {
+        "xcpId" : "vehicle",
+        "xtype" : "xcp_dropdown_list",
+        "fieldLabel" : "${_UI_Page_xyz_create_claim_docume_vehicle_fieldLabel}",
+        "valueField" : "id",
+        "displayField" : "model",
+        "store" : "vehicles_related_to",
+        "valueType" : "STRING"
+      }, {
+        "xcpId" : "fragment",
+        "xtype" : "xcp_fragment",
+        "fieldLabel" : "${_UI_Page_xyz_create_claim_docume_fragment_fieldLabel}",
+        "cls" : "xcp-content-area",
+        "margin" : "10 10 10 10",
+        "fragmentId" : "#application/xyz_create_claim",
+        "fragmentScope" : "APPLICATION",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "hidden",
+            "setterFunName" : "setHidden",
+            "etype" : "xyz_create_claim_docume_fragment_hidden_1",
+            "events" : [ "vehicle.change" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      } ]
+    }, {
+      "xcpId" : "columnvbox1",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "button",
+        "xtype" : "xcp_button",
+        "text" : "${_UI_Page_xyz_create_claim_docume_button_text}",
+        "actionInstanceId" : "policy_search",
+        "redirectStyle" : "current"
+      } ]
+    } ]
+  }, {
+    "xcpId" : "create",
+    "xtype" : "xcp_button",
+    "text" : "${_UI_Page_xyz_create_claim_docume_create_text}",
+    "actionInstanceId" : "da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate",
+    "redirectStyle" : "application",
+    "showSuccessNotification" : true,
+    "showConfirmation" : false,
+    "pageSelectionType" : "page",
+    "redirectUrl" : "application/xyz_policy_search"
+  } ]
+}

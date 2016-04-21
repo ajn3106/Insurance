@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<relationship-type label="Claim-Vehicle" type="xyz_claim_vehicle" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <properties>
+    <property label="source" length="16" name="source" readOnly="true" type="string">
+      <description>This is a relationship source</description>
+    </property>
+    <property label="target" length="16" name="target" readOnly="true" type="string">
+      <description>This is a relationship target</description>
+    </property>
+    <property label="Object ID" length="16" name="r_object_id" readOnly="true" type="string">
+      <description>This is system generated unique id for the object. This is set by the system</description>
+    </property>
+  </properties>
+  <source href="${contextPath}types/folders/xyz_claim" maxOccurs="unbounded" minOccurs="1" name="xyz_claim" role-label="Vehicle" role-name="vehicle"/>
+  <target href="${contextPath}types/business-objects/xyz_vehicle" maxOccurs="1" minOccurs="1" name="xyz_vehicle" role-label="Claim" role-name="claim"/>
+  <links>
+    <link href="${contextPath}types/relationships/xyz_claim_vehicle" rel="self"/>
+    <link href="${contextPath}relationships/xyz_claim_vehicle" rel="http://identifiers.emc.com/linkrel/instances"/>
+    <link href="${contextPath}types/relationships/xyz_claim_vehicle/defaults" rel="http://identifiers.emc.com/linkrel/defaults"/>
+    <link rel="type"/>
+    <link rel="edit"/>
+    <link rel="http://identifiers.emc.com/linkrel/delete"/>
+    <link rel="http://identifiers.emc.com/linkrel/source"/>
+    <link rel="http://identifiers.emc.com/linkrel/target"/>
+  </links>
+</relationship-type>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<picklist label="Preappove Va" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xyz_preappove_va" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <entry label="Pre-Approved" type="integer" value="1"/>
+  <entry label="Denied" type="integer" value="3"/>
+</picklist>

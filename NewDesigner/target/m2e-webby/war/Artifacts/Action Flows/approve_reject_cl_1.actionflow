@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" urn="urn:xyz:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/approve_reject_cl_1.actionflow" categoryId="com.emc.xcp.artifact.actionFlow" name="approve_reject_cl_1" label="Delegate task First Approval (Approve Reject Claim) " initialState="//@states[id='viewState_usergroup_selection']">
+  <inputs xsi:type="nsDataserviceContract:StructureElement" name="processVariables" label="Variables">
+    <elements xsi:type="nsDataserviceContract:AttributeElement" name="approved" label="approved">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </elements>
+  </inputs>
+  <inputs xsi:type="nsDataserviceContract:StructureElement" name="processPackages" label="Packages">
+    <elements xsi:type="nsDataserviceContract:StructureElement" name="claim" label="claim">
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="amount" label="Amount">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="claim_status" label="Claim Status">
+        <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_date" label="Incident Date">
+        <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_location" label="Incident Location">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="vehicle_in_motion" label="Vehicle in motion">
+        <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+    </elements>
+  </inputs>
+  <inputs xsi:type="nsDataserviceContract:AttributeElement" name="attachments" label="Attachments" repeating="true">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+  </inputs>
+  <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id" label="id">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+  </inputs>
+  <primaryElement>
+    <dataModel href="urn:xyz:com.emc.ide.artifact.process:Artifacts/Processes/approve_reject_claim.process#//@activities[name='First%20Approval']/@taskContract"/>
+  </primaryElement>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_actionflow_" label="da_actionflow_">
+    <inputMappings name="processVariables">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processVariables.approved">
+      <expression exprStr="actionflow.Inputs.processVariables.approved"/>
+    </inputMappings>
+    <inputMappings name="processPackages">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.object_name">
+      <expression exprStr="actionflow.Inputs.processPackages.claim.object_name"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.amount">
+      <expression exprStr="actionflow.Inputs.processPackages.claim.amount"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.claim_status">
+      <expression exprStr="actionflow.Inputs.processPackages.claim.claim_status"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.incident_date">
+      <expression exprStr="actionflow.Inputs.processPackages.claim.incident_date"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.incident_location">
+      <expression exprStr="actionflow.Inputs.processPackages.claim.incident_location"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.vehicle_in_motion">
+      <expression exprStr="actionflow.Inputs.processPackages.claim.vehicle_in_motion"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.id">
+      <expression exprStr="actionflow.Inputs.processPackages.claim.id"/>
+    </inputMappings>
+    <inputMappings name="attachments">
+      <expression exprStr="actionflow.Inputs.attachments"/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="actionflow.Inputs.id"/>
+    </inputMappings>
+    <inputMappings name="userName">
+      <expression exprStr="actionflow.steps.usergroup_selection.widgets.username_dropdown_list.value"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:xyz:com.emc.ide.artifact.process:Artifacts/Processes/approve_reject_claim.process#//@activities[name='First%20Approval']/@taskContract/@dataServiceContracts[name='da_def_delegate_test_manual_task']"/>
+  </dataActions>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_actionflow_']"/>
+  <states xsi:type="actionflow:EndState" id="success"/>
+  <states xsi:type="actionflow:EndState" id="error"/>
+  <states xsi:type="actionflow:ActionState" id="finish" dataAction="//@dataActions[name='da_actionflow_']">
+    <transitions on="success" to="//@states[id='success']"/>
+    <transitions on="error" to="//@states[id='error']"/>
+  </states>
+  <states xsi:type="actionflow:EndState" id="cancel"/>
+  <states xsi:type="actionflow:ViewState" id="viewState_usergroup_selection">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="finish" to="//@states[id='finish']"/>
+    <step href="urn:xcp:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/usergroup_selection.uistep#/"/>
+  </states>
+</actionflow:ActionFlow>

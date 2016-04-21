@@ -1,0 +1,190 @@
+{
+  "name" : "task-type",
+  "type" : "xyz_execute_java_servic",
+  "label" : "Execute Java Service",
+  "process-type" : "xyz_test_java",
+  "properties" : [ {
+    "name" : "id",
+    "label" : "id",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "act_name",
+    "label" : "act_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "activity_system_name",
+    "label" : "activity_system_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "process_system_name",
+    "label" : "process_system_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "qitem_id",
+    "label" : "qitem_id",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "status",
+    "label" : "status",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "creation_date",
+    "label" : "creation_date",
+    "type" : "datetime"
+  }, {
+    "name" : "performer",
+    "label" : "performer",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "performer_address",
+    "label" : "performer_address",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "state",
+    "label" : "state",
+    "type" : "integer"
+  }, {
+    "name" : "priority",
+    "label" : "priority",
+    "type" : "integer"
+  }, {
+    "name" : "task_subject",
+    "label" : "task_subject",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "instructions",
+    "label" : "instructions",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "received_date",
+    "label" : "received_date",
+    "type" : "datetime"
+  }, {
+    "name" : "due_date",
+    "label" : "due_date",
+    "type" : "datetime"
+  }, {
+    "name" : "received_from",
+    "label" : "received_from",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "queue_name",
+    "label" : "queue_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "isdelegable",
+    "label" : "isdelegable",
+    "type" : "boolean"
+  }, {
+    "name" : "isrepeatable",
+    "label" : "isrepeatable",
+    "type" : "boolean"
+  } ],
+  "data" : {
+    "variables" : [ {
+      "name" : "last_name",
+      "label" : "last_name",
+      "type" : "string",
+      "repeating" : false,
+      "default-value" : "",
+      "mandatory" : false,
+      "visible" : true,
+      "use" : "input"
+    }, {
+      "name" : "end_date",
+      "label" : "end_date",
+      "type" : "string",
+      "repeating" : true,
+      "default-value" : null,
+      "mandatory" : false,
+      "visible" : true,
+      "use" : "output"
+    }, {
+      "name" : "oid",
+      "label" : "oid",
+      "type" : "string",
+      "repeating" : true,
+      "default-value" : null,
+      "mandatory" : false,
+      "visible" : true,
+      "use" : "output"
+    }, {
+      "name" : "object_name",
+      "label" : "object_name",
+      "type" : "string",
+      "repeating" : true,
+      "default-value" : null,
+      "mandatory" : false,
+      "visible" : true,
+      "use" : "output"
+    }, {
+      "name" : "f_name",
+      "label" : "f_name",
+      "type" : "string",
+      "repeating" : true,
+      "default-value" : null,
+      "mandatory" : false,
+      "visible" : true,
+      "use" : "output"
+    }, {
+      "name" : "cover",
+      "label" : "cover",
+      "type" : "integer",
+      "repeating" : true,
+      "default-value" : null,
+      "mandatory" : false,
+      "visible" : true,
+      "use" : "output"
+    }, {
+      "name" : "address",
+      "label" : "address",
+      "type" : "string",
+      "repeating" : true,
+      "default-value" : null,
+      "mandatory" : false,
+      "visible" : true,
+      "use" : "output"
+    } ]
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "${contextPath}types/processes/xyz_test_java/tasks/xyz_execute_java_servic"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/instances",
+    "href" : "${contextPath}processes/xyz_test_java/tasks/xyz_execute_java_servic"
+  }, {
+    "rel" : "up"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/acquire"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/complete"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/reject"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/repeat"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/halt"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/resume"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/hold"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/unhold"
+  }, {
+    "rel" : "edit"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/attachments"
+  } ]
+}

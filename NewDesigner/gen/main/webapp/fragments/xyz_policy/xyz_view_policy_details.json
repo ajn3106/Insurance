@@ -1,0 +1,69 @@
+{
+  "cls" : "xyz_policy_view_policy_details",
+  "padding" : "0",
+  "border" : false,
+  "xtype" : "xcp_form",
+  "models" : [ "xyz_policy" ],
+  "items" : [ {
+    "xtype" : "xcp_fragment_input",
+    "plugins" : [ {
+      "ptype" : "xcp_expression_properties",
+      "expression" : [ ]
+    } ]
+  }, {
+    "xcpId" : "first_name",
+    "xtype" : "xcp_value_display",
+    "fieldLabel" : "${_UI_Page_xyz_view_policy_details_first_name_fieldLabel}",
+    "valueType" : "STRING",
+    "isRepeating" : false,
+    "name" : "xyz_policy@first_name"
+  }, {
+    "xcpId" : "last_name",
+    "xtype" : "xcp_value_display",
+    "fieldLabel" : "${_UI_Page_xyz_view_policy_details_last_name_fieldLabel}",
+    "valueType" : "STRING",
+    "isRepeating" : false,
+    "name" : "xyz_policy@last_name"
+  }, {
+    "xcpId" : "new_string",
+    "xtype" : "xcp_value_display",
+    "fieldLabel" : "${_UI_Page_xyz_view_policy_details_new_string_fieldLabel}",
+    "valueType" : "STRING",
+    "isRepeating" : false,
+    "name" : "xyz_policy@new_string"
+  }, {
+    "xcpId" : "age",
+    "xtype" : "xcp_value_display",
+    "fieldLabel" : "${_UI_Page_xyz_view_policy_details_age_fieldLabel}",
+    "valueType" : "STRING",
+    "isRepeating" : false,
+    "name" : "xyz_policy@age"
+  }, {
+    "xcpId" : "coverage",
+    "xtype" : "xcp_value_display",
+    "fieldLabel" : "${_UI_Page_xyz_view_policy_details_coverage_fieldLabel}",
+    "valueType" : "FLOAT",
+    "isRepeating" : false,
+    "format" : {
+      "xtype" : "xcp_float_formatter",
+      "decimalPrecision" : 2,
+      "useThousandSeparator" : true,
+      "separatorStyle" : "LOCALE",
+      "negativeNumberStyle" : "FORMAT_MINUS_SIGN_STYLE_NONE"
+    },
+    "name" : "xyz_policy@coverage"
+  }, {
+    "xcpId" : "end_date",
+    "xtype" : "xcp_value_display",
+    "fieldLabel" : "${_UI_Page_xyz_view_policy_details_end_date_fieldLabel}",
+    "valueType" : "DATETIME",
+    "isRepeating" : false,
+    "format" : {
+      "xtype" : "xcp_datetime_formatter",
+      "dateFormat" : "short",
+      "timeFormat" : "short",
+      "dateStyle" : "datetime"
+    },
+    "name" : "xyz_policy@end_date"
+  } ]
+}

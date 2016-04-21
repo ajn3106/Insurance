@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<business-object-type label="abc" parent="${contextPath}types/business-objects/xcp_rootbo" type="xyz_abc" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <links>
+    <link href="${contextPath}types/business-objects/xyz_abc" rel="self"/>
+    <link href="${contextPath}business-objects/xyz_abc" rel="http://identifiers.emc.com/linkrel/instances"/>
+    <link href="${contextPath}types/business-objects/xyz_abc/defaults" rel="http://identifiers.emc.com/linkrel/defaults"/>
+    <link rel="type"/>
+    <link rel="edit"/>
+    <link rel="canonical"/>
+    <link rel="http://identifiers.emc.com/linkrel/delete"/>
+    <link rel="http://identifiers.emc.com/linkrel/relations"/>
+  </links>
+</business-object-type>

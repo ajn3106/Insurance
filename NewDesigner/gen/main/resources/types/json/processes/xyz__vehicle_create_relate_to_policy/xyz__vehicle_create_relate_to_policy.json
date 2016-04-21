@@ -1,0 +1,184 @@
+{
+  "name" : "process-type",
+  "type" : "xyz__vehicle_create_relate_to_policy",
+  "label" : " Vehicle create & relate to policy",
+  "runnable-stateless" : true,
+  "urn" : "urn:xyz:com.emc.ide.artifact.process:Artifacts/Processes/_vehicle_create_relate_to_policy.process",
+  "properties" : [ {
+    "name" : "process_id",
+    "label" : "process_id",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "status",
+    "label" : "status",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "id",
+    "label" : "id",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "r_runtime_state",
+    "label" : "r_runtime_state",
+    "type" : "integer"
+  }, {
+    "name" : "correlation_identifier",
+    "label" : "correlation_identifier",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "object_name",
+    "label" : "object_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "r_creator_name",
+    "label" : "r_creator_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "r_start_date",
+    "label" : "r_start_date",
+    "type" : "datetime"
+  }, {
+    "name" : "supervisor_name",
+    "label" : "supervisor_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "supervisor_address",
+    "label" : "supervisor_address",
+    "type" : "string",
+    "length" : 64
+  } ],
+  "tasks" : [ {
+    "rel" : "http://identifiers.emc.com/linkrel/task",
+    "href" : "${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_initiate"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/task",
+    "href" : "${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_create"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/task",
+    "href" : "${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_relate_vehiicle_to_"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/task",
+    "href" : "${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_select_relation_att"
+  } ],
+  "flows" : [ {
+    "source" : "${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_initiate",
+    "target" : "${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_create",
+    "flow-type" : "regular"
+  }, {
+    "source" : "${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_create",
+    "target" : "${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_relate_vehiicle_to_",
+    "flow-type" : "regular"
+  }, {
+    "source" : "${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_relate_vehiicle_to_",
+    "target" : "${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_select_relation_att",
+    "flow-type" : "regular"
+  } ],
+  "data" : {
+    "packages" : [ {
+      "name" : "vehicle",
+      "label" : "vehicle",
+      "mandatory" : false,
+      "visible" : true,
+      "version-label" : "CURRENT",
+      "type" : "${contextPath}types/business-objects/xyz_vehicle",
+      "input" : false,
+      "output" : false
+    } ],
+    "variables" : [ {
+      "name" : "make",
+      "label" : "make",
+      "type" : "string",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "input" : true,
+      "output" : false
+    }, {
+      "name" : "model",
+      "label" : "model",
+      "type" : "string",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "input" : true,
+      "output" : false
+    }, {
+      "name" : "year",
+      "label" : "year",
+      "type" : "integer",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "input" : true,
+      "output" : false
+    }, {
+      "name" : "vin",
+      "label" : "vin",
+      "type" : "string",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "input" : true,
+      "output" : false
+    }, {
+      "name" : "policy_id",
+      "label" : "policy_id",
+      "type" : "string",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "input" : true,
+      "output" : false
+    }, {
+      "name" : "start_date",
+      "label" : "start_date",
+      "type" : "datetime",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "input" : true,
+      "output" : false
+    }, {
+      "name" : "end_date",
+      "label" : "end_date",
+      "type" : "datetime",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "input" : true,
+      "output" : false
+    }, {
+      "name" : "notes",
+      "label" : "notes",
+      "type" : "string",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "input" : true,
+      "output" : false
+    } ]
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "${contextPath}types/processes/xyz__vehicle_create_relate_to_policy"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/instances",
+    "href" : "${contextPath}processes/xyz__vehicle_create_relate_to_policy"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/halt"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/resume"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/terminate"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/tasks"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/attachments"
+  } ]
+}

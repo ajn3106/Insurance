@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<realtime-query-type data-type="${contextPath}types/business-objects/xyz_policy" label="Policy Search" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xyz_policy_search" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <description/>
+  <properties>
+    <property mapping="last_name" name="last_name" output-name="last_name" sortable="false" type="${contextPath}types/business-objects/xyz_policy"/>
+    <property mapping="first_name" name="first_name" output-name="first_name" sortable="false" type="${contextPath}types/business-objects/xyz_policy"/>
+    <property mapping="new_string" name="new_string" output-name="new_string" sortable="false" type="${contextPath}types/business-objects/xyz_policy"/>
+    <property mapping="coverage" name="coverage" output-name="coverage" sortable="false" type="${contextPath}types/business-objects/xyz_policy"/>
+    <property mapping="end_date" name="end_date" output-name="end_date" sortable="false" type="${contextPath}types/business-objects/xyz_policy"/>
+    <property mandatory="true" mapping="r_object_id" name="r_object_id" output-name="id" sortable="false" type="${contextPath}types/business-objects/xyz_policy"/>
+    <property mapping="age" name="age" output-name="age" sortable="false" type="${contextPath}types/business-objects/xyz_policy"/>
+    <property label="" mandatory="true" mapping="r_object_type" name="r_object_type" output-name="r_object_type" sortable="false" type="${contextPath}types/business-objects/xyz_policy"/>
+    <property label="ACL Name" mandatory="true" mapping="acl_name" name="acl_name" output-name="acl_name" sortable="false" type="${contextPath}types/business-objects/xyz_policy"/>
+    <property label="ACL Domain" mandatory="true" mapping="acl_domain" name="acl_domain" output-name="acl_domain" sortable="false" type="${contextPath}types/business-objects/xyz_policy"/>
+    <property label="Owner Permit" mandatory="true" mapping="owner_permit" name="owner_permit" output-name="owner_permit" sortable="false" type="${contextPath}types/business-objects/xyz_policy"/>
+    <property label="Owner Name" mandatory="true" mapping="owner_name" name="owner_name" output-name="owner_name" sortable="false" type="${contextPath}types/business-objects/xyz_policy"/>
+    <property label="Lock Owner" mandatory="true" mapping="r_lock_owner" name="r_lock_owner" output-name="r_lock_owner" sortable="false" type="${contextPath}types/business-objects/xyz_policy"/>
+  </properties>
+  <expression-set operator="AND">
+    <property case-sensitive="false" input-name="input_last_name" input-type="form-input" mapping="last_name" name="last_name" operator="CONTAINS" type="${contextPath}types/business-objects/xyz_policy"/>
+  </expression-set>
+  <links>
+    <link href="${contextPath}types/realtime-queries/xyz_policy_search" rel="self"/>
+    <link href="${contextPath}realtime-queries/xyz_policy_search" rel="http://identifiers.emc.com/linkrel/instances"/>
+  </links>
+  <options>
+    <option versions="LATEST"/>
+  </options>
+</realtime-query-type>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" urn="urn:xyz:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/create_claim_and_re.actionflow" categoryId="com.emc.xcp.artifact.actionFlow" name="create_claim_and_re" label="Create claim and relate to policy" initialState="//@states[id='viewState_create_claim_and_re']">
+  <inputs xsi:type="actionflow:ActionFlowElement" name="policy_id">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <inputs xsi:type="actionflow:ActionFlowElement" name="vehicle_id">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <primaryElement>
+    <dataModel href="urn:xyz:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder#/"/>
+  </primaryElement>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_actionflow_create_claim_and_re_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate" label="Stateless Process Claim Create and Relate to policy">
+    <inputMappings name="processVariables.amount">
+      <expression exprStr="actionflow.steps.create_claim_and_re.widgets.amount.value"/>
+    </inputMappings>
+    <inputMappings name="processVariables.incident_date">
+      <expression exprStr="actionflow.steps.create_claim_and_re.widgets.incident_date.value"/>
+    </inputMappings>
+    <inputMappings name="processVariables.incident_location">
+      <expression exprStr="actionflow.steps.create_claim_and_re.widgets.incident_location.value"/>
+    </inputMappings>
+    <inputMappings name="processVariables.policy_id">
+      <expression exprStr="actionflow.Inputs.policy_id"/>
+    </inputMappings>
+    <inputMappings name="processVariables.vehicle_id">
+      <expression exprStr="actionflow.steps.create_claim_and_re.widgets.vehicle.value"/>
+    </inputMappings>
+    <inputMappings name="processVariables.vehicle_in_motion">
+      <expression exprStr="actionflow.steps.create_claim_and_re.widgets.vehicle_in_motion.value"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:xyz:com.emc.ide.artifact.process:Artifacts/Processes/claim_create_and_relate_to_policy.process#//@activities[name='Initiate']/@taskContract/@dataServiceContracts[name='da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate']"/>
+  </dataActions>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_actionflow_create_claim_and_re_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate']"/>
+  <states xsi:type="actionflow:EndState" id="success"/>
+  <states xsi:type="actionflow:EndState" id="error"/>
+  <states xsi:type="actionflow:ActionState" id="finish" dataAction="//@dataActions[name='da_actionflow_create_claim_and_re_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate']">
+    <transitions on="success" to="//@states[id='success']"/>
+    <transitions on="error" to="//@states[id='error']"/>
+  </states>
+  <states xsi:type="actionflow:EndState" id="cancel"/>
+  <states xsi:type="actionflow:ViewState" id="viewState_create_claim_and_re">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="finish" to="//@states[id='finish']"/>
+    <stepCondition>
+      <expression exprStr="false"/>
+    </stepCondition>
+    <step href="urn:xyz:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/create_claim_and_re.uistep#/"/>
+  </states>
+  <transitionLabels transition="finish" label="Create Claim">
+    <labelExpression/>
+  </transitionLabels>
+</actionflow:ActionFlow>

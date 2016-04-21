@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<picklist label="Vehicle Make" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xyz_vehicle_make" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <entry label="Toyota" length="64" type="string" value="TOYO"/>
+  <entry label="Volkswagen" length="64" type="string" value="VOLKS"/>
+  <entry label="FORD motor Company" length="64" type="string" value="FORD"/>
+</picklist>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" urn="urn:xyz:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/create_vehicle.actionflow" categoryId="com.emc.xcp.artifact.actionFlow" name="create_vehicle" label="Create Vehicle" initialState="//@states[id='viewState_create_vehicle_step']">
+  <inputs xsi:type="actionflow:ActionFlowElement" name="policy">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    <defaultValue>
+      <expression/>
+    </defaultValue>
+  </inputs>
+  <primaryElement>
+    <dataModel href="urn:xyz:com.emc.xcp.artifact.bo:Artifacts/Business Objects/vehicle.businessobj#/"/>
+  </primaryElement>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_actionflow_create_vehicle_da_def_invoke_stateless_processvehicle_create_relate_to_policy_initiate" label="Stateless Process  Vehicle create &amp; relate to policy">
+    <inputMappings name="processVariables.end_date">
+      <expression exprStr="actionflow.steps.create_vehicle_st_1.widgets.end_date.value"/>
+    </inputMappings>
+    <inputMappings name="processVariables.make">
+      <expression exprStr="actionflow.steps.create_vehicle_step.widgets.make.value"/>
+    </inputMappings>
+    <inputMappings name="processVariables.model">
+      <expression exprStr="actionflow.steps.create_vehicle_step.widgets.make.value"/>
+    </inputMappings>
+    <inputMappings name="processVariables.notes">
+      <expression exprStr="actionflow.steps.create_vehicle_st_1.widgets.notes.value"/>
+    </inputMappings>
+    <inputMappings name="processVariables.policy_id">
+      <expression exprStr="actionflow.Inputs.policy"/>
+    </inputMappings>
+    <inputMappings name="processVariables.start_date">
+      <expression exprStr="actionflow.steps.create_vehicle_st_1.widgets.start_date.value"/>
+    </inputMappings>
+    <inputMappings name="processVariables.vin">
+      <expression exprStr="actionflow.steps.create_vehicle_step.widgets.vin.value"/>
+    </inputMappings>
+    <inputMappings name="processVariables.year">
+      <expression exprStr="actionflow.steps.create_vehicle_step.widgets.year.value"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:xyz:com.emc.ide.artifact.process:Artifacts/Processes/_vehicle_create_relate_to_policy.process#//@activities[name='Initiate']/@taskContract/@dataServiceContracts[name='da_def_invoke_stateless_processvehicle_create_relate_to_policy_initiate']"/>
+  </dataActions>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_actionflow_create_vehicle_da_def_invoke_stateless_processvehicle_create_relate_to_policy_initiate']"/>
+  <states xsi:type="actionflow:EndState" id="success"/>
+  <states xsi:type="actionflow:EndState" id="error"/>
+  <states xsi:type="actionflow:ActionState" id="finish" dataAction="//@dataActions[name='da_actionflow_create_vehicle_da_def_invoke_stateless_processvehicle_create_relate_to_policy_initiate']">
+    <transitions on="success" to="//@states[id='success']"/>
+    <transitions on="error" to="//@states[id='error']"/>
+    <stepCondition>
+      <expression exprStr="actionflow.executionContext.currentstepid=='create_vehicle_st_2'"/>
+    </stepCondition>
+  </states>
+  <states xsi:type="actionflow:EndState" id="cancel"/>
+  <states xsi:type="actionflow:ViewState" id="viewState_create_vehicle_step">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="next" to="//@states[id='viewState_create_vehicle_st_1']"/>
+    <step href="urn:xyz:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/create_vehicle_step.uistep#/"/>
+  </states>
+  <states xsi:type="actionflow:ViewState" id="viewState_create_vehicle_st_1">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="next" to="//@states[id='viewState_create_vehicle_st_2']"/>
+    <step href="urn:xyz:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/create_vehicle_st_1.uistep#/"/>
+  </states>
+  <states xsi:type="actionflow:ViewState" id="viewState_create_vehicle_st_2">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="finish" to="//@states[id='finish']"/>
+    <stepCondition>
+      <expression exprStr="false"/>
+    </stepCondition>
+    <step href="urn:xyz:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/create_vehicle_st_2.uistep#/"/>
+  </states>
+  <transitionLabels transition="finish" label="Add Vehicle">
+    <labelExpression/>
+  </transitionLabels>
+</actionflow:ActionFlow>

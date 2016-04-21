@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<member xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xcp_member" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <properties>
+    <namespace>xyz</namespace>
+    <name>xyz_snehal</name>
+    <label>Snehal</label>
+    <description/>
+    <member_type>role</member_type>
+  </properties>
+</member>

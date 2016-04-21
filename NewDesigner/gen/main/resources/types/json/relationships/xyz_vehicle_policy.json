@@ -1,0 +1,76 @@
+{
+  "name" : "relationship-type",
+  "type" : "xyz_vehicle_policy",
+  "label" : "Vehicle-Policy",
+  "properties" : [ {
+    "name" : "source",
+    "label" : "source",
+    "length" : 16,
+    "type" : "string",
+    "readOnly" : true,
+    "description" : "This is a relationship source"
+  }, {
+    "name" : "target",
+    "label" : "target",
+    "length" : 16,
+    "type" : "string",
+    "readOnly" : true,
+    "description" : "This is a relationship target"
+  }, {
+    "name" : "r_object_id",
+    "label" : "Object ID",
+    "length" : 16,
+    "type" : "string",
+    "readOnly" : true,
+    "description" : "This is system generated unique id for the object. This is set by the system"
+  }, {
+    "name" : "start_date",
+    "label" : "Start date",
+    "type" : "datetime"
+  }, {
+    "name" : "end_date",
+    "label" : "End date",
+    "type" : "datetime"
+  }, {
+    "name" : "notes",
+    "label" : "Notes",
+    "type" : "string",
+    "length" : 64
+  } ],
+  "source" : {
+    "name" : "xyz_vehicle",
+    "role-label" : "Vehicle",
+    "role-name" : "vehicle",
+    "minOccurs" : "1",
+    "maxOccurs" : "unbounded",
+    "href" : "${contextPath}types/business-objects/xyz_vehicle"
+  },
+  "target" : {
+    "name" : "xyz_policy",
+    "role-label" : "Policy",
+    "role-name" : "policy",
+    "minOccurs" : "1",
+    "maxOccurs" : "1",
+    "href" : "${contextPath}types/business-objects/xyz_policy"
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "${contextPath}types/relationships/xyz_vehicle_policy"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/instances",
+    "href" : "${contextPath}relationships/xyz_vehicle_policy"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/defaults",
+    "href" : "${contextPath}types/relationships/xyz_vehicle_policy/defaults"
+  }, {
+    "rel" : "type"
+  }, {
+    "rel" : "edit"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/delete"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/source"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/target"
+  } ]
+}

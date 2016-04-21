@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<process-type label="Approve Reject Claim" runnable-stateless="false" type="xyz_approve_reject_claim" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <urn>urn:xyz:com.emc.ide.artifact.process:Artifacts/Processes/approve_reject_claim.process</urn>
+  <properties>
+    <property label="process_id" length="64" name="process_id" type="string"/>
+    <property label="status" length="64" name="status" type="string"/>
+    <property label="id" length="64" name="id" type="string"/>
+    <property label="r_runtime_state" name="r_runtime_state" type="integer"/>
+    <property label="correlation_identifier" length="64" name="correlation_identifier" type="string"/>
+    <property label="object_name" length="64" name="object_name" type="string"/>
+    <property label="r_creator_name" length="64" name="r_creator_name" type="string"/>
+    <property label="r_start_date" name="r_start_date" type="datetime"/>
+    <property label="supervisor_name" length="64" name="supervisor_name" type="string"/>
+    <property label="supervisor_address" length="64" name="supervisor_address" type="string"/>
+  </properties>
+  <tasks>
+    <task href="${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_initiate" rel="http://identifiers.emc.com/linkrel/task"/>
+    <task href="${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_first_approval" rel="http://identifiers.emc.com/linkrel/task"/>
+    <task href="${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_decision_split" rel="http://identifiers.emc.com/linkrel/task"/>
+    <task href="${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_second_approval" rel="http://identifiers.emc.com/linkrel/task"/>
+    <task href="${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_manage_rejection_or" rel="http://identifiers.emc.com/linkrel/task"/>
+  </tasks>
+  <flows>
+    <flow flow-type="regular" source="${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_initiate" target="${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_first_approval"/>
+    <flow flow-type="regular" source="${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_first_approval" target="${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_decision_split"/>
+    <flow flow-type="regular" source="${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_decision_split" target="${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_second_approval"/>
+    <flow flow-type="regular" source="${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_second_approval" target="${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_manage_rejection_or"/>
+    <flow flow-type="regular" source="${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_decision_split" target="${contextPath}types/processes/xyz_approve_reject_claim/tasks/xyz_manage_rejection_or"/>
+  </flows>
+  <data>
+    <packages>
+      <package label="claim" mandatory="true" name="claim" type="${contextPath}types/folders/xyz_claim" version-label="CURRENT" visible="true"/>
+    </packages>
+    <variables>
+      <variable default-value="0" label="approved" mandatory="false" name="approved" repeating="false" type="integer"/>
+    </variables>
+  </data>
+  <links>
+    <link href="${contextPath}types/processes/xyz_approve_reject_claim" rel="self"/>
+    <link href="${contextPath}processes/xyz_approve_reject_claim" rel="http://identifiers.emc.com/linkrel/instances"/>
+    <link rel="http://identifiers.emc.com/linkrel/halt"/>
+    <link rel="http://identifiers.emc.com/linkrel/resume"/>
+    <link rel="http://identifiers.emc.com/linkrel/terminate"/>
+    <link rel="http://identifiers.emc.com/linkrel/tasks"/>
+    <link rel="http://identifiers.emc.com/linkrel/attachments"/>
+  </links>
+</process-type>

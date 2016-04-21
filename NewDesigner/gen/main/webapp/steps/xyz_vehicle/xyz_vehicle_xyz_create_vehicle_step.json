@@ -1,0 +1,82 @@
+{
+  "padding" : "10 10 5 10",
+  "border" : false,
+  "items" : [ {
+    "xcpId" : "column_box",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox1",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "rich_text",
+        "xtype" : "xcp_rich_text",
+        "html" : "${_UI_UIStep_xyz_create_vehicle_step_rich_text_html}"
+      }, {
+        "xcpId" : "make",
+        "xtype" : "xcp_dropdown_list",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_vehicle_step_make_fieldLabel}",
+        "store" : "xcp.picklist.xyz_vehicle_make",
+        "valueType" : "STRING"
+      }, {
+        "xcpId" : "model",
+        "xtype" : "xcp_text_input",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_vehicle_step_model_fieldLabel}",
+        "hstretch" : true,
+        "valueType" : "STRING"
+      }, {
+        "xcpId" : "vin",
+        "xtype" : "xcp_text_input",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_vehicle_step_vin_fieldLabel}",
+        "hstretch" : true,
+        "valueType" : "STRING"
+      }, {
+        "xcpId" : "year",
+        "xtype" : "xcp_number_input",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_vehicle_step_year_fieldLabel}",
+        "allowDecimals" : false,
+        "hideTrigger" : true,
+        "keyNavEnabled" : false,
+        "mouseWheelEnabled" : false,
+        "autoStripChars" : true,
+        "hstretch" : true,
+        "valueType" : "INTEGER"
+      }, {
+        "xcpId" : "temporary",
+        "xtype" : "xcp_checkbox",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_vehicle_step_temporary_fieldLabel}",
+        "valueType" : "BOOLEAN"
+      }, {
+        "xcpId" : "value_display",
+        "xtype" : "xcp_value_display",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_vehicle_step_value_display_fieldLabel}",
+        "valueType" : "BOOLEAN",
+        "isRepeating" : false,
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xyz_create_vehicle_step_value_display_value_1",
+            "events" : [ "temporary.change" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      } ]
+    } ]
+  } ]
+}

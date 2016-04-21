@@ -1,0 +1,61 @@
+{
+  "padding" : "10 10 5 10",
+  "border" : false,
+  "items" : [ {
+    "xcpId" : "column_box",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox1",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "rich_text",
+        "xtype" : "xcp_rich_text",
+        "html" : "${_UI_UIStep_xyz_create_vehicle_st_1_rich_text_html}"
+      }, {
+        "xcpId" : "end_date",
+        "xtype" : "xcp_date_time_input",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_vehicle_st_1_end_date_fieldLabel}",
+        "hstretch" : true,
+        "format" : {
+          "xtype" : "xcp_datetime_formatter",
+          "dateFormat" : "short",
+          "timeFormat" : "short",
+          "dateStyle" : "date"
+        },
+        "valueType" : "DATETIME"
+      }, {
+        "xcpId" : "start_date",
+        "xtype" : "xcp_date_time_input",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_vehicle_st_1_start_date_fieldLabel}",
+        "hstretch" : true,
+        "format" : {
+          "xtype" : "xcp_datetime_formatter",
+          "dateFormat" : "short",
+          "timeFormat" : "short",
+          "dateStyle" : "date"
+        },
+        "valueType" : "DATETIME"
+      }, {
+        "xcpId" : "notes",
+        "xtype" : "xcp_text_area",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_vehicle_st_1_notes_fieldLabel}",
+        "hstretch" : true,
+        "valueType" : "STRING",
+        "height" : 60
+      } ]
+    } ]
+  } ]
+}

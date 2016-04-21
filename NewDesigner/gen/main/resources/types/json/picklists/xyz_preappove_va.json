@@ -1,0 +1,14 @@
+{
+  "name" : "picklist",
+  "type" : "xyz_preappove_va",
+  "label" : "Preappove Va",
+  "entries" : [ {
+    "label" : "Pre-Approved",
+    "value" : "1",
+    "type" : "integer"
+  }, {
+    "label" : "Denied",
+    "value" : "3",
+    "type" : "integer"
+  } ]
+}

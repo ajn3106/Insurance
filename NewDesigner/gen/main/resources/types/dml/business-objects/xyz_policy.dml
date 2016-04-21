@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<business-object-type label="Policy" parent="${contextPath}types/business-objects/xcp_rootbo" type="xyz_policy" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <properties>
+    <property label="First Name" length="64" name="first_name" type="string"/>
+    <property label="Last Name" length="64" name="last_name" type="string"/>
+    <property label="Address" length="64" name="new_string" type="string"/>
+    <property label="Age" length="64" name="age" type="string"/>
+    <property label="Coverage" name="coverage" type="float"/>
+    <property label="End date" name="end_date" type="datetime"/>
+  </properties>
+  <relationships>
+    <target name="xyz_vehicle_policy" rel="http://identifiers.emc.com/linkrel/target" type="${contextPath}types/relationships/xyz_vehicle_policy"/>
+  </relationships>
+  <links>
+    <link href="${contextPath}types/business-objects/xyz_policy" rel="self"/>
+    <link href="${contextPath}business-objects/xyz_policy" rel="http://identifiers.emc.com/linkrel/instances"/>
+    <link href="${contextPath}types/business-objects/xyz_policy/defaults" rel="http://identifiers.emc.com/linkrel/defaults"/>
+    <link rel="type"/>
+    <link rel="edit"/>
+    <link rel="canonical"/>
+    <link rel="http://identifiers.emc.com/linkrel/delete"/>
+    <link rel="http://identifiers.emc.com/linkrel/relations"/>
+  </links>
+</business-object-type>

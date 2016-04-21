@@ -1,0 +1,59 @@
+{
+  "name" : "business-object-type",
+  "type" : "xyz_vehicle",
+  "label" : "Vehicle",
+  "parent" : "${contextPath}types/business-objects/xcp_rootbo",
+  "properties" : [ {
+    "name" : "make",
+    "label" : "Make",
+    "valueAssist" : "${contextPath}types/picklists/xyz_make",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "model",
+    "label" : "Model",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "vehicle_year",
+    "label" : "Year",
+    "type" : "integer"
+  }, {
+    "name" : "vin",
+    "label" : "VIN",
+    "type" : "string",
+    "length" : 64
+  } ],
+  "relationships" : {
+    "target" : [ {
+      "rel" : "http://identifiers.emc.com/linkrel/target",
+      "name" : "xyz_claim_vehicle",
+      "type" : "${contextPath}types/relationships/xyz_claim_vehicle"
+    } ],
+    "source" : [ {
+      "rel" : "http://identifiers.emc.com/linkrel/source",
+      "name" : "xyz_vehicle_policy",
+      "type" : "${contextPath}types/relationships/xyz_vehicle_policy"
+    } ]
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "${contextPath}types/business-objects/xyz_vehicle"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/instances",
+    "href" : "${contextPath}business-objects/xyz_vehicle"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/defaults",
+    "href" : "${contextPath}types/business-objects/xyz_vehicle/defaults"
+  }, {
+    "rel" : "type"
+  }, {
+    "rel" : "edit"
+  }, {
+    "rel" : "canonical"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/delete"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/relations"
+  } ]
+}

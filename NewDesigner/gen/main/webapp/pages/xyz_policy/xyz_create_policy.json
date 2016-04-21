@@ -1,0 +1,179 @@
+{
+  "cls" : "xyz_policy_create_policy",
+  "padding" : "0",
+  "border" : false,
+  "pageTitle" : "${_UI_Page_xyz_create_policy_title}",
+  "xtype" : "xcp_form",
+  "modelImmutable" : true,
+  "models" : [ "xyz_policy_template" ],
+  "items" : [ {
+    "xtype" : "xcp_action_container",
+    "actions" : [ {
+      "xcpId" : "da_def_create_policy",
+      "actionModel" : "xyz_da_def_create_policy",
+      "actionType" : "create",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "new_string",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_create_policy_da_def_create_policy_new_string_1",
+          "events" : [ "new_string.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "end_date",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_create_policy_da_def_create_policy_end_date_1",
+          "events" : [ "end_date.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "last_name",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_create_policy_da_def_create_policy_last_name_1",
+          "events" : [ "last_name.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "coverage",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_create_policy_da_def_create_policy_coverage_1",
+          "events" : [ "coverage.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "first_name",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_create_policy_da_def_create_policy_first_name_1",
+          "events" : [ "first_name.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "age",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_create_policy_da_def_create_policy_age_1",
+          "events" : [ "age.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "object_name",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_create_policy_da_def_create_policy_object_name_1",
+          "events" : [ "first_name.change", "last_name.change" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+          "new_string" : ["new_string" ],
+          "end_date" : ["end_date" ],
+          "last_name" : ["last_name" ],
+          "coverage" : ["coverage" ],
+          "first_name" : ["first_name" ],
+          "age" : ["age" ],
+          "object_name" : ["first_name","last_name" ]
+        }
+      } ]
+    } ]
+  }, {
+    "xcpId" : "column_box",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "width" : "100%",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "first_name",
+        "xtype" : "xcp_text_input",
+        "fieldLabel" : "${_UI_Page_xyz_create_policy_first_name_fieldLabel}",
+        "hstretch" : true,
+        "valueType" : "STRING",
+        "name" : "xyz_policy_template@first_name"
+      }, {
+        "xcpId" : "last_name",
+        "xtype" : "xcp_text_input",
+        "fieldLabel" : "${_UI_Page_xyz_create_policy_last_name_fieldLabel}",
+        "hstretch" : true,
+        "valueType" : "STRING",
+        "name" : "xyz_policy_template@last_name"
+      }, {
+        "xcpId" : "new_string",
+        "xtype" : "xcp_text_input",
+        "fieldLabel" : "${_UI_Page_xyz_create_policy_new_string_fieldLabel}",
+        "hstretch" : true,
+        "valueType" : "STRING",
+        "name" : "xyz_policy_template@new_string"
+      }, {
+        "xcpId" : "age",
+        "xtype" : "xcp_text_input",
+        "fieldLabel" : "${_UI_Page_xyz_create_policy_age_fieldLabel}",
+        "hstretch" : true,
+        "valueType" : "STRING",
+        "name" : "xyz_policy_template@age"
+      }, {
+        "xcpId" : "coverage",
+        "xtype" : "xcp_number_input",
+        "fieldLabel" : "${_UI_Page_xyz_create_policy_coverage_fieldLabel}",
+        "allowDecimals" : true,
+        "hideTrigger" : true,
+        "keyNavEnabled" : false,
+        "mouseWheelEnabled" : false,
+        "autoStripChars" : true,
+        "hstretch" : true,
+        "valueType" : "FLOAT",
+        "name" : "xyz_policy_template@coverage"
+      }, {
+        "xcpId" : "end_date",
+        "xtype" : "xcp_date_time_input",
+        "fieldLabel" : "${_UI_Page_xyz_create_policy_end_date_fieldLabel}",
+        "hstretch" : true,
+        "format" : {
+          "xtype" : "xcp_datetime_formatter",
+          "dateFormat" : "short",
+          "timeFormat" : "short",
+          "dateStyle" : "datetime"
+        },
+        "valueType" : "DATETIME",
+        "name" : "xyz_policy_template@end_date"
+      } ]
+    } ]
+  }, {
+    "xcpId" : "column_box1",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnhbox",
+      "xtype" : "xcp_columnhbox",
+      "orientation" : "Horizontal",
+      "width" : "100%",
+      "overflow_x" : "hidden",
+      "labelWidth" : 50,
+      "defaultMargins" : "5",
+      "labelAlign" : "left",
+      "halign" : "right",
+      "valign" : "top",
+      "items" : [ {
+        "xcpId" : "button",
+        "xtype" : "xcp_button",
+        "text" : "${_UI_Page_xyz_create_policy_button_text}",
+        "actionInstanceId" : "da_def_create_policy",
+        "redirectStyle" : "application",
+        "showSuccessNotification" : true,
+        "showConfirmation" : false,
+        "pageSelectionType" : "page",
+        "redirectUrl" : "application/xyz_policy_search"
+      } ]
+    } ]
+  } ]
+}

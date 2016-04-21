@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<picklist label="Claim Status" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xyz_claim_status" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <entry label="Processing" type="integer" value="0"/>
+  <entry label="Pre-Approved" type="integer" value="1"/>
+  <entry label="Approved" type="integer" value="2"/>
+  <entry label="Denied" type="integer" value="3"/>
+</picklist>

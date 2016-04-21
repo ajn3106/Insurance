@@ -1,0 +1,22 @@
+{
+  "name" : "picklist",
+  "type" : "xyz_claim_status",
+  "label" : "Claim Status",
+  "entries" : [ {
+    "label" : "Processing",
+    "value" : "0",
+    "type" : "integer"
+  }, {
+    "label" : "Pre-Approved",
+    "value" : "1",
+    "type" : "integer"
+  }, {
+    "label" : "Approved",
+    "value" : "2",
+    "type" : "integer"
+  }, {
+    "label" : "Denied",
+    "value" : "3",
+    "type" : "integer"
+  } ]
+}

@@ -1,0 +1,105 @@
+{
+  "cls" : "xyz_create_claim",
+  "padding" : "0",
+  "border" : false,
+  "xtype" : "xcp_form",
+  "items" : [ {
+    "xtype" : "xcp_fragment_output",
+    "plugins" : [ {
+      "ptype" : "xcp_expression_properties",
+      "expression" : [ {
+        "propertyId" : "amount",
+        "setterFunName" : "setOutputValue",
+        "etype" : "xyz_create_claim_amount_1",
+        "events" : [ "amount.change" ],
+        "disableInitialEval" : false
+      }, {
+        "propertyId" : "claim_status",
+        "setterFunName" : "setOutputValue",
+        "etype" : "xyz_create_claim_claim_status_1",
+        "events" : [ "claim_status.change" ],
+        "disableInitialEval" : false
+      }, {
+        "propertyId" : "location",
+        "setterFunName" : "setOutputValue",
+        "etype" : "xyz_create_claim_location_1",
+        "events" : [ "location.change" ],
+        "disableInitialEval" : false
+      }, {
+        "propertyId" : "date",
+        "setterFunName" : "setOutputValue",
+        "etype" : "xyz_create_claim_date_1",
+        "events" : [ "date.change" ],
+        "disableInitialEval" : false
+      }, {
+        "propertyId" : "vim",
+        "setterFunName" : "setOutputValue",
+        "etype" : "xyz_create_claim_vim_1",
+        "events" : [ "vim.change" ],
+        "disableInitialEval" : false
+      } ]
+    } ]
+  }, {
+    "xcpId" : "column_box",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "amount",
+        "xtype" : "xcp_number_input",
+        "fieldLabel" : "${_UI_Page_xyz_create_claim_amount_fieldLabel}",
+        "allowDecimals" : false,
+        "hideTrigger" : true,
+        "keyNavEnabled" : false,
+        "mouseWheelEnabled" : false,
+        "autoStripChars" : true,
+        "hstretch" : true,
+        "valueType" : "INTEGER"
+      }, {
+        "xcpId" : "claim_status",
+        "xtype" : "xcp_dropdown_list",
+        "fieldLabel" : "${_UI_Page_xyz_create_claim_claim_status_fieldLabel}",
+        "store" : "xcp.picklist.xyz_claim_status",
+        "valueType" : "INTEGER"
+      }, {
+        "xcpId" : "location",
+        "xtype" : "xcp_text_input",
+        "fieldLabel" : "${_UI_Page_xyz_create_claim_location_fieldLabel}",
+        "hstretch" : true,
+        "valueType" : "STRING"
+      }, {
+        "xcpId" : "date",
+        "xtype" : "xcp_date_time_input",
+        "fieldLabel" : "${_UI_Page_xyz_create_claim_date_fieldLabel}",
+        "hstretch" : true,
+        "format" : {
+          "xtype" : "xcp_datetime_formatter",
+          "dateFormat" : "short",
+          "timeFormat" : "short",
+          "dateStyle" : "historical_date"
+        },
+        "valueType" : "DATETIME"
+      }, {
+        "xcpId" : "vim",
+        "xtype" : "xcp_checkbox",
+        "fieldLabel" : "${_UI_Page_xyz_create_claim_vim_fieldLabel}",
+        "boxLabel" : "${_UI_Page_xyz_create_claim_vim_boxLabel}",
+        "valueType" : "BOOLEAN"
+      } ]
+    } ]
+  } ]
+}

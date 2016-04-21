@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<tasklist-query-type label="tasklist" scope="CURRENT_USER" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xyz_tasklist" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <description/>
+  <processes>
+    <process ref="${contextPath}types/processes/xyz_approve_reject_claim"/>
+  </processes>
+  <properties>
+    <property label="Task Name" mapping="task.task_name" name="task_name" output-name="task_name" repeating="false" sortable="false" type="STRING"/>
+    <property label="Subject" mapping="task.subject" name="task_subject" output-name="task_subject" repeating="false" sortable="false" type="STRING"/>
+    <property label="Sent Date" mapping="task.sent_date" name="task_date_sent" output-name="task_date_sent" repeating="false" sortable="false" type="DATETIME"/>
+    <property label="Sender" mapping="task.sender" name="task_sent_by" output-name="task_sent_by" repeating="false" sortable="false" type="STRING"/>
+    <property label="Process Name" mapping="process.process_name" name="process_name" output-name="process_name" repeating="false" sortable="false" type="STRING"/>
+    <property label="Performer Name" mapping="task.performer_name" name="task_performer_name" output-name="task_performer_name" repeating="false" sortable="false" type="STRING"/>
+    <property label="Object ID" mandatory="true" mapping="task.id" name="id" output-name="id" repeating="false" sortable="false" type="STRING"/>
+    <property label="Workflow ID" mandatory="true" mapping="task.workflow_id" name="workflow_id" output-name="workflow_id" repeating="false" sortable="false" type="STRING"/>
+    <property label="Process System Name" mandatory="true" mapping="process.system_name" name="system_name" output-name="process_system_name" repeating="false" sortable="false" type="STRING"/>
+    <property label="Activity System Name" mandatory="true" mapping="task.activity_system_name" name="activity_system_name" output-name="activity_system_name" repeating="false" sortable="false" type="STRING"/>
+    <property label="Applicable Actions" mandatory="true" mapping="task.applicable_actions" name="applicable_actions" output-name="applicable_actions" repeating="false" sortable="false" type="STRING"/>
+  </properties>
+  <links>
+    <link href="${contextPath}types/tasklist-queries/xyz_tasklist" rel="self"/>
+    <link href="${contextPath}tasklist-queries/xyz_tasklist" rel="http://identifiers.emc.com/linkrel/instances"/>
+  </links>
+</tasklist-query-type>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsDatatypes:Folder xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:nsPicklist="http://xcp.emc.com/picklist" urn="urn:xyz:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder" categoryId="com.emc.xcp.artifact.folder" name="claim" label="Claim" commentable="true">
+  <attributes name="incident_date" label="Incident Date">
+    <type xsi:type="nsAttributeDatatypes:DateTimeType"/>
+  </attributes>
+  <attributes name="incident_location" label="Incident Location">
+    <type xsi:type="nsAttributeDatatypes:StringType" length="64"/>
+  </attributes>
+  <attributes name="amount" label="Amount">
+    <type xsi:type="nsAttributeDatatypes:FloatType"/>
+  </attributes>
+  <attributes name="vehicle_in_motion" label="Vehicle in motion">
+    <type xsi:type="nsAttributeDatatypes:BooleanType"/>
+  </attributes>
+  <attributes name="claim_status" label="Claim Status">
+    <type xsi:type="nsPicklist:PickListType">
+      <pickList href="urn:xyz:com.emc.xcp.artifact.picklist:Artifacts/Picklists/claim_status.picklist#/"/>
+    </type>
+  </attributes>
+  <accessControlPolicy inheritedFromParentFolder="true"/>
+  <defaultFolderPath exprStr="'/NewDesigner'"/>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_create_claim" label="Create Claim" implCategoryId="com.emc.xcp.artifact.folder">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="amount" label="Amount">
+      <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="claim_status" label="Claim Status">
+      <attributeType xsi:type="nsPicklist:PickListType">
+        <pickList href="urn:xyz:com.emc.xcp.artifact.picklist:Artifacts/Picklists/claim_status.picklist#/"/>
+      </attributeType>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="incident_date" label="Incident Date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="incident_location" label="Incident Location">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="vehicle_in_motion" label="Vehicle in motion">
+      <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Create"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_update_claim" label="Update Claim" implCategoryId="com.emc.xcp.artifact.folder">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="amount" label="Amount">
+      <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="claim_status" label="Claim Status">
+      <attributeType xsi:type="nsPicklist:PickListType">
+        <pickList href="urn:xyz:com.emc.xcp.artifact.picklist:Artifacts/Picklists/claim_status.picklist#/"/>
+      </attributeType>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="incident_date" label="Incident Date">
+      <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="incident_location" label="Incident Location">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="vehicle_in_motion" label="Vehicle in motion">
+      <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+    </inputs>
+    <primaryElement dataModel="/"/>
+    <actionType type="Update"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_delete_claim" label="Delete Claim" implCategoryId="com.emc.xcp.artifact.folder">
+    <primaryElement dataModel="/"/>
+    <actionType type="Delete"/>
+  </dataActionContracts>
+  <superType xsi:type="nsDatatypes:Folder" href="urn:xcp:com.emc.xcp.artifact.folder:Artifacts/Folders/dm_folder.folder#/"/>
+</nsDatatypes:Folder>

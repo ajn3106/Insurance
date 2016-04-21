@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<process-type label=" Vehicle create &amp; relate to policy" runnable-stateless="true" type="xyz__vehicle_create_relate_to_policy" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <urn>urn:xyz:com.emc.ide.artifact.process:Artifacts/Processes/_vehicle_create_relate_to_policy.process</urn>
+  <properties>
+    <property label="process_id" length="64" name="process_id" type="string"/>
+    <property label="status" length="64" name="status" type="string"/>
+    <property label="id" length="64" name="id" type="string"/>
+    <property label="r_runtime_state" name="r_runtime_state" type="integer"/>
+    <property label="correlation_identifier" length="64" name="correlation_identifier" type="string"/>
+    <property label="object_name" length="64" name="object_name" type="string"/>
+    <property label="r_creator_name" length="64" name="r_creator_name" type="string"/>
+    <property label="r_start_date" name="r_start_date" type="datetime"/>
+    <property label="supervisor_name" length="64" name="supervisor_name" type="string"/>
+    <property label="supervisor_address" length="64" name="supervisor_address" type="string"/>
+  </properties>
+  <tasks>
+    <task href="${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_initiate" rel="http://identifiers.emc.com/linkrel/task"/>
+    <task href="${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_create" rel="http://identifiers.emc.com/linkrel/task"/>
+    <task href="${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_relate_vehiicle_to_" rel="http://identifiers.emc.com/linkrel/task"/>
+    <task href="${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_select_relation_att" rel="http://identifiers.emc.com/linkrel/task"/>
+  </tasks>
+  <flows>
+    <flow flow-type="regular" source="${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_initiate" target="${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_create"/>
+    <flow flow-type="regular" source="${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_create" target="${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_relate_vehiicle_to_"/>
+    <flow flow-type="regular" source="${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_relate_vehiicle_to_" target="${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_select_relation_att"/>
+  </flows>
+  <data>
+    <packages>
+      <package input="false" label="vehicle" mandatory="false" name="vehicle" output="false" type="${contextPath}types/business-objects/xyz_vehicle" version-label="CURRENT" visible="true"/>
+    </packages>
+    <variables>
+      <variable default-value="" input="true" label="make" mandatory="false" name="make" output="false" repeating="false" type="string"/>
+      <variable default-value="" input="true" label="model" mandatory="false" name="model" output="false" repeating="false" type="string"/>
+      <variable default-value="" input="true" label="year" mandatory="false" name="year" output="false" repeating="false" type="integer"/>
+      <variable default-value="" input="true" label="vin" mandatory="false" name="vin" output="false" repeating="false" type="string"/>
+      <variable default-value="" input="true" label="policy_id" mandatory="false" name="policy_id" output="false" repeating="false" type="string"/>
+      <variable default-value="" input="true" label="start_date" mandatory="false" name="start_date" output="false" repeating="false" type="datetime"/>
+      <variable default-value="" input="true" label="end_date" mandatory="false" name="end_date" output="false" repeating="false" type="datetime"/>
+      <variable default-value="" input="true" label="notes" mandatory="false" name="notes" output="false" repeating="false" type="string"/>
+    </variables>
+  </data>
+  <links>
+    <link href="${contextPath}types/processes/xyz__vehicle_create_relate_to_policy" rel="self"/>
+    <link href="${contextPath}processes/xyz__vehicle_create_relate_to_policy" rel="http://identifiers.emc.com/linkrel/instances"/>
+    <link rel="http://identifiers.emc.com/linkrel/halt"/>
+    <link rel="http://identifiers.emc.com/linkrel/resume"/>
+    <link rel="http://identifiers.emc.com/linkrel/terminate"/>
+    <link rel="http://identifiers.emc.com/linkrel/tasks"/>
+    <link rel="http://identifiers.emc.com/linkrel/attachments"/>
+  </links>
+</process-type>

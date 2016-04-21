@@ -1,0 +1,207 @@
+{
+  "name" : "task-type",
+  "type" : "xyz_select_relation_att",
+  "label" : "Select Relation Attributes",
+  "process-type" : "xyz__vehicle_create_relate_to_policy",
+  "properties" : [ {
+    "name" : "id",
+    "label" : "id",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "act_name",
+    "label" : "act_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "activity_system_name",
+    "label" : "activity_system_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "process_system_name",
+    "label" : "process_system_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "qitem_id",
+    "label" : "qitem_id",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "status",
+    "label" : "status",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "creation_date",
+    "label" : "creation_date",
+    "type" : "datetime"
+  }, {
+    "name" : "performer",
+    "label" : "performer",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "performer_address",
+    "label" : "performer_address",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "state",
+    "label" : "state",
+    "type" : "integer"
+  }, {
+    "name" : "priority",
+    "label" : "priority",
+    "type" : "integer"
+  }, {
+    "name" : "task_subject",
+    "label" : "task_subject",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "instructions",
+    "label" : "instructions",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "received_date",
+    "label" : "received_date",
+    "type" : "datetime"
+  }, {
+    "name" : "due_date",
+    "label" : "due_date",
+    "type" : "datetime"
+  }, {
+    "name" : "received_from",
+    "label" : "received_from",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "queue_name",
+    "label" : "queue_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "isdelegable",
+    "label" : "isdelegable",
+    "type" : "boolean"
+  }, {
+    "name" : "isrepeatable",
+    "label" : "isrepeatable",
+    "type" : "boolean"
+  } ],
+  "data" : {
+    "packages" : [ {
+      "name" : "vehicle",
+      "label" : "vehicle",
+      "mandatory" : "false",
+      "visible" : "true",
+      "version-label" : "CURRENT",
+      "type" : "${contextPath}types/business-objects/xyz_vehicle"
+    } ],
+    "variables" : [ {
+      "name" : "policy_id",
+      "label" : "policy_id",
+      "type" : "string",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "visible" : true,
+      "use" : "input"
+    }, {
+      "name" : "vin",
+      "label" : "vin",
+      "type" : "string",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "visible" : true,
+      "use" : "input"
+    }, {
+      "name" : "notes",
+      "label" : "notes",
+      "type" : "string",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "visible" : true,
+      "use" : "input"
+    }, {
+      "name" : "start_date",
+      "label" : "start_date",
+      "type" : "datetime",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "visible" : true,
+      "use" : "input"
+    }, {
+      "name" : "make",
+      "label" : "make",
+      "type" : "string",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "visible" : true,
+      "use" : "input"
+    }, {
+      "name" : "year",
+      "label" : "year",
+      "type" : "integer",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "visible" : true,
+      "use" : "input"
+    }, {
+      "name" : "model",
+      "label" : "model",
+      "type" : "string",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "visible" : true,
+      "use" : "input"
+    }, {
+      "name" : "end_date",
+      "label" : "end_date",
+      "type" : "datetime",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "visible" : true,
+      "use" : "input"
+    } ]
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "${contextPath}types/processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_select_relation_att"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/instances",
+    "href" : "${contextPath}processes/xyz__vehicle_create_relate_to_policy/tasks/xyz_select_relation_att"
+  }, {
+    "rel" : "up"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/acquire"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/complete"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/reject"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/repeat"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/halt"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/resume"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/hold"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/unhold"
+  }, {
+    "rel" : "edit"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/attachments"
+  } ]
+}

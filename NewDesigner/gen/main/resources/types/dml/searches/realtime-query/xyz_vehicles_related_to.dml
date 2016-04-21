@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<realtime-query-type data-type="${contextPath}types/business-objects/xyz_vehicle" label="Vehicles related to policy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xyz_vehicles_related_to" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <description/>
+  <properties>
+    <property mapping="make" name="make" output-name="make" sortable="false" type="${contextPath}types/business-objects/xyz_vehicle"/>
+    <property mapping="model" name="model" output-name="model" sortable="false" type="${contextPath}types/business-objects/xyz_vehicle"/>
+    <property mapping="vehicle_year" name="vehicle_year" output-name="vehicle_year" sortable="false" type="${contextPath}types/business-objects/xyz_vehicle"/>
+    <property mapping="vin" name="vin" output-name="vin" sortable="false" type="${contextPath}types/business-objects/xyz_vehicle"/>
+    <property mandatory="true" mapping="r_object_id" name="r_object_id" output-name="id" sortable="false" type="${contextPath}types/business-objects/xyz_vehicle"/>
+    <property mapping="xyz_vehicle_policy.policy.xyz_policy.xyz_vehicle_policy.vehicle.start_date" name="start_date" output-name="policychild_policyvehiclestart_date" sortable="false" type="${contextPath}types/relationships/xyz_vehicle_policy"/>
+    <property mapping="xyz_vehicle_policy.policy.xyz_policy.xyz_vehicle_policy.vehicle.end_date" name="end_date" output-name="policychild_policyvehicleend_date" sortable="false" type="${contextPath}types/relationships/xyz_vehicle_policy"/>
+    <property mapping="xyz_vehicle_policy.policy.xyz_policy.xyz_vehicle_policy.vehicle.notes" name="notes" output-name="policychild_policyvehiclenotes" sortable="false" type="${contextPath}types/relationships/xyz_vehicle_policy"/>
+    <property label="" mandatory="true" mapping="r_object_type" name="r_object_type" output-name="r_object_type" sortable="false" type="${contextPath}types/business-objects/xyz_vehicle"/>
+    <property label="ACL Name" mandatory="true" mapping="acl_name" name="acl_name" output-name="acl_name" sortable="false" type="${contextPath}types/business-objects/xyz_vehicle"/>
+    <property label="ACL Domain" mandatory="true" mapping="acl_domain" name="acl_domain" output-name="acl_domain" sortable="false" type="${contextPath}types/business-objects/xyz_vehicle"/>
+    <property label="Owner Permit" mandatory="true" mapping="owner_permit" name="owner_permit" output-name="owner_permit" sortable="false" type="${contextPath}types/business-objects/xyz_vehicle"/>
+    <property label="Owner Name" mandatory="true" mapping="owner_name" name="owner_name" output-name="owner_name" sortable="false" type="${contextPath}types/business-objects/xyz_vehicle"/>
+    <property label="Lock Owner" mandatory="true" mapping="r_lock_owner" name="r_lock_owner" output-name="r_lock_owner" sortable="false" type="${contextPath}types/business-objects/xyz_vehicle"/>
+  </properties>
+  <expression-set operator="AND">
+    <property case-sensitive="true" input-name="input_object_id" input-type="form-input" mapping="xyz_vehicle_policy.policy.xyz_policy.r_object_id" name="r_object_id" operator="EQUAL" type="${contextPath}types/business-objects/xyz_policy"/>
+  </expression-set>
+  <links>
+    <link href="${contextPath}types/realtime-queries/xyz_vehicles_related_to" rel="self"/>
+    <link href="${contextPath}realtime-queries/xyz_vehicles_related_to" rel="http://identifiers.emc.com/linkrel/instances"/>
+  </links>
+  <options>
+    <option versions="LATEST"/>
+  </options>
+</realtime-query-type>

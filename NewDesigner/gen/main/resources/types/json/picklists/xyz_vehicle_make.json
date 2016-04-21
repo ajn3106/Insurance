@@ -1,0 +1,21 @@
+{
+  "name" : "picklist",
+  "type" : "xyz_vehicle_make",
+  "label" : "Vehicle Make",
+  "entries" : [ {
+    "label" : "Toyota",
+    "value" : "TOYO",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "label" : "Volkswagen",
+    "value" : "VOLKS",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "label" : "FORD motor Company",
+    "value" : "FORD",
+    "type" : "string",
+    "length" : 64
+  } ]
+}

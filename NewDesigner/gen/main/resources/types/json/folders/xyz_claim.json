@@ -1,0 +1,61 @@
+{
+  "name" : "folder-type",
+  "type" : "xyz_claim",
+  "label" : "Claim",
+  "commentable" : true,
+  "parent" : "${contextPath}types/folders/xcp_dm_folder",
+  "properties" : [ {
+    "name" : "incident_date",
+    "label" : "Incident Date",
+    "type" : "datetime"
+  }, {
+    "name" : "incident_location",
+    "label" : "Incident Location",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "amount",
+    "label" : "Amount",
+    "type" : "float"
+  }, {
+    "name" : "vehicle_in_motion",
+    "label" : "Vehicle in motion",
+    "type" : "boolean"
+  }, {
+    "name" : "claim_status",
+    "label" : "Claim Status",
+    "valueAssist" : "${contextPath}types/picklists/xyz_claim_status",
+    "type" : "integer"
+  } ],
+  "relationships" : {
+    "source" : [ {
+      "rel" : "http://identifiers.emc.com/linkrel/source",
+      "name" : "xyz_claim_vehicle",
+      "type" : "${contextPath}types/relationships/xyz_claim_vehicle"
+    } ]
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "${contextPath}types/folders/xyz_claim"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/instances",
+    "href" : "${contextPath}folders/xyz_claim"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/defaults",
+    "href" : "${contextPath}types/folders/xyz_claim/defaults"
+  }, {
+    "rel" : "type"
+  }, {
+    "rel" : "edit"
+  }, {
+    "rel" : "canonical"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/delete"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/comments"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/relations"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/objects"
+  } ]
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<folder-type commentable="true" label="Claim" parent="${contextPath}types/folders/xcp_dm_folder" type="xyz_claim" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <properties>
+    <property label="Incident Date" name="incident_date" type="datetime"/>
+    <property label="Incident Location" length="64" name="incident_location" type="string"/>
+    <property label="Amount" name="amount" type="float"/>
+    <property label="Vehicle in motion" name="vehicle_in_motion" type="boolean"/>
+    <property label="Claim Status" name="claim_status" type="integer" valueAssist="${contextPath}types/picklists/xyz_claim_status"/>
+  </properties>
+  <relationships>
+    <source name="xyz_claim_vehicle" rel="http://identifiers.emc.com/linkrel/source" type="${contextPath}types/relationships/xyz_claim_vehicle"/>
+  </relationships>
+  <links>
+    <link href="${contextPath}types/folders/xyz_claim" rel="self"/>
+    <link href="${contextPath}folders/xyz_claim" rel="http://identifiers.emc.com/linkrel/instances"/>
+    <link href="${contextPath}types/folders/xyz_claim/defaults" rel="http://identifiers.emc.com/linkrel/defaults"/>
+    <link rel="type"/>
+    <link rel="edit"/>
+    <link rel="canonical"/>
+    <link rel="http://identifiers.emc.com/linkrel/delete"/>
+    <link rel="http://identifiers.emc.com/linkrel/comments"/>
+    <link rel="http://identifiers.emc.com/linkrel/relations"/>
+    <link rel="http://identifiers.emc.com/linkrel/objects"/>
+  </links>
+</folder-type>

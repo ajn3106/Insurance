@@ -1,0 +1,63 @@
+{
+  "name" : "relationship-type",
+  "type" : "xyz_claim_vehicle",
+  "label" : "Claim-Vehicle",
+  "properties" : [ {
+    "name" : "source",
+    "label" : "source",
+    "length" : 16,
+    "type" : "string",
+    "readOnly" : true,
+    "description" : "This is a relationship source"
+  }, {
+    "name" : "target",
+    "label" : "target",
+    "length" : 16,
+    "type" : "string",
+    "readOnly" : true,
+    "description" : "This is a relationship target"
+  }, {
+    "name" : "r_object_id",
+    "label" : "Object ID",
+    "length" : 16,
+    "type" : "string",
+    "readOnly" : true,
+    "description" : "This is system generated unique id for the object. This is set by the system"
+  } ],
+  "source" : {
+    "name" : "xyz_claim",
+    "role-label" : "Vehicle",
+    "role-name" : "vehicle",
+    "minOccurs" : "1",
+    "maxOccurs" : "unbounded",
+    "href" : "${contextPath}types/folders/xyz_claim"
+  },
+  "target" : {
+    "name" : "xyz_vehicle",
+    "role-label" : "Claim",
+    "role-name" : "claim",
+    "minOccurs" : "1",
+    "maxOccurs" : "1",
+    "href" : "${contextPath}types/business-objects/xyz_vehicle"
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "${contextPath}types/relationships/xyz_claim_vehicle"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/instances",
+    "href" : "${contextPath}relationships/xyz_claim_vehicle"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/defaults",
+    "href" : "${contextPath}types/relationships/xyz_claim_vehicle/defaults"
+  }, {
+    "rel" : "type"
+  }, {
+    "rel" : "edit"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/delete"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/source"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/target"
+  } ]
+}

@@ -1,0 +1,557 @@
+{
+  "cls" : "xyz_approve_reject_claim_first_approval_approve_reject_clai",
+  "padding" : "0",
+  "border" : false,
+  "pageTitle" : "${_UI_Page_xyz_approve_reject_clai_title}",
+  "xtype" : "xcp_form",
+  "modelImmutable" : true,
+  "models" : [ "xyz_approve_reject_claim_first_approval" ],
+  "items" : [ {
+    "xtype" : "xcp_action_container",
+    "actions" : [ {
+      "xcpId" : "taskhistory_initiate_staless_ds",
+      "actionModel" : "xcp_taskhistory_initiate_staless_ds_outputs",
+      "inputModelName" : "xcp_taskhistory_initiate_staless_ds_inputs",
+      "actionType" : "datasource",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "processVariables.process_instance_id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_approve_reject_clai_taskhistory_initiate_staless_ds_processVariables_process_instance_id_1",
+          "events" : [ "xyz_approve_reject_claim_first_approval.change", "xyz_approve_reject_claim_first_approval.load" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+        }
+      } ],
+      "autoLoad" : false,
+      "invokerEvents" : ["xyz_approve_reject_claim_first_approval.load" ],
+      "pageSize" : 10
+    }, {
+      "xcpId" : "da_def_acquire_currenttask",
+      "actionType" : "xcp_acquire_task",
+      "actionModel" : "acquire_task_model",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_approve_reject_clai_da_def_acquire_currenttask_id_1",
+          "events" : [ "xyz_approve_reject_claim_first_approval.change", "xyz_approve_reject_claim_first_approval.load" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+        }
+      } ]
+    }, {
+      "xcpId" : "da_def_update_test_manual_task",
+      "actionModel" : "xyz_da_def_update_test_manual_task",
+      "actionType" : "xcp_update_task",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "processVariables.approved",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_approve_reject_clai_da_def_update_test_manual_task_processVariables_approved_1",
+          "events" : [ "dropdown_list.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "processPackages.claim.id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_approve_reject_clai_da_def_update_test_manual_task_processPackages_claim_id_1",
+          "events" : [ "xyz_approve_reject_claim_first_approval.change", "xyz_approve_reject_claim_first_approval.load" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_approve_reject_clai_da_def_update_test_manual_task_id_1",
+          "events" : [ "xyz_approve_reject_claim_first_approval.change", "xyz_approve_reject_claim_first_approval.load" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+          "processVariables.approved" : ["dropdown_list" ]
+        }
+      } ]
+    }, {
+      "xcpId" : "approve_reject_cl_2_1",
+      "actionModel" : "xyz_da_def_complete_test_manual_task",
+      "actionType" : "xcp_complete_task",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "processVariables.approved",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_approve_reject_clai_approve_reject_cl_2_1_processVariables_approved_1",
+          "events" : [ "dropdown_list.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "processPackages.claim.id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_approve_reject_clai_approve_reject_cl_2_1_processPackages_claim_id_1",
+          "events" : [ "xyz_approve_reject_claim_first_approval.change", "xyz_approve_reject_claim_first_approval.load" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_approve_reject_clai_approve_reject_cl_2_1_id_1",
+          "events" : [ "xyz_approve_reject_claim_first_approval.change", "xyz_approve_reject_claim_first_approval.load" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+          "processVariables.approved" : ["dropdown_list" ]
+        }
+      } ]
+    }, {
+      "xcpId" : "attachment_viewer_ds",
+      "actionModel" : "xcp_attachment_viewer_ds_outputs",
+      "inputModelName" : "xcp_attachment_viewer_ds_inputs",
+      "actionType" : "datasource",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ ],
+        "mapping" : {
+        }
+      } ],
+      "autoLoad" : false
+    }, {
+      "xcpId" : "approve_reject_cl_1_1",
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowId" : "xyz_approve_reject_cl_1",
+      "objectType" : "xyz_approve_reject_claim_first_approval",
+      "wizardConfig" : {
+        "height" : 450,
+        "width" : 640,
+        "modal" : true,
+        "autoScroll" : true,
+        "title" : "${_UI_Delegate_Task_Delegate_Task_label}"
+      },
+      "actionModel" : "xyz_da_def_delegate_test_manual_task",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "processVariables.approved",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_approve_reject_clai_approve_reject_cl_1_1_processVariables_approved_1",
+          "events" : [ "dropdown_list.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_approve_reject_clai_approve_reject_cl_1_1_id_1",
+          "events" : [ "xyz_approve_reject_claim_first_approval.change", "xyz_approve_reject_claim_first_approval.load" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+          "processVariables.approved" : ["dropdown_list" ]
+        }
+      } ]
+    }, {
+      "xcpId" : "approve_reject_clai_1",
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowId" : "xyz_approve_reject_clai",
+      "objectType" : "xyz_approve_reject_claim_first_approval",
+      "wizardConfig" : {
+        "height" : 450,
+        "width" : 640,
+        "modal" : true,
+        "autoScroll" : true,
+        "title" : "${_UI_Repeat_Task_Repeat_Task_label}"
+      },
+      "actionModel" : "xyz_da_def_repeat_test_manual_task",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "processVariables.approved",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_approve_reject_clai_approve_reject_clai_1_processVariables_approved_1",
+          "events" : [ "dropdown_list.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_approve_reject_clai_approve_reject_clai_1_id_1",
+          "events" : [ "xyz_approve_reject_claim_first_approval.change", "xyz_approve_reject_claim_first_approval.load" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+          "processVariables.approved" : ["dropdown_list" ]
+        }
+      } ]
+    }, {
+      "xcpId" : "hold_task_1",
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowId" : "xcp_hold_task",
+      "objectType" : "xcp_currenttask",
+      "wizardConfig" : {
+        "height" : 450,
+        "width" : 640,
+        "modal" : true,
+        "autoScroll" : true,
+        "title" : "${_UI_Hold_Task_Hold_Task_label}"
+      },
+      "actionModel" : "xcp_da_def_hold_currenttask",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_approve_reject_clai_hold_task_1_id_1",
+          "events" : [ "xyz_approve_reject_claim_first_approval.change", "xyz_approve_reject_claim_first_approval.load" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+        }
+      } ]
+    }, {
+      "xcpId" : "da_def_unhold_currenttask",
+      "actionModel" : "xcp_da_def_unhold_currenttask",
+      "actionType" : "xcp_unhold_task",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_approve_reject_clai_da_def_unhold_currenttask_id_1",
+          "events" : [ "xyz_approve_reject_claim_first_approval.change", "xyz_approve_reject_claim_first_approval.load" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+        }
+      } ]
+    } ]
+  }, {
+    "xcpId" : "column_box3",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnhbox",
+      "xtype" : "xcp_columnhbox",
+      "orientation" : "Horizontal",
+      "width" : "30%",
+      "overflow_x" : "hidden",
+      "labelWidth" : 200,
+      "defaultMargins" : "5",
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "items" : [ {
+        "xcpId" : "image",
+        "xtype" : "xcp_image",
+        "imageSource" : "urn:xcpcomm:com.emc.xcp.artifact.resource.image:Artifacts/Resources/task_32.png",
+        "behavior" : false,
+        "width" : 32,
+        "height" : 32,
+        "isInternal" : true,
+        "redirectStyle" : "specified"
+      }, {
+        "xcpId" : "task_subject",
+        "xtype" : "xcp_value_display",
+        "fieldLabel" : "",
+        "valueType" : "STRING",
+        "isRepeating" : false,
+        "name" : "xyz_approve_reject_claim_first_approval@executionData.currenttask.task_subject"
+      }, {
+        "xcpId" : "image1",
+        "xtype" : "xcp_image",
+        "imageSource" : "urn:xcpcomm:com.emc.xcp.artifact.resource.image:Artifacts/Resources/task_priority_high.png",
+        "behavior" : false,
+        "width" : 9,
+        "height" : 16,
+        "isInternal" : true,
+        "redirectStyle" : "specified",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "hidden",
+            "setterFunName" : "setHidden",
+            "etype" : "xyz_approve_reject_clai_image1_hidden_1",
+            "events" : [ "xyz_approve_reject_claim_first_approval.change", "xyz_approve_reject_claim_first_approval.load" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : true,
+            "initialDefaultExprValue" : "true"
+          } ]
+        } ]
+      }, {
+        "xcpId" : "image2",
+        "xtype" : "xcp_image",
+        "imageSource" : "urn:xcpcomm:com.emc.xcp.artifact.resource.image:Artifacts/Resources/task_priority_low.png",
+        "behavior" : false,
+        "width" : 9,
+        "height" : 16,
+        "isInternal" : true,
+        "redirectStyle" : "specified",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "hidden",
+            "setterFunName" : "setHidden",
+            "etype" : "xyz_approve_reject_clai_image2_hidden_1",
+            "events" : [ "xyz_approve_reject_claim_first_approval.change", "xyz_approve_reject_claim_first_approval.load" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : true,
+            "initialDefaultExprValue" : "true"
+          } ]
+        } ]
+      } ]
+    }, {
+      "xcpId" : "columnhbox1",
+      "xtype" : "xcp_columnhbox",
+      "orientation" : "Horizontal",
+      "width" : "70%",
+      "overflow_x" : "hidden",
+      "labelWidth" : 200,
+      "defaultMargins" : "5",
+      "labelAlign" : "left",
+      "halign" : "right",
+      "valign" : "top",
+      "items" : [ {
+        "xcpId" : "update",
+        "xtype" : "xcp_button",
+        "text" : "${_UI_Page_xyz_approve_reject_clai_update_text}",
+        "actionInstanceId" : "da_def_update_test_manual_task",
+        "defaultConfirmationPrompt" : "Are you sure you want to update this task?",
+        "showConfirmation" : false,
+        "redirectStyle" : "current",
+        "pageSelectionType" : "page",
+        "showSuccessNotification" : true
+      }, {
+        "xcpId" : "close",
+        "xtype" : "xcp_button",
+        "text" : "${_UI_Page_xyz_approve_reject_clai_close_text}",
+        "action" : {
+          "redirectStyle" : "application",
+          "actionType" : "xcp_gotopage",
+          "pageSelectionType" : "page",
+          "redirectUrl" : "application/xyz_base_daseboard"
+        }
+      }, {
+        "xcpId" : "button",
+        "xtype" : "xcp_button",
+        "text" : "${_UI_Page_xyz_approve_reject_clai_button_text}",
+        "actionInstanceId" : "da_def_acquire_currenttask",
+        "defaultConfirmationPrompt" : "Are you sure you want to Acquire this task?",
+        "showConfirmation" : false,
+        "redirectStyle" : "current",
+        "pageSelectionType" : "page",
+        "showSuccessNotification" : true,
+        "actionModel" : "acquire_task_model"
+      }, {
+        "xcpId" : "button2",
+        "xtype" : "xcp_button",
+        "text" : "${_UI_Page_xyz_approve_reject_clai_button2_text}",
+        "actionInstanceId" : "approve_reject_cl_2_1",
+        "defaultConfirmationPrompt" : "Are you sure you want to complete this task?",
+        "showConfirmation" : false,
+        "redirectStyle" : "current",
+        "pageSelectionType" : "page",
+        "showSuccessNotification" : true
+      } ]
+    } ]
+  }, {
+    "xcpId" : "column_box4",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox4",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "width" : "30%",
+      "overflow_x" : "hidden",
+      "labelWidth" : 100,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "state",
+        "xtype" : "xcp_value_display",
+        "fieldLabel" : "${_UI_Page_xyz_approve_reject_clai_state_fieldLabel}",
+        "valueType" : "xcp.picklist.xcp_task_state",
+        "isRepeating" : false,
+        "format" : {
+          "xtype" : "xcp_integer_formatter",
+          "decimalPrecision" : 0,
+          "useThousandSeparator" : true,
+          "separatorStyle" : "LOCALE",
+          "negativeNumberStyle" : "FORMAT_MINUS_SIGN_STYLE_NONE"
+        },
+        "store" : "xcp.picklist.xcp_task_state",
+        "name" : "xyz_approve_reject_claim_first_approval@executionData.currenttask.state"
+      }, {
+        "xcpId" : "received_date",
+        "xtype" : "xcp_value_display",
+        "fieldLabel" : "${_UI_Page_xyz_approve_reject_clai_received_date_fieldLabel}",
+        "valueType" : "DATETIME",
+        "isRepeating" : false,
+        "format" : {
+          "xtype" : "xcp_datetime_formatter",
+          "dateFormat" : "short",
+          "timeFormat" : "short",
+          "dateStyle" : "datetime"
+        },
+        "name" : "xyz_approve_reject_claim_first_approval@executionData.currenttask.received_date"
+      }, {
+        "xcpId" : "performer",
+        "xtype" : "xcp_value_display",
+        "fieldLabel" : "${_UI_Page_xyz_approve_reject_clai_performer_fieldLabel}",
+        "valueType" : "STRING",
+        "isRepeating" : false,
+        "name" : "xyz_approve_reject_claim_first_approval@executionData.currenttask.performer"
+      }, {
+        "xcpId" : "due_date",
+        "xtype" : "xcp_value_display",
+        "fieldLabel" : "${_UI_Page_xyz_approve_reject_clai_due_date_fieldLabel}",
+        "valueType" : "DATETIME",
+        "isRepeating" : false,
+        "format" : {
+          "xtype" : "xcp_datetime_formatter",
+          "dateFormat" : "short",
+          "timeFormat" : "short",
+          "dateStyle" : "datetime"
+        },
+        "name" : "xyz_approve_reject_claim_first_approval@executionData.currenttask.due_date"
+      } ]
+    }, {
+      "xcpId" : "columnhbox2",
+      "xtype" : "xcp_columnhbox",
+      "orientation" : "Horizontal",
+      "width" : "70%",
+      "overflow_x" : "hidden",
+      "labelWidth" : 100,
+      "defaultMargins" : "5",
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "items" : [ {
+        "xcpId" : "instructions",
+        "xtype" : "xcp_value_display",
+        "fieldLabel" : "",
+        "valueType" : "STRING",
+        "isRepeating" : false,
+        "name" : "xyz_approve_reject_claim_first_approval@executionData.currenttask.instructions"
+      } ]
+    } ]
+  }, {
+    "xcpId" : "tab_group",
+    "xtype" : "xcp_tab_group",
+    "tabPosition" : "top",
+    "minWidth" : 450,
+    "items" : [ {
+      "xcpId" : "tab",
+      "xtype" : "xcp_tab",
+      "title" : "${_UI_Page_xyz_approve_reject_clai_tab_title}",
+      "items" : [ {
+        "xcpId" : "column_box1",
+        "xtype" : "xcp_column_box",
+        "title" : "${_UI_Page_xyz_approve_reject_clai_column_box1_title}",
+        "collapsible" : false,
+        "collapsed" : false,
+        "collapseFirst" : true,
+        "border" : false,
+        "defaultMargins" : "5",
+        "layout" : "xcp_columnbox",
+        "items" : [ {
+          "xcpId" : "columnvbox1",
+          "xtype" : "xcp_columnvbox",
+          "orientation" : "Vertical",
+          "width" : "100%",
+          "overflow_x" : "hidden",
+          "labelWidth" : 150,
+          "labelAlign" : "left",
+          "halign" : "left",
+          "valign" : "top",
+          "defaultMargins" : "5",
+          "items" : [ {
+            "xcpId" : "dropdown_list",
+            "xtype" : "xcp_dropdown_list",
+            "fieldLabel" : "${_UI_Page_xyz_approve_reject_clai_dropdown_list_fieldLabel}",
+            "store" : "xcp.picklist.xyz_preappove_va",
+            "valueType" : "INTEGER",
+            "name" : "xyz_approve_reject_claim_first_approval@processVariables.approved"
+          } ]
+        } ]
+      } ]
+    }, {
+      "xcpId" : "tab2",
+      "xtype" : "xcp_tab",
+      "title" : "${_UI_Page_xyz_approve_reject_clai_tab2_title}",
+      "items" : [ {
+        "xcpId" : "results_list",
+        "xtype" : "xcp_results_list",
+        "typeName" : "xcp_taskhistory_initiate",
+        "modelName" : "xcp_taskhistory_initiate_staless_ds_outputs",
+        "storeId" : "taskhistory_initiate_staless_ds",
+        "pageSize" : 10,
+        "selectionModel" : false,
+        "enableDragDrop" : true,
+        "disableNavigationOnFirstColumn" : false,
+        "allowDeselect" : false,
+        "columns" : [ {
+          "xcpId" : "results_list_page_link_column",
+          "xtype" : "xcp_results_list_page_link_column",
+          "text" : "${_UI_Page_xyz_approve_reject_clai_results_list_page_link_column_text}",
+          "width" : 150,
+          "dataIndex" : "activity_name",
+          "valueType" : "STRING",
+          "isRepeating" : false,
+          "sortable" : false,
+          "menuDisabled" : true
+        }, {
+          "xcpId" : "results_list_column",
+          "xtype" : "xcp_results_list_column",
+          "text" : "${_UI_Page_xyz_approve_reject_clai_results_list_column_text}",
+          "width" : 150,
+          "dataIndex" : "date",
+          "valueType" : "DATETIME",
+          "isRepeating" : false,
+          "format" : {
+            "xtype" : "xcp_datetime_formatter",
+            "dateFormat" : "short",
+            "timeFormat" : "short",
+            "dateStyle" : "datetime"
+          },
+          "sortable" : false,
+          "menuDisabled" : true
+        }, {
+          "xcpId" : "results_list_column1",
+          "xtype" : "xcp_results_list_column",
+          "text" : "${_UI_Page_xyz_approve_reject_clai_results_list_column1_text}",
+          "width" : 150,
+          "dataIndex" : "performer",
+          "valueType" : "STRING",
+          "isRepeating" : false,
+          "sortable" : false,
+          "menuDisabled" : true
+        }, {
+          "xcpId" : "results_list_column2",
+          "xtype" : "xcp_results_list_column",
+          "text" : "${_UI_Page_xyz_approve_reject_clai_results_list_column2_text}",
+          "dataIndex" : "status",
+          "valueType" : "xcp.picklist.xcp_task_state",
+          "isRepeating" : false,
+          "format" : {
+            "xtype" : "xcp_integer_formatter",
+            "decimalPrecision" : 0,
+            "useThousandSeparator" : true,
+            "separatorStyle" : "LOCALE",
+            "negativeNumberStyle" : "FORMAT_MINUS_SIGN_STYLE_NONE"
+          },
+          "sortable" : false,
+          "menuDisabled" : true
+        } ]
+      } ]
+    } ]
+  } ],
+  "childModelsToLoad" : [ "xyz_approve_reject_claim_first_approval.executionData.currenttask" ]
+}

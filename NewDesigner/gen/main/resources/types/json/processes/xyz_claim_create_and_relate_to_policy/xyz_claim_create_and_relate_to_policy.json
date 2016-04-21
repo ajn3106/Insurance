@@ -1,0 +1,166 @@
+{
+  "name" : "process-type",
+  "type" : "xyz_claim_create_and_relate_to_policy",
+  "label" : "Claim Create and Relate to policy",
+  "runnable-stateless" : true,
+  "urn" : "urn:xyz:com.emc.ide.artifact.process:Artifacts/Processes/claim_create_and_relate_to_policy.process",
+  "properties" : [ {
+    "name" : "process_id",
+    "label" : "process_id",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "status",
+    "label" : "status",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "id",
+    "label" : "id",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "r_runtime_state",
+    "label" : "r_runtime_state",
+    "type" : "integer"
+  }, {
+    "name" : "correlation_identifier",
+    "label" : "correlation_identifier",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "object_name",
+    "label" : "object_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "r_creator_name",
+    "label" : "r_creator_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "r_start_date",
+    "label" : "r_start_date",
+    "type" : "datetime"
+  }, {
+    "name" : "supervisor_name",
+    "label" : "supervisor_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "supervisor_address",
+    "label" : "supervisor_address",
+    "type" : "string",
+    "length" : 64
+  } ],
+  "tasks" : [ {
+    "rel" : "http://identifiers.emc.com/linkrel/task",
+    "href" : "${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_initiate"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/task",
+    "href" : "${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_create"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/task",
+    "href" : "${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_relate_policy_and_v"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/task",
+    "href" : "${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_call_process"
+  } ],
+  "flows" : [ {
+    "source" : "${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_initiate",
+    "target" : "${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_create",
+    "flow-type" : "regular"
+  }, {
+    "source" : "${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_create",
+    "target" : "${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_relate_policy_and_v",
+    "flow-type" : "regular"
+  }, {
+    "source" : "${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_relate_policy_and_v",
+    "target" : "${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_call_process",
+    "flow-type" : "regular"
+  } ],
+  "data" : {
+    "packages" : [ {
+      "name" : "claim",
+      "label" : "claim",
+      "mandatory" : false,
+      "visible" : true,
+      "version-label" : "CURRENT",
+      "type" : "${contextPath}types/folders/xyz_claim",
+      "input" : false,
+      "output" : false
+    } ],
+    "variables" : [ {
+      "name" : "amount",
+      "label" : "amount",
+      "type" : "float",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "input" : true,
+      "output" : false
+    }, {
+      "name" : "incident_date",
+      "label" : "incident_date",
+      "type" : "datetime",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "input" : true,
+      "output" : false
+    }, {
+      "name" : "incident_location",
+      "label" : "incident_location",
+      "type" : "string",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "input" : true,
+      "output" : false
+    }, {
+      "name" : "vehicle_in_motion",
+      "label" : "vehicle_in_motion",
+      "type" : "boolean",
+      "repeating" : false,
+      "default-value" : "false",
+      "mandatory" : false,
+      "input" : true,
+      "output" : false
+    }, {
+      "name" : "vehicle_id",
+      "label" : "vehicle_id",
+      "type" : "string",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "input" : true,
+      "output" : false
+    }, {
+      "name" : "policy_id",
+      "label" : "policy_id",
+      "type" : "string",
+      "repeating" : false,
+      "default-value" : null,
+      "mandatory" : false,
+      "input" : true,
+      "output" : false
+    } ]
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "${contextPath}types/processes/xyz_claim_create_and_relate_to_policy"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/instances",
+    "href" : "${contextPath}processes/xyz_claim_create_and_relate_to_policy"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/halt"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/resume"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/terminate"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/tasks"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/attachments"
+  } ]
+}

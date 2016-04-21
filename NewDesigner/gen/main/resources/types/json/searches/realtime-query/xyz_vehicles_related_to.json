@@ -1,0 +1,126 @@
+{
+  "name" : "realtime-query-type",
+  "type" : "xyz_vehicles_related_to",
+  "label" : "Vehicles related to policy",
+  "data-type" : "${contextPath}types/business-objects/xyz_vehicle",
+  "description" : "",
+  "properties" : [ {
+    "name" : "make",
+    "output-name" : "make",
+    "type" : "${contextPath}types/business-objects/xyz_vehicle",
+    "mapping" : "make",
+    "sortable" : "false"
+  }, {
+    "name" : "model",
+    "output-name" : "model",
+    "type" : "${contextPath}types/business-objects/xyz_vehicle",
+    "mapping" : "model",
+    "sortable" : "false"
+  }, {
+    "name" : "vehicle_year",
+    "output-name" : "vehicle_year",
+    "type" : "${contextPath}types/business-objects/xyz_vehicle",
+    "mapping" : "vehicle_year",
+    "sortable" : "false"
+  }, {
+    "name" : "vin",
+    "output-name" : "vin",
+    "type" : "${contextPath}types/business-objects/xyz_vehicle",
+    "mapping" : "vin",
+    "sortable" : "false"
+  }, {
+    "name" : "r_object_id",
+    "output-name" : "id",
+    "type" : "${contextPath}types/business-objects/xyz_vehicle",
+    "mapping" : "r_object_id",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "name" : "start_date",
+    "output-name" : "policychild_policyvehiclestart_date",
+    "type" : "${contextPath}types/relationships/xyz_vehicle_policy",
+    "mapping" : "xyz_vehicle_policy.policy.xyz_policy.xyz_vehicle_policy.vehicle.start_date",
+    "sortable" : "false"
+  }, {
+    "name" : "end_date",
+    "output-name" : "policychild_policyvehicleend_date",
+    "type" : "${contextPath}types/relationships/xyz_vehicle_policy",
+    "mapping" : "xyz_vehicle_policy.policy.xyz_policy.xyz_vehicle_policy.vehicle.end_date",
+    "sortable" : "false"
+  }, {
+    "name" : "notes",
+    "output-name" : "policychild_policyvehiclenotes",
+    "type" : "${contextPath}types/relationships/xyz_vehicle_policy",
+    "mapping" : "xyz_vehicle_policy.policy.xyz_policy.xyz_vehicle_policy.vehicle.notes",
+    "sortable" : "false"
+  }, {
+    "name" : "r_object_type",
+    "output-name" : "r_object_type",
+    "type" : "${contextPath}types/business-objects/xyz_vehicle",
+    "mapping" : "r_object_type",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "label" : "ACL Name",
+    "name" : "acl_name",
+    "output-name" : "acl_name",
+    "type" : "${contextPath}types/business-objects/xyz_vehicle",
+    "mapping" : "acl_name",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "label" : "ACL Domain",
+    "name" : "acl_domain",
+    "output-name" : "acl_domain",
+    "type" : "${contextPath}types/business-objects/xyz_vehicle",
+    "mapping" : "acl_domain",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "label" : "Owner Permit",
+    "name" : "owner_permit",
+    "output-name" : "owner_permit",
+    "type" : "${contextPath}types/business-objects/xyz_vehicle",
+    "mapping" : "owner_permit",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "label" : "Owner Name",
+    "name" : "owner_name",
+    "output-name" : "owner_name",
+    "type" : "${contextPath}types/business-objects/xyz_vehicle",
+    "mapping" : "owner_name",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "label" : "Lock Owner",
+    "name" : "r_lock_owner",
+    "output-name" : "r_lock_owner",
+    "type" : "${contextPath}types/business-objects/xyz_vehicle",
+    "mapping" : "r_lock_owner",
+    "sortable" : "false",
+    "mandatory" : "true"
+  } ],
+  "expression-set" : {
+    "properties" : [ {
+      "name" : "r_object_id",
+      "type" : "${contextPath}types/business-objects/xyz_policy",
+      "mapping" : "xyz_vehicle_policy.policy.xyz_policy.r_object_id",
+      "input-type" : "form-input",
+      "operator" : "EQUAL",
+      "value" : "",
+      "case-sensitive" : "true"
+    } ],
+    "operator" : "AND"
+  },
+  "options" : [ {
+    "versions" : "LATEST"
+  } ],
+  "links" : [ {
+    "rel" : "self",
+    "href" : "${contextPath}types/realtime-queries/xyz_vehicles_related_to"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/instances",
+    "href" : "${contextPath}realtime-queries/xyz_vehicles_related_to"
+  } ]
+}

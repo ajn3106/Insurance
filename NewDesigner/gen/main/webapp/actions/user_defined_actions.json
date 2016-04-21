@@ -1,0 +1,1514 @@
+{
+  "xyz_approve_reject_claim_second_approval" : {
+    "xyz_approve_reject_cl_4" : {
+      "flowDef" : {
+        "action-type" : "DelegateTask",
+        "actionmodel" : {
+          "name" : "xyz_da_def_delegate_test_manual_task_1",
+          "attribute-mapping" : {
+            "xtype" : "xcp_actionflow_input_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ ]
+            } ]
+          }
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_usergroup_selection",
+        "view-state" : [ {
+          "id" : "viewState_usergroup_selection",
+          "xcpId" : "usergroup_selection",
+          "pageUrl" : "application/xcp_usergroup_selection",
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_",
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_",
+          "actionType" : "xcp_delegate_task",
+          "actionModel" : "xyz_da_def_delegate_test_manual_task_1",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "processVariables.approved",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_4_da_actionflow__processVariables_approved_1"
+            }, {
+              "propertyId" : "processPackages.claim.object_name",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_4_da_actionflow__processPackages_claim_object_name_1"
+            }, {
+              "propertyId" : "processPackages.claim.amount",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_4_da_actionflow__processPackages_claim_amount_1"
+            }, {
+              "propertyId" : "processPackages.claim.claim_status",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_4_da_actionflow__processPackages_claim_claim_status_1"
+            }, {
+              "propertyId" : "processPackages.claim.incident_date",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_4_da_actionflow__processPackages_claim_incident_date_1"
+            }, {
+              "propertyId" : "processPackages.claim.incident_location",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_4_da_actionflow__processPackages_claim_incident_location_1"
+            }, {
+              "propertyId" : "processPackages.claim.vehicle_in_motion",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_4_da_actionflow__processPackages_claim_vehicle_in_motion_1"
+            }, {
+              "propertyId" : "processPackages.claim.id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_4_da_actionflow__processPackages_claim_id_1"
+            }, {
+              "propertyId" : "attachments",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_4_da_actionflow__attachments_1"
+            }, {
+              "propertyId" : "id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_4_da_actionflow__id_1"
+            }, {
+              "propertyId" : "userName",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_4_da_actionflow__userName_1",
+              "required" : true,
+              "events" : [ "usergroup_selection.username_dropdown_list.change" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    },
+    "xyz_approve_reject_cl_3" : {
+      "flowDef" : {
+        "action-type" : "RepeatTask",
+        "actionmodel" : {
+          "name" : "xyz_da_def_repeat_test_manual_task_1",
+          "attribute-mapping" : {
+            "xtype" : "xcp_actionflow_input_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ ]
+            } ]
+          }
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_usergroup_selection_multi",
+        "view-state" : [ {
+          "id" : "viewState_usergroup_selection_multi",
+          "xcpId" : "usergroup_selection_multi",
+          "pageUrl" : "application/xcp_usergroup_selection_multi",
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_",
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_",
+          "actionType" : "xcp_repeat_task",
+          "actionModel" : "xyz_da_def_repeat_test_manual_task_1",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "processVariables.approved",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_3_da_actionflow__processVariables_approved_1"
+            }, {
+              "propertyId" : "processPackages.claim.object_name",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_3_da_actionflow__processPackages_claim_object_name_1"
+            }, {
+              "propertyId" : "processPackages.claim.amount",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_3_da_actionflow__processPackages_claim_amount_1"
+            }, {
+              "propertyId" : "processPackages.claim.claim_status",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_3_da_actionflow__processPackages_claim_claim_status_1"
+            }, {
+              "propertyId" : "processPackages.claim.incident_date",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_3_da_actionflow__processPackages_claim_incident_date_1"
+            }, {
+              "propertyId" : "processPackages.claim.incident_location",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_3_da_actionflow__processPackages_claim_incident_location_1"
+            }, {
+              "propertyId" : "processPackages.claim.vehicle_in_motion",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_3_da_actionflow__processPackages_claim_vehicle_in_motion_1"
+            }, {
+              "propertyId" : "processPackages.claim.id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_3_da_actionflow__processPackages_claim_id_1"
+            }, {
+              "propertyId" : "attachments",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_3_da_actionflow__attachments_1"
+            }, {
+              "propertyId" : "id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_3_da_actionflow__id_1"
+            }, {
+              "propertyId" : "userName",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_3_da_actionflow__userName_1",
+              "required" : true,
+              "events" : [ "usergroup_selection_multi.username_dropdown_list.change" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    }
+  },
+  "xcp_dm_document" : {
+    "xcp_selector_content" : {
+      "flowDef" : {
+        "action-type" : "Custom",
+        "actionmodel" : {
+          "name" : "xcp_da_def_selector_rootbo"
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_selector_content_st",
+        "view-state" : [ {
+          "id" : "viewState_selector_content_st",
+          "xcpId" : "selector_content_st",
+          "pageUrl" : "xcp_dm_document/xcp_dm_document_xcp_selector_content_st",
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_selector_content",
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_selector_content",
+          "actionType" : "selector",
+          "actionModel" : "xcp_da_def_selector_rootbo",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "selection",
+              "setterFunName" : "setInputProperty",
+              "etype" : "selector_content_da_actionflow_selector_content_selection_1",
+              "events" : [ "selector_content_st.results_list.selectionchange" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    },
+    "xcp_attachment_sel" : {
+      "flowDef" : {
+        "action-type" : "Custom",
+        "actionmodel" : {
+          "name" : "xcp_attachment_sel",
+          "attribute-mapping" : {
+            "xtype" : "xcp_actionflow_input_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ ]
+            } ]
+          }
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_attachment_selector",
+        "view-state" : [ {
+          "id" : "viewState_attachment_selector",
+          "xcpId" : "attachment_step",
+          "pageUrl" : "xcp_dm_document/xcp_dm_document_xcp_attachment_step",
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_attachment_selector",
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_attachment_selector",
+          "actionType" : "selector",
+          "actionModel" : "xcp_da_def_selector_rootbo",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "selection",
+              "setterFunName" : "setInputProperty",
+              "etype" : "attachment_sel_da_actionflow_attachment_selector_selection_1",
+              "events" : [ "attachment_step.results_list.selectionchange" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    }
+  },
+  "xcp_currenttask" : {
+    "xcp_assign_task" : {
+      "flowDef" : {
+        "action-type" : "AssignTask",
+        "actionmodel" : {
+          "name" : "xcp_da_def_assign_currenttask",
+          "attribute-mapping" : {
+            "xtype" : "xcp_actionflow_input_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ ]
+            } ]
+          }
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_user_from_queue",
+        "view-state" : [ {
+          "id" : "viewState_user_from_queue",
+          "xcpId" : "user_from_queue",
+          "pageUrl" : "application/xcp_user_from_queue",
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_assign_task",
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_assign_task",
+          "actionType" : "xcp_assign_task",
+          "actionModel" : "xcp_da_def_assign_currenttask",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "assign_task_da_actionflow_assign_task_id_1"
+            }, {
+              "propertyId" : "userName",
+              "setterFunName" : "setInputProperty",
+              "etype" : "assign_task_da_actionflow_assign_task_userName_1",
+              "events" : [ "user_from_queue.dropdown_list.change" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    },
+    "xcp_changeworkqueue" : {
+      "flowDef" : {
+        "action-type" : "ChangeWorkQueue",
+        "actionmodel" : {
+          "name" : "xcp_da_def_changeworkqueue",
+          "attribute-mapping" : {
+            "xtype" : "xcp_actionflow_input_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ ]
+            } ]
+          }
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_queue_selection",
+        "view-state" : [ {
+          "id" : "viewState_queue_selection",
+          "xcpId" : "queue_selection",
+          "pageUrl" : "application/xcp_queue_selection",
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_changeworkqueue",
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_changeworkqueue",
+          "actionType" : "xcp_changeworkqueue",
+          "actionModel" : "xcp_da_def_changeworkqueue",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "changeworkqueue_da_actionflow_changeworkqueue_id_1"
+            }, {
+              "propertyId" : "queueName",
+              "setterFunName" : "setInputProperty",
+              "etype" : "changeworkqueue_da_actionflow_changeworkqueue_queueName_1",
+              "events" : [ "queue_selection.queue_dropdown_list.change" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    },
+    "xcp_reassign_task" : {
+      "flowDef" : {
+        "action-type" : "ReassignTask",
+        "actionmodel" : {
+          "name" : "xcp_da_def_reassign_currenttask",
+          "attribute-mapping" : {
+            "xtype" : "xcp_actionflow_input_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ ]
+            } ]
+          }
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_user_from_queue",
+        "view-state" : [ {
+          "id" : "viewState_user_from_queue",
+          "xcpId" : "user_from_queue",
+          "pageUrl" : "application/xcp_user_from_queue",
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_reassign_task",
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_reassign_task",
+          "actionType" : "xcp_reassign_task",
+          "actionModel" : "xcp_da_def_reassign_currenttask",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "reassign_task_da_actionflow_reassign_task_id_1"
+            }, {
+              "propertyId" : "userName",
+              "setterFunName" : "setInputProperty",
+              "etype" : "reassign_task_da_actionflow_reassign_task_userName_1",
+              "events" : [ "user_from_queue.dropdown_list.change" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    },
+    "xcp_hold_task" : {
+      "flowDef" : {
+        "action-type" : "HoldTask",
+        "actionmodel" : {
+          "name" : "xcp_da_def_hold_currenttask",
+          "attribute-mapping" : {
+            "xtype" : "xcp_actionflow_input_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ ]
+            } ]
+          }
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_hold_task",
+        "view-state" : [ {
+          "id" : "viewState_hold_task",
+          "xcpId" : "hold_task",
+          "pageUrl" : "application/xcp_hold_task",
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_hold_task",
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_hold_task",
+          "actionType" : "xcp_hold_task",
+          "actionModel" : "xcp_da_def_hold_currenttask",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "hold_task_da_actionflow_hold_task_id_1"
+            }, {
+              "propertyId" : "holdUntil",
+              "setterFunName" : "setInputProperty",
+              "etype" : "hold_task_da_actionflow_hold_task_holdUntil_1",
+              "events" : [ "hold_task.hold_until.change" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    }
+  },
+  "xyz_claim" : {
+    "xyz_create_claim_and_re" : {
+      "flowDef" : {
+        "action-type" : "Custom",
+        "actionmodel" : {
+          "name" : "xyz_create_claim_and_re",
+          "attribute-mapping" : {
+            "xtype" : "xcp_actionflow_input_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ ]
+            } ]
+          }
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_create_claim_and_re",
+        "view-state" : [ {
+          "id" : "viewState_create_claim_and_re",
+          "xcpId" : "create_claim_and_re",
+          "pageUrl" : "xyz_claim/xyz_claim_xyz_create_claim_and_re",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "next",
+              "setterFunName" : "setEnablement",
+              "etype" : "create_claim_and_re_enablement_viewState_create_claim_and_re_1"
+            } ]
+          } ],
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_create_claim_and_re_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate",
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "transition-label" : [ {
+          "id" : "finish",
+          "label" : "${_UI_Create_Claim_Create_Claim_label}"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_create_claim_and_re_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate",
+          "actionType" : "create",
+          "actionModel" : "xyz_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "processVariables.amount",
+              "setterFunName" : "setInputProperty",
+              "etype" : "create_claim_and_re_da_actionflow_create_claim_and_re_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate_processVariables_amount_1",
+              "events" : [ "create_claim_and_re.amount.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "processVariables.incident_date",
+              "setterFunName" : "setInputProperty",
+              "etype" : "create_claim_and_re_da_actionflow_create_claim_and_re_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate_processVariables_incident_date_1",
+              "events" : [ "create_claim_and_re.incident_date.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "processVariables.incident_location",
+              "setterFunName" : "setInputProperty",
+              "etype" : "create_claim_and_re_da_actionflow_create_claim_and_re_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate_processVariables_incident_location_1",
+              "events" : [ "create_claim_and_re.incident_location.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "processVariables.policy_id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "create_claim_and_re_da_actionflow_create_claim_and_re_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate_processVariables_policy_id_1"
+            }, {
+              "propertyId" : "processVariables.vehicle_id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "create_claim_and_re_da_actionflow_create_claim_and_re_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate_processVariables_vehicle_id_1",
+              "events" : [ "create_claim_and_re.vehicle.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "processVariables.vehicle_in_motion",
+              "setterFunName" : "setInputProperty",
+              "etype" : "create_claim_and_re_da_actionflow_create_claim_and_re_da_def_invoke_stateless_processclaim_create_and_relate_to_policy_initiate_processVariables_vehicle_in_motion_1",
+              "events" : [ "create_claim_and_re.vehicle_in_motion.change" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    }
+  },
+  "xcp_dm_folder" : {
+    "xcp_selector_folder" : {
+      "flowDef" : {
+        "action-type" : "Custom",
+        "actionmodel" : {
+          "name" : "xcp_da_def_selector_rootbo"
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_selector_folder_ste",
+        "view-state" : [ {
+          "id" : "viewState_selector_folder_ste",
+          "xcpId" : "selector_folder_ste",
+          "pageUrl" : "xcp_dm_folder/xcp_dm_folder_xcp_selector_folder_ste",
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_selector_folder",
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_selector_folder",
+          "actionType" : "selector",
+          "actionModel" : "xcp_da_def_selector_rootbo",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "selection",
+              "setterFunName" : "setInputProperty",
+              "etype" : "selector_folder_da_actionflow_selector_folder_selection_1",
+              "events" : [ "selector_folder_ste.results_list.selectionchange" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    }
+  },
+  "APPLICATION" : {
+    "xcp_def_imp_af" : {
+      "flowDef" : {
+        "action-type" : "Custom",
+        "actionmodel" : {
+          "name" : "xcp_def_imp_af",
+          "attribute-mapping" : {
+            "xtype" : "xcp_actionflow_input_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ ]
+            } ]
+          }
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_def_imp_af_step_1",
+        "view-state" : [ {
+          "id" : "viewState_def_imp_af_step_1",
+          "xcpId" : "def_imp_af_step_1",
+          "pageUrl" : "application/xcp_def_imp_af_step_1",
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_def_imp_af_da_def_importtemplate_dm_document",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "finish",
+              "setterFunName" : "setEnablement",
+              "etype" : "def_imp_af_enablement_finish_1",
+              "events" : [ "def_imp_af_step_1.fileselector.change", "def_imp_af_step_1.fileselector.statusChange" ],
+              "disableInitialEval" : false
+            } ]
+          } ],
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_def_imp_af_da_def_importtemplate_dm_document",
+          "actionType" : "importTemplate",
+          "actionModel" : "xcp_da_def_importtemplate_dm_document",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "folder_id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "def_imp_af_da_actionflow_def_imp_af_da_def_importtemplate_dm_document_folder_id_1",
+              "events" : [ "def_imp_af_step_1.imp_folder_selector.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "content_id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "def_imp_af_da_actionflow_def_imp_af_da_def_importtemplate_dm_document_content_id_1",
+              "events" : [ "def_imp_af_step_1.fileselector.select" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "r_object_type",
+              "setterFunName" : "setInputProperty",
+              "etype" : "def_imp_af_da_actionflow_def_imp_af_da_def_importtemplate_dm_document_r_object_type_1",
+              "events" : [ "def_imp_af_step_1.content_type.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "model",
+              "setterFunName" : "setModel",
+              "etype" : "def_imp_af_da_actionflow_def_imp_af_da_def_importtemplate_dm_document_model_1",
+              "events" : [ "def_imp_af_step_1.fragment.change" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    },
+    "xcp_default_create_docu" : {
+      "flowDef" : {
+        "action-type" : "Custom",
+        "actionmodel" : {
+          "name" : "xcp_default_create_docu",
+          "attribute-mapping" : {
+            "xtype" : "xcp_actionflow_input_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ ]
+            } ]
+          }
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_default_create_docu",
+        "view-state" : [ {
+          "id" : "viewState_default_create_docu",
+          "xcpId" : "default_create_docu",
+          "pageUrl" : "application/xcp_default_create_docu",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "next",
+              "setterFunName" : "setEnablement",
+              "etype" : "default_create_docu_enablement_viewState_default_create_docu_1"
+            } ]
+          } ],
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_default_create_docu_da_def_create_template_dm_document",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "finish",
+              "setterFunName" : "setEnablement",
+              "etype" : "default_create_docu_enablement_finish_1",
+              "events" : [ "default_create_docu.content_type.change", "default_create_docu.doc_template.change", "default_create_docu.fragment.change", "default_create_docu.selector.change" ],
+              "disableInitialEval" : false
+            } ]
+          } ],
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_default_create_docu_da_def_create_template_dm_document",
+          "actionType" : "createDocumentTemplate",
+          "actionModel" : "xcp_da_def_create_template_dm_document",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "folder_id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "default_create_docu_da_actionflow_default_create_docu_da_def_create_template_dm_document_folder_id_1",
+              "events" : [ "default_create_docu.selector.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "r_object_type",
+              "setterFunName" : "setInputProperty",
+              "etype" : "default_create_docu_da_actionflow_default_create_docu_da_def_create_template_dm_document_r_object_type_1",
+              "events" : [ "default_create_docu.content_type.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "source",
+              "setterFunName" : "setInputProperty",
+              "etype" : "default_create_docu_da_actionflow_default_create_docu_da_def_create_template_dm_document_source_1",
+              "events" : [ "default_create_docu.doc_template.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "model",
+              "setterFunName" : "setModel",
+              "etype" : "default_create_docu_da_actionflow_default_create_docu_da_def_create_template_dm_document_model_1",
+              "events" : [ "default_create_docu.fragment.change" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    },
+    "xcp_def_inv_af" : {
+      "flowDef" : {
+        "action-type" : "Custom",
+        "actionmodel" : {
+          "name" : "xcp_def_inv_af",
+          "attribute-mapping" : {
+            "xtype" : "xcp_actionflow_input_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ ]
+            } ]
+          }
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_def_inv_af_step_1",
+        "view-state" : [ {
+          "id" : "viewState_def_inv_af_step_1",
+          "xcpId" : "def_inv_af_step_1",
+          "pageUrl" : "application/xcp_def_inv_af_step_1",
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_def_inv_af_da_def_importnewversiontemplate_dm_document",
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_def_inv_af_da_def_importnewversiontemplate_dm_document",
+          "actionType" : "importNewVersionTemplate",
+          "actionModel" : "xcp_da_def_importnewversiontemplate_dm_document",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "def_inv_af_da_actionflow_def_inv_af_da_def_importnewversiontemplate_dm_document_id_1"
+            }, {
+              "propertyId" : "checkin_version",
+              "setterFunName" : "setInputProperty",
+              "etype" : "def_inv_af_da_actionflow_def_inv_af_da_def_importnewversiontemplate_dm_document_checkin_version_1",
+              "events" : [ "def_inv_af_step_1.version.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "checkin_label",
+              "setterFunName" : "setInputProperty",
+              "etype" : "def_inv_af_da_actionflow_def_inv_af_da_def_importnewversiontemplate_dm_document_checkin_label_1",
+              "events" : [ "def_inv_af_step_1.version_label.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "retain_lock",
+              "setterFunName" : "setInputProperty",
+              "etype" : "def_inv_af_da_actionflow_def_inv_af_da_def_importnewversiontemplate_dm_document_retain_lock_1",
+              "events" : [ "def_inv_af_step_1.retain_lock.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "is_current",
+              "setterFunName" : "setInputProperty",
+              "etype" : "def_inv_af_da_actionflow_def_inv_af_da_def_importnewversiontemplate_dm_document_is_current_1",
+              "events" : [ "def_inv_af_step_1.is_current.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "content_id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "def_inv_af_da_actionflow_def_inv_af_da_def_importnewversiontemplate_dm_document_content_id_1",
+              "events" : [ "def_inv_af_step_1.fileselector.select" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "r_object_type",
+              "setterFunName" : "setInputProperty",
+              "etype" : "def_inv_af_da_actionflow_def_inv_af_da_def_importnewversiontemplate_dm_document_r_object_type_1"
+            }, {
+              "propertyId" : "model",
+              "setterFunName" : "setModel",
+              "etype" : "def_inv_af_da_actionflow_def_inv_af_da_def_importnewversiontemplate_dm_document_model_1",
+              "events" : [ "def_inv_af_step_1.fragment.change" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    },
+    "xcp_default_create_fold" : {
+      "flowDef" : {
+        "action-type" : "Custom",
+        "actionmodel" : {
+          "name" : "xcp_default_create_fold",
+          "attribute-mapping" : {
+            "xtype" : "xcp_actionflow_input_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ {
+                "propertyId" : "default_folder_type",
+                "setterFunName" : "setInputProperty",
+                "etype" : "xcp_default_create_fold_input_default_folder_type",
+                "disableProcessingOnRender" : false,
+                "initialDefaultExprValue" : ""
+              } ]
+            } ]
+          },
+          "output-mapping" : {
+            "xtype" : "xcp_actionflow_output_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ ]
+            } ]
+          }
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_def_create_folder_af_",
+        "view-state" : [ {
+          "id" : "viewState_def_create_folder_af_",
+          "xcpId" : "def_create_folder_af_",
+          "pageUrl" : "application/xcp_def_create_folder_af_",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "next",
+              "setterFunName" : "setEnablement",
+              "etype" : "default_create_fold_enablement_viewState_def_create_folder_af__1"
+            } ]
+          } ],
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_default_create_fold_da_def_create_template_dm_folder",
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_default_create_fold_da_def_create_template_dm_folder",
+          "actionType" : "createFolderTemplate",
+          "actionModel" : "xcp_da_def_create_template_dm_folder",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "folder_id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "default_create_fold_da_actionflow_default_create_fold_da_def_create_template_dm_folder_folder_id_1",
+              "events" : [ "def_create_folder_af_.parent_folder_selector.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "r_object_type",
+              "setterFunName" : "setInputProperty",
+              "etype" : "default_create_fold_da_actionflow_default_create_fold_da_def_create_template_dm_folder_r_object_type_1",
+              "events" : [ "def_create_folder_af_.folder_type.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "model",
+              "setterFunName" : "setModel",
+              "etype" : "default_create_fold_da_actionflow_default_create_fold_da_def_create_template_dm_folder_model_1",
+              "events" : [ "def_create_folder_af_.fragment.change" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    }
+  },
+  "xyz_approve_reject_claim_first_approval" : {
+    "xyz_approve_reject_cl_1" : {
+      "flowDef" : {
+        "action-type" : "DelegateTask",
+        "actionmodel" : {
+          "name" : "xyz_da_def_delegate_test_manual_task",
+          "attribute-mapping" : {
+            "xtype" : "xcp_actionflow_input_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ ]
+            } ]
+          }
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_usergroup_selection",
+        "view-state" : [ {
+          "id" : "viewState_usergroup_selection",
+          "xcpId" : "usergroup_selection",
+          "pageUrl" : "application/xcp_usergroup_selection",
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_",
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_",
+          "actionType" : "xcp_delegate_task",
+          "actionModel" : "xyz_da_def_delegate_test_manual_task",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "processVariables.approved",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_1_da_actionflow__processVariables_approved_1"
+            }, {
+              "propertyId" : "processPackages.claim.object_name",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_1_da_actionflow__processPackages_claim_object_name_1"
+            }, {
+              "propertyId" : "processPackages.claim.amount",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_1_da_actionflow__processPackages_claim_amount_1"
+            }, {
+              "propertyId" : "processPackages.claim.claim_status",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_1_da_actionflow__processPackages_claim_claim_status_1"
+            }, {
+              "propertyId" : "processPackages.claim.incident_date",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_1_da_actionflow__processPackages_claim_incident_date_1"
+            }, {
+              "propertyId" : "processPackages.claim.incident_location",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_1_da_actionflow__processPackages_claim_incident_location_1"
+            }, {
+              "propertyId" : "processPackages.claim.vehicle_in_motion",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_1_da_actionflow__processPackages_claim_vehicle_in_motion_1"
+            }, {
+              "propertyId" : "processPackages.claim.id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_1_da_actionflow__processPackages_claim_id_1"
+            }, {
+              "propertyId" : "attachments",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_1_da_actionflow__attachments_1"
+            }, {
+              "propertyId" : "id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_1_da_actionflow__id_1"
+            }, {
+              "propertyId" : "userName",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_cl_1_da_actionflow__userName_1",
+              "required" : true,
+              "events" : [ "usergroup_selection.username_dropdown_list.change" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    },
+    "xyz_approve_reject_clai" : {
+      "flowDef" : {
+        "action-type" : "RepeatTask",
+        "actionmodel" : {
+          "name" : "xyz_da_def_repeat_test_manual_task",
+          "attribute-mapping" : {
+            "xtype" : "xcp_actionflow_input_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ ]
+            } ]
+          }
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_usergroup_selection_multi",
+        "view-state" : [ {
+          "id" : "viewState_usergroup_selection_multi",
+          "xcpId" : "usergroup_selection_multi",
+          "pageUrl" : "application/xcp_usergroup_selection_multi",
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_",
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_",
+          "actionType" : "xcp_repeat_task",
+          "actionModel" : "xyz_da_def_repeat_test_manual_task",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "processVariables.approved",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_clai_da_actionflow__processVariables_approved_1"
+            }, {
+              "propertyId" : "processPackages.claim.object_name",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_clai_da_actionflow__processPackages_claim_object_name_1"
+            }, {
+              "propertyId" : "processPackages.claim.amount",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_clai_da_actionflow__processPackages_claim_amount_1"
+            }, {
+              "propertyId" : "processPackages.claim.claim_status",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_clai_da_actionflow__processPackages_claim_claim_status_1"
+            }, {
+              "propertyId" : "processPackages.claim.incident_date",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_clai_da_actionflow__processPackages_claim_incident_date_1"
+            }, {
+              "propertyId" : "processPackages.claim.incident_location",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_clai_da_actionflow__processPackages_claim_incident_location_1"
+            }, {
+              "propertyId" : "processPackages.claim.vehicle_in_motion",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_clai_da_actionflow__processPackages_claim_vehicle_in_motion_1"
+            }, {
+              "propertyId" : "processPackages.claim.id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_clai_da_actionflow__processPackages_claim_id_1"
+            }, {
+              "propertyId" : "attachments",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_clai_da_actionflow__attachments_1"
+            }, {
+              "propertyId" : "id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_clai_da_actionflow__id_1"
+            }, {
+              "propertyId" : "userName",
+              "setterFunName" : "setInputProperty",
+              "etype" : "approve_reject_clai_da_actionflow__userName_1",
+              "required" : true,
+              "events" : [ "usergroup_selection_multi.username_dropdown_list.change" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    }
+  },
+  "xyz_vehicle" : {
+    "xyz_create_vehicle" : {
+      "flowDef" : {
+        "action-type" : "Custom",
+        "actionmodel" : {
+          "name" : "xyz_create_vehicle",
+          "attribute-mapping" : {
+            "xtype" : "xcp_actionflow_input_container",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ ]
+            } ]
+          }
+        },
+        "publish-uievent" : {
+        },
+        "initial-state" : "viewState_create_vehicle_step",
+        "view-state" : [ {
+          "id" : "viewState_create_vehicle_step",
+          "xcpId" : "create_vehicle_step",
+          "pageUrl" : "xyz_vehicle/xyz_vehicle_xyz_create_vehicle_step",
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "next",
+            "to" : "viewState_create_vehicle_st_1"
+          } ]
+        }, {
+          "id" : "viewState_create_vehicle_st_1",
+          "xcpId" : "create_vehicle_st_1",
+          "pageUrl" : "xyz_vehicle/xyz_vehicle_xyz_create_vehicle_st_1",
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "next",
+            "to" : "viewState_create_vehicle_st_2"
+          } ]
+        }, {
+          "id" : "viewState_create_vehicle_st_2",
+          "xcpId" : "create_vehicle_st_2",
+          "pageUrl" : "xyz_vehicle/xyz_vehicle_xyz_create_vehicle_st_2",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "next",
+              "setterFunName" : "setEnablement",
+              "etype" : "create_vehicle_enablement_viewState_create_vehicle_st_2_1"
+            } ]
+          } ],
+          "transition" : [ {
+            "on" : "cancel",
+            "to" : "cancel"
+          }, {
+            "on" : "finish",
+            "to" : "finish"
+          } ]
+        } ],
+        "action-state" : [ {
+          "id" : "finish",
+          "actionInstanceId" : "da_actionflow_create_vehicle_da_def_invoke_stateless_processvehicle_create_relate_to_policy_initiate",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "finish",
+              "setterFunName" : "setEnablement",
+              "etype" : "create_vehicle_enablement_finish_1",
+              "events" : [ "application.actionFlowStepChange" ],
+              "disableInitialEval" : false
+            } ]
+          } ],
+          "transition" : [ {
+            "on" : "success",
+            "to" : "success"
+          }, {
+            "on" : "error",
+            "to" : "error"
+          } ]
+        } ],
+        "end-state" : [ {
+          "id" : "success"
+        }, {
+          "id" : "error"
+        }, {
+          "id" : "cancel"
+        } ],
+        "transition-label" : [ {
+          "id" : "finish",
+          "label" : "${_UI_Add_Vehicle_Add_Vehicle_label}"
+        } ],
+        "action-instance" : [ {
+          "xcpId" : "da_actionflow_create_vehicle_da_def_invoke_stateless_processvehicle_create_relate_to_policy_initiate",
+          "actionType" : "create",
+          "actionModel" : "xyz_da_def_invoke_stateless_processvehicle_create_relate_to_policy_initiate",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "processVariables.end_date",
+              "setterFunName" : "setInputProperty",
+              "etype" : "create_vehicle_da_actionflow_create_vehicle_da_def_invoke_stateless_processvehicle_create_relate_to_policy_initiate_processVariables_end_date_1",
+              "events" : [ "create_vehicle_st_1.end_date.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "processVariables.make",
+              "setterFunName" : "setInputProperty",
+              "etype" : "create_vehicle_da_actionflow_create_vehicle_da_def_invoke_stateless_processvehicle_create_relate_to_policy_initiate_processVariables_make_1",
+              "events" : [ "create_vehicle_step.make.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "processVariables.model",
+              "setterFunName" : "setInputProperty",
+              "etype" : "create_vehicle_da_actionflow_create_vehicle_da_def_invoke_stateless_processvehicle_create_relate_to_policy_initiate_processVariables_model_1",
+              "events" : [ "create_vehicle_step.make.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "processVariables.notes",
+              "setterFunName" : "setInputProperty",
+              "etype" : "create_vehicle_da_actionflow_create_vehicle_da_def_invoke_stateless_processvehicle_create_relate_to_policy_initiate_processVariables_notes_1",
+              "events" : [ "create_vehicle_st_1.notes.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "processVariables.policy_id",
+              "setterFunName" : "setInputProperty",
+              "etype" : "create_vehicle_da_actionflow_create_vehicle_da_def_invoke_stateless_processvehicle_create_relate_to_policy_initiate_processVariables_policy_id_1"
+            }, {
+              "propertyId" : "processVariables.start_date",
+              "setterFunName" : "setInputProperty",
+              "etype" : "create_vehicle_da_actionflow_create_vehicle_da_def_invoke_stateless_processvehicle_create_relate_to_policy_initiate_processVariables_start_date_1",
+              "events" : [ "create_vehicle_st_1.start_date.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "processVariables.vin",
+              "setterFunName" : "setInputProperty",
+              "etype" : "create_vehicle_da_actionflow_create_vehicle_da_def_invoke_stateless_processvehicle_create_relate_to_policy_initiate_processVariables_vin_1",
+              "events" : [ "create_vehicle_step.vin.change" ],
+              "disableInitialEval" : false
+            }, {
+              "propertyId" : "processVariables.year",
+              "setterFunName" : "setInputProperty",
+              "etype" : "create_vehicle_da_actionflow_create_vehicle_da_def_invoke_stateless_processvehicle_create_relate_to_policy_initiate_processVariables_year_1",
+              "events" : [ "create_vehicle_step.year.change" ],
+              "disableInitialEval" : false
+            } ]
+          } ]
+        } ]
+      }
+    }
+  }
+}

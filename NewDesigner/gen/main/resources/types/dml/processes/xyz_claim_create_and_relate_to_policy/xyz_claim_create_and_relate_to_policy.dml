@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<process-type label="Claim Create and Relate to policy" runnable-stateless="true" type="xyz_claim_create_and_relate_to_policy" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <urn>urn:xyz:com.emc.ide.artifact.process:Artifacts/Processes/claim_create_and_relate_to_policy.process</urn>
+  <properties>
+    <property label="process_id" length="64" name="process_id" type="string"/>
+    <property label="status" length="64" name="status" type="string"/>
+    <property label="id" length="64" name="id" type="string"/>
+    <property label="r_runtime_state" name="r_runtime_state" type="integer"/>
+    <property label="correlation_identifier" length="64" name="correlation_identifier" type="string"/>
+    <property label="object_name" length="64" name="object_name" type="string"/>
+    <property label="r_creator_name" length="64" name="r_creator_name" type="string"/>
+    <property label="r_start_date" name="r_start_date" type="datetime"/>
+    <property label="supervisor_name" length="64" name="supervisor_name" type="string"/>
+    <property label="supervisor_address" length="64" name="supervisor_address" type="string"/>
+  </properties>
+  <tasks>
+    <task href="${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_initiate" rel="http://identifiers.emc.com/linkrel/task"/>
+    <task href="${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_create" rel="http://identifiers.emc.com/linkrel/task"/>
+    <task href="${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_relate_policy_and_v" rel="http://identifiers.emc.com/linkrel/task"/>
+    <task href="${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_call_process" rel="http://identifiers.emc.com/linkrel/task"/>
+  </tasks>
+  <flows>
+    <flow flow-type="regular" source="${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_initiate" target="${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_create"/>
+    <flow flow-type="regular" source="${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_create" target="${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_relate_policy_and_v"/>
+    <flow flow-type="regular" source="${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_relate_policy_and_v" target="${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_call_process"/>
+  </flows>
+  <data>
+    <packages>
+      <package input="false" label="claim" mandatory="false" name="claim" output="false" type="${contextPath}types/folders/xyz_claim" version-label="CURRENT" visible="true"/>
+    </packages>
+    <variables>
+      <variable default-value="" input="true" label="amount" mandatory="false" name="amount" output="false" repeating="false" type="float"/>
+      <variable default-value="" input="true" label="incident_date" mandatory="false" name="incident_date" output="false" repeating="false" type="datetime"/>
+      <variable default-value="" input="true" label="incident_location" mandatory="false" name="incident_location" output="false" repeating="false" type="string"/>
+      <variable default-value="false" input="true" label="vehicle_in_motion" mandatory="false" name="vehicle_in_motion" output="false" repeating="false" type="boolean"/>
+      <variable default-value="" input="true" label="vehicle_id" mandatory="false" name="vehicle_id" output="false" repeating="false" type="string"/>
+      <variable default-value="" input="true" label="policy_id" mandatory="false" name="policy_id" output="false" repeating="false" type="string"/>
+    </variables>
+  </data>
+  <links>
+    <link href="${contextPath}types/processes/xyz_claim_create_and_relate_to_policy" rel="self"/>
+    <link href="${contextPath}processes/xyz_claim_create_and_relate_to_policy" rel="http://identifiers.emc.com/linkrel/instances"/>
+    <link rel="http://identifiers.emc.com/linkrel/halt"/>
+    <link rel="http://identifiers.emc.com/linkrel/resume"/>
+    <link rel="http://identifiers.emc.com/linkrel/terminate"/>
+    <link rel="http://identifiers.emc.com/linkrel/tasks"/>
+    <link rel="http://identifiers.emc.com/linkrel/attachments"/>
+  </links>
+</process-type>

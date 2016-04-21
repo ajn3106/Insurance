@@ -1,0 +1,111 @@
+{
+  "padding" : "10 10 5 10",
+  "border" : false,
+  "items" : [ {
+    "xcpId" : "column_box",
+    "xtype" : "xcp_column_box",
+    "title" : "${_UI_UIStep_xyz_create_vehicle_st_2_column_box_title}",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox1",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "rich_text",
+        "xtype" : "xcp_rich_text",
+        "html" : "${_UI_UIStep_xyz_create_vehicle_st_2_rich_text_html}"
+      }, {
+        "xcpId" : "make",
+        "xtype" : "xcp_value_display",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_vehicle_st_2_make_fieldLabel}",
+        "valueType" : "STRING",
+        "isRepeating" : false,
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xyz_create_vehicle_st_2_make_value_1",
+            "events" : [ "create_vehicle_step.make.change" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      }, {
+        "xcpId" : "model",
+        "xtype" : "xcp_value_display",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_vehicle_st_2_model_fieldLabel}",
+        "valueType" : "STRING",
+        "isRepeating" : false,
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xyz_create_vehicle_st_2_model_value_1",
+            "events" : [ "create_vehicle_step.model.change" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      }, {
+        "xcpId" : "year",
+        "xtype" : "xcp_value_display",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_vehicle_st_2_year_fieldLabel}",
+        "valueType" : "INTEGER",
+        "isRepeating" : false,
+        "format" : {
+          "xtype" : "xcp_integer_formatter",
+          "decimalPrecision" : 0,
+          "useThousandSeparator" : true,
+          "separatorStyle" : "LOCALE",
+          "negativeNumberStyle" : "FORMAT_MINUS_SIGN_STYLE_NONE"
+        },
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xyz_create_vehicle_st_2_year_value_1",
+            "events" : [ "create_vehicle_step.year.change" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      }, {
+        "xcpId" : "vin",
+        "xtype" : "xcp_value_display",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_vehicle_st_2_vin_fieldLabel}",
+        "valueType" : "STRING",
+        "isRepeating" : false,
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xyz_create_vehicle_st_2_vin_value_1",
+            "events" : [ "create_vehicle_step.vin.change" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      } ]
+    } ]
+  } ],
+  "childModelsToLoad" : [ "xyz_actionflow.steps.create_vehicle_step" ]
+}

@@ -1,0 +1,108 @@
+{
+  "name" : "realtime-query-type",
+  "type" : "xyz_claim_related_to_po",
+  "label" : "Claim related to policy",
+  "data-type" : "${contextPath}types/folders/xyz_claim",
+  "description" : "",
+  "properties" : [ {
+    "name" : "incident_date",
+    "output-name" : "incident_date",
+    "type" : "${contextPath}types/folders/xyz_claim",
+    "mapping" : "incident_date",
+    "sortable" : "false"
+  }, {
+    "name" : "incident_location",
+    "output-name" : "incident_location",
+    "type" : "${contextPath}types/folders/xyz_claim",
+    "mapping" : "incident_location",
+    "sortable" : "false"
+  }, {
+    "name" : "vehicle_in_motion",
+    "output-name" : "vehicle_in_motion",
+    "type" : "${contextPath}types/folders/xyz_claim",
+    "mapping" : "vehicle_in_motion",
+    "sortable" : "false"
+  }, {
+    "name" : "claim_status",
+    "output-name" : "claim_status",
+    "type" : "${contextPath}types/folders/xyz_claim",
+    "mapping" : "claim_status",
+    "sortable" : "false"
+  }, {
+    "name" : "r_object_id",
+    "output-name" : "id",
+    "type" : "${contextPath}types/folders/xyz_claim",
+    "mapping" : "r_object_id",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "name" : "r_object_type",
+    "output-name" : "r_object_type",
+    "type" : "${contextPath}types/folders/xyz_claim",
+    "mapping" : "r_object_type",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "label" : "ACL Name",
+    "name" : "acl_name",
+    "output-name" : "acl_name",
+    "type" : "${contextPath}types/folders/xyz_claim",
+    "mapping" : "acl_name",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "label" : "ACL Domain",
+    "name" : "acl_domain",
+    "output-name" : "acl_domain",
+    "type" : "${contextPath}types/folders/xyz_claim",
+    "mapping" : "acl_domain",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "label" : "Owner Permit",
+    "name" : "owner_permit",
+    "output-name" : "owner_permit",
+    "type" : "${contextPath}types/folders/xyz_claim",
+    "mapping" : "owner_permit",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "label" : "Owner Name",
+    "name" : "owner_name",
+    "output-name" : "owner_name",
+    "type" : "${contextPath}types/folders/xyz_claim",
+    "mapping" : "owner_name",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "label" : "Lock Owner",
+    "name" : "r_lock_owner",
+    "output-name" : "r_lock_owner",
+    "type" : "${contextPath}types/folders/xyz_claim",
+    "mapping" : "r_lock_owner",
+    "sortable" : "false",
+    "mandatory" : "true"
+  } ],
+  "expression-set" : {
+    "properties" : [ {
+      "name" : "r_object_id",
+      "type" : "${contextPath}types/business-objects/xyz_policy",
+      "mapping" : "xyz_claim_vehicle.claim.xyz_vehicle.xyz_vehicle_policy.policy.xyz_policy.r_object_id",
+      "input-type" : "form-input",
+      "operator" : "EQUAL",
+      "value" : "",
+      "case-sensitive" : "true"
+    } ],
+    "operator" : "AND"
+  },
+  "options" : [ {
+    "versions" : "LATEST"
+  } ],
+  "links" : [ {
+    "rel" : "self",
+    "href" : "${contextPath}types/realtime-queries/xyz_claim_related_to_po"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/instances",
+    "href" : "${contextPath}realtime-queries/xyz_claim_related_to_po"
+  } ]
+}

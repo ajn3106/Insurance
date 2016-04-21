@@ -1,0 +1,367 @@
+{
+  "cls" : "xyz_policy_search",
+  "padding" : "0",
+  "border" : false,
+  "pageTitle" : "${_UI_Page_xyz_policy_search_title}",
+  "xtype" : "xcp_form",
+  "items" : [ {
+    "xtype" : "xcp_action_container",
+    "actions" : [ {
+      "xcpId" : "test_java_initiate_staless_ds",
+      "actionModel" : "xyz_test_java_initiate_staless_ds_outputs",
+      "inputModelName" : "xyz_test_java_initiate_staless_ds_inputs",
+      "actionType" : "datasource",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "processVariables.last_name",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_policy_search_test_java_initiate_staless_ds_processVariables_last_name_1"
+        } ],
+        "mapping" : {
+          "processVariables.last_name" : ["text_input" ]
+        }
+      } ],
+      "autoLoad" : false,
+      "pageSize" : 10
+    }, {
+      "xcpId" : "policy_search",
+      "actionModel" : "xyz_policy_search_outputs",
+      "inputModelName" : "xyz_policy_search_inputs",
+      "actionType" : "datasource",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "input_last_name",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_policy_search_policy_search_input_last_name_1",
+          "events" : [ "text_input.change" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+          "input_last_name" : ["text_input" ]
+        }
+      } ],
+      "autoLoad" : true,
+      "pageSize" : 10
+    } ]
+  }, {
+    "xcpId" : "column_box",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "width" : "100%",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "column_box1",
+        "xtype" : "xcp_column_box",
+        "collapsible" : false,
+        "collapsed" : false,
+        "collapseFirst" : true,
+        "border" : false,
+        "defaultMargins" : "5",
+        "layout" : "xcp_columnbox",
+        "items" : [ {
+          "xcpId" : "columnvbox1",
+          "xtype" : "xcp_columnvbox",
+          "orientation" : "Vertical",
+          "width" : "100%",
+          "overflow_x" : "hidden",
+          "labelWidth" : 150,
+          "labelAlign" : "left",
+          "halign" : "left",
+          "valign" : "top",
+          "defaultMargins" : "5",
+          "items" : [ {
+            "xcpId" : "text_input",
+            "xtype" : "xcp_text_input",
+            "fieldLabel" : "${_UI_Page_xyz_policy_search_text_input_fieldLabel}",
+            "hstretch" : true,
+            "valueType" : "STRING"
+          } ]
+        } ]
+      }, {
+        "xcpId" : "column_box2",
+        "xtype" : "xcp_column_box",
+        "collapsible" : false,
+        "collapsed" : false,
+        "collapseFirst" : true,
+        "border" : false,
+        "defaultMargins" : "5",
+        "layout" : "xcp_columnbox",
+        "items" : [ {
+          "xcpId" : "columnhbox",
+          "xtype" : "xcp_columnhbox",
+          "orientation" : "Horizontal",
+          "width" : "100%",
+          "overflow_x" : "hidden",
+          "labelWidth" : 50,
+          "defaultMargins" : "5",
+          "labelAlign" : "left",
+          "halign" : "right",
+          "valign" : "top",
+          "items" : [ {
+            "xcpId" : "button",
+            "xtype" : "xcp_button",
+            "text" : "${_UI_Page_xyz_policy_search_button_text}",
+            "actionInstanceId" : "policy_search",
+            "redirectStyle" : "current"
+          } ]
+        } ]
+      }, {
+        "xcpId" : "open_last_policy",
+        "xtype" : "xcp_button",
+        "text" : "${_UI_Page_xyz_policy_search_open_last_policy_text}",
+        "action" : {
+          "redirectStyle" : "specified",
+          "actionType" : "xcp_gotopage",
+          "pageSelectionType" : "page",
+          "redirectUrl" : "xyz_edit_policy",
+          "redirectUrlModel" : "xyz_policy"
+        },
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "redirectObjectId",
+            "setterFunName" : "setRedirectObjectId",
+            "etype" : "xyz_policy_search_xcp_gotopage_redirectObjectId_1",
+            "events" : [ "application.sessionVariableModified.xyz_last_policy_id" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : ""
+          }, {
+            "propertyId" : "hidden",
+            "setterFunName" : "setHidden",
+            "etype" : "xyz_policy_search_open_last_policy_hidden_1",
+            "events" : [ "application.sessionVariableModified.xyz_last_policy_id" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : true,
+            "initialDefaultExprValue" : "true"
+          } ]
+        } ]
+      }, {
+        "xcpId" : "policy",
+        "xtype" : "xcp_fragment",
+        "fieldLabel" : "${_UI_Page_xyz_policy_search_policy_fieldLabel}",
+        "cls" : "xcp-content-area",
+        "margin" : "10 10 10 10",
+        "fragmentId" : "#xyz_view_policy_details",
+        "fragmentScope" : "INSTANCE",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "id",
+            "setterFunName" : "setObjectId",
+            "etype" : "xyz_policy_search_policy_id_1",
+            "events" : [ "application.sessionVariableModified.xyz_last_policy_id" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : ""
+          } ]
+        } ]
+      } ]
+    }, {
+      "xcpId" : "columnvbox2",
+      "xtype" : "xcp_columnhbox",
+      "orientation" : "Horizontal",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "defaultMargins" : "5",
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top"
+    } ]
+  }, {
+    "xcpId" : "policies",
+    "xtype" : "xcp_results_list",
+    "title" : "${_UI_Page_xyz_policy_search_policies_title}",
+    "typeName" : "xyz_policy",
+    "modelName" : "xyz_policy_search_outputs",
+    "storeId" : "policy_search",
+    "pageSize" : 10,
+    "selectionModel" : false,
+    "enableDragDrop" : true,
+    "disableNavigationOnFirstColumn" : false,
+    "allowDeselect" : false,
+    "columns" : [ {
+      "xcpId" : "results_list_page_link_column",
+      "xtype" : "xcp_results_list_page_link_column",
+      "text" : "${_UI_Page_xyz_policy_search_results_list_page_link_column_text}",
+      "width" : 150,
+      "dataIndex" : "last_name",
+      "valueType" : "STRING",
+      "isRepeating" : false,
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_policy_search_results_list_column_text}",
+      "width" : 150,
+      "dataIndex" : "first_name",
+      "valueType" : "STRING",
+      "isRepeating" : false,
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column1",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_policy_search_results_list_column1_text}",
+      "width" : 150,
+      "dataIndex" : "new_string",
+      "valueType" : "STRING",
+      "isRepeating" : false,
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column2",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_policy_search_results_list_column2_text}",
+      "width" : 150,
+      "dataIndex" : "coverage",
+      "valueType" : "FLOAT",
+      "isRepeating" : false,
+      "format" : {
+        "xtype" : "xcp_float_formatter",
+        "decimalPrecision" : 2,
+        "useThousandSeparator" : true,
+        "separatorStyle" : "LOCALE",
+        "negativeNumberStyle" : "FORMAT_MINUS_SIGN_STYLE_NONE"
+      },
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column3",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_policy_search_results_list_column3_text}",
+      "width" : 150,
+      "dataIndex" : "end_date",
+      "valueType" : "DATETIME",
+      "isRepeating" : false,
+      "format" : {
+        "xtype" : "xcp_datetime_formatter",
+        "dateFormat" : "short",
+        "timeFormat" : "short",
+        "dateStyle" : "datetime"
+      },
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column4",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_policy_search_results_list_column4_text}",
+      "width" : 150,
+      "dataIndex" : "id",
+      "valueType" : "STRING",
+      "isRepeating" : false,
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column5",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_policy_search_results_list_column5_text}",
+      "dataIndex" : "age",
+      "valueType" : "STRING",
+      "isRepeating" : false,
+      "sortable" : false,
+      "menuDisabled" : true
+    } ]
+  }, {
+    "xcpId" : "button1",
+    "xtype" : "xcp_button",
+    "text" : "${_UI_Page_xyz_policy_search_button1_text}",
+    "actionInstanceId" : "test_java_initiate_staless_ds",
+    "redirectStyle" : "current"
+  }, {
+    "xcpId" : "results_list",
+    "xtype" : "xcp_results_list",
+    "typeName" : "xyz_test_java_initiate",
+    "modelName" : "xyz_test_java_initiate_staless_ds_outputs",
+    "storeId" : "test_java_initiate_staless_ds",
+    "pageSize" : 10,
+    "selectionModel" : false,
+    "enableDragDrop" : true,
+    "disableNavigationOnFirstColumn" : false,
+    "allowDeselect" : false,
+    "columns" : [ {
+      "xcpId" : "results_list_page_link_column1",
+      "xtype" : "xcp_results_list_page_link_column",
+      "text" : "${_UI_Page_xyz_policy_search_results_list_page_link_column1_text}",
+      "width" : 150,
+      "dataIndex" : "address",
+      "valueType" : "STRING",
+      "isRepeating" : false,
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column6",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_policy_search_results_list_column6_text}",
+      "width" : 150,
+      "dataIndex" : "cover",
+      "valueType" : "INTEGER",
+      "isRepeating" : false,
+      "format" : {
+        "xtype" : "xcp_integer_formatter",
+        "decimalPrecision" : 0,
+        "useThousandSeparator" : true,
+        "separatorStyle" : "LOCALE",
+        "negativeNumberStyle" : "FORMAT_MINUS_SIGN_STYLE_NONE"
+      },
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column7",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_policy_search_results_list_column7_text}",
+      "width" : 150,
+      "dataIndex" : "end_date",
+      "valueType" : "STRING",
+      "isRepeating" : false,
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column8",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_policy_search_results_list_column8_text}",
+      "width" : 150,
+      "dataIndex" : "f_name",
+      "valueType" : "STRING",
+      "isRepeating" : false,
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column9",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_policy_search_results_list_column9_text}",
+      "width" : 150,
+      "dataIndex" : "object_name",
+      "valueType" : "STRING",
+      "isRepeating" : false,
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column10",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_policy_search_results_list_column10_text}",
+      "dataIndex" : "oid",
+      "valueType" : "STRING",
+      "isRepeating" : false,
+      "sortable" : false,
+      "menuDisabled" : true
+    } ]
+  } ]
+}

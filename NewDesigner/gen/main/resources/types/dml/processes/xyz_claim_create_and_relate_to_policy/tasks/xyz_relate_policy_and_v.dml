@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<task-type label="Relate Policy and Vehicle to Claim" process-type="xyz_claim_create_and_relate_to_policy" type="xyz_relate_policy_and_v" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <properties>
+    <property label="id" length="64" name="id" type="string"/>
+    <property label="act_name" length="64" name="act_name" type="string"/>
+    <property label="activity_system_name" length="64" name="activity_system_name" type="string"/>
+    <property label="process_system_name" length="64" name="process_system_name" type="string"/>
+    <property label="qitem_id" length="64" name="qitem_id" type="string"/>
+    <property label="status" length="64" name="status" type="string"/>
+    <property label="creation_date" name="creation_date" type="datetime"/>
+    <property label="performer" length="64" name="performer" type="string"/>
+    <property label="performer_address" length="64" name="performer_address" type="string"/>
+    <property label="state" name="state" type="integer"/>
+    <property label="priority" name="priority" type="integer"/>
+    <property label="task_subject" length="64" name="task_subject" type="string"/>
+    <property label="due_date" name="due_date" type="datetime"/>
+    <property label="instructions" length="64" name="instructions" type="string"/>
+    <property label="received_date" name="received_date" type="datetime"/>
+    <property label="received_from" length="64" name="received_from" type="string"/>
+    <property label="queue_name" length="64" name="queue_name" type="string"/>
+    <property label="isdelegable" name="isdelegable" type="boolean"/>
+    <property label="isrepeatable" name="isrepeatable" type="boolean"/>
+  </properties>
+  <data>
+    <packages>
+      <package input="false" label="claim" mandatory="false" name="claim" output="false" type="${contextPath}types/folders/xyz_claim" version-label="CURRENT" visible="true"/>
+    </packages>
+    <variables>
+      <variable default-value="" input="true" label="policy_id" mandatory="false" name="policy_id" output="false" repeating="false" type="string" visible="true"/>
+      <variable default-value="" input="true" label="vehicle_id" mandatory="false" name="vehicle_id" output="false" repeating="false" type="string" visible="true"/>
+      <variable default-value="" input="true" label="incident_location" mandatory="false" name="incident_location" output="false" repeating="false" type="string" visible="true"/>
+      <variable default-value="" input="true" label="incident_date" mandatory="false" name="incident_date" output="false" repeating="false" type="datetime" visible="true"/>
+      <variable default-value="false" input="true" label="vehicle_in_motion" mandatory="false" name="vehicle_in_motion" output="false" repeating="false" type="boolean" visible="true"/>
+      <variable default-value="" input="true" label="amount" mandatory="false" name="amount" output="false" repeating="false" type="float" visible="true"/>
+    </variables>
+  </data>
+  <links>
+    <link href="${contextPath}types/processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_relate_policy_and_v" rel="self"/>
+    <link href="${contextPath}processes/xyz_claim_create_and_relate_to_policy/tasks/xyz_relate_policy_and_v" rel="http://identifiers.emc.com/linkrel/instances"/>
+    <link rel="up"/>
+    <link rel="http://identifiers.emc.com/linkrel/acquire"/>
+    <link rel="http://identifiers.emc.com/linkrel/complete"/>
+    <link rel="http://identifiers.emc.com/linkrel/reject"/>
+    <link rel="http://identifiers.emc.com/linkrel/repeat"/>
+    <link rel="http://identifiers.emc.com/linkrel/delegate"/>
+    <link rel="http://identifiers.emc.com/linkrel/halt"/>
+    <link rel="http://identifiers.emc.com/linkrel/resume"/>
+    <link rel="http://identifiers.emc.com/linkrel/hold"/>
+    <link rel="http://identifiers.emc.com/linkrel/unhold"/>
+    <link rel="edit"/>
+    <link rel="http://identifiers.emc.com/linkrel/attachments"/>
+  </links>
+</task-type>

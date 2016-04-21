@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<relationship-type label="Vehicle-Policy" type="xyz_vehicle_policy" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <properties>
+    <property label="source" length="16" name="source" readOnly="true" type="string">
+      <description>This is a relationship source</description>
+    </property>
+    <property label="target" length="16" name="target" readOnly="true" type="string">
+      <description>This is a relationship target</description>
+    </property>
+    <property label="Object ID" length="16" name="r_object_id" readOnly="true" type="string">
+      <description>This is system generated unique id for the object. This is set by the system</description>
+    </property>
+    <property label="Start date" name="start_date" type="datetime"/>
+    <property label="End date" name="end_date" type="datetime"/>
+    <property label="Notes" length="64" name="notes" type="string"/>
+  </properties>
+  <source href="${contextPath}types/business-objects/xyz_vehicle" maxOccurs="unbounded" minOccurs="1" name="xyz_vehicle" role-label="Vehicle" role-name="vehicle"/>
+  <target href="${contextPath}types/business-objects/xyz_policy" maxOccurs="1" minOccurs="1" name="xyz_policy" role-label="Policy" role-name="policy"/>
+  <links>
+    <link href="${contextPath}types/relationships/xyz_vehicle_policy" rel="self"/>
+    <link href="${contextPath}relationships/xyz_vehicle_policy" rel="http://identifiers.emc.com/linkrel/instances"/>
+    <link href="${contextPath}types/relationships/xyz_vehicle_policy/defaults" rel="http://identifiers.emc.com/linkrel/defaults"/>
+    <link rel="type"/>
+    <link rel="edit"/>
+    <link rel="http://identifiers.emc.com/linkrel/delete"/>
+    <link rel="http://identifiers.emc.com/linkrel/source"/>
+    <link rel="http://identifiers.emc.com/linkrel/target"/>
+  </links>
+</relationship-type>

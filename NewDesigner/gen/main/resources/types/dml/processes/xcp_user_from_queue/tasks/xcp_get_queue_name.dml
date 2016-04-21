@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<task-type label="get queue name" process-type="xcp_user_from_queue" type="xcp_get_queue_name" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <properties>
+    <property label="id" length="64" name="id" type="string"/>
+    <property label="act_name" length="64" name="act_name" type="string"/>
+    <property label="activity_system_name" length="64" name="activity_system_name" type="string"/>
+    <property label="process_system_name" length="64" name="process_system_name" type="string"/>
+    <property label="qitem_id" length="64" name="qitem_id" type="string"/>
+    <property label="status" length="64" name="status" type="string"/>
+    <property label="creation_date" name="creation_date" type="datetime"/>
+    <property label="performer" length="64" name="performer" type="string"/>
+    <property label="performer_address" length="64" name="performer_address" type="string"/>
+    <property label="state" name="state" type="integer"/>
+    <property label="priority" name="priority" type="integer"/>
+    <property label="task_subject" length="64" name="task_subject" type="string"/>
+    <property label="due_date" name="due_date" type="datetime"/>
+    <property label="instructions" length="64" name="instructions" type="string"/>
+    <property label="received_date" name="received_date" type="datetime"/>
+    <property label="received_from" length="64" name="received_from" type="string"/>
+    <property label="queue_name" length="64" name="queue_name" type="string"/>
+    <property label="isdelegable" name="isdelegable" type="boolean"/>
+    <property label="isrepeatable" name="isrepeatable" type="boolean"/>
+  </properties>
+  <data>
+    <variables>
+      <variable default-value="" input="true" label="id" mandatory="false" name="id" output="false" repeating="false" type="string" visible="true"/>
+      <variable default-value="" input="false" label="queue_name" mandatory="false" name="queue_name" output="false" repeating="false" type="string" visible="true"/>
+      <variable default-value="" input="false" label="user_list" mandatory="false" name="user_list" output="true" repeating="true" type="string" visible="true"/>
+    </variables>
+  </data>
+  <links>
+    <link href="${contextPath}types/processes/xcp_user_from_queue/tasks/xcp_get_queue_name" rel="self"/>
+    <link href="${contextPath}processes/xcp_user_from_queue/tasks/xcp_get_queue_name" rel="http://identifiers.emc.com/linkrel/instances"/>
+    <link rel="up"/>
+    <link rel="http://identifiers.emc.com/linkrel/acquire"/>
+    <link rel="http://identifiers.emc.com/linkrel/complete"/>
+    <link rel="http://identifiers.emc.com/linkrel/reject"/>
+    <link rel="http://identifiers.emc.com/linkrel/repeat"/>
+    <link rel="http://identifiers.emc.com/linkrel/delegate"/>
+    <link rel="http://identifiers.emc.com/linkrel/halt"/>
+    <link rel="http://identifiers.emc.com/linkrel/resume"/>
+    <link rel="http://identifiers.emc.com/linkrel/hold"/>
+    <link rel="http://identifiers.emc.com/linkrel/unhold"/>
+    <link rel="edit"/>
+    <link rel="http://identifiers.emc.com/linkrel/attachments"/>
+  </links>
+</task-type>

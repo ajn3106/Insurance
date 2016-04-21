@@ -1,0 +1,108 @@
+{
+  "padding" : "10 10 5 10",
+  "border" : false,
+  "items" : [ {
+    "xtype" : "xcp_action_container",
+    "actions" : [ {
+      "xcpId" : "vehicles_related_to",
+      "actionModel" : "xyz_vehicles_related_to_outputs",
+      "inputModelName" : "xyz_vehicles_related_to_inputs",
+      "actionType" : "datasource",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "input_object_id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_create_claim_and_re_vehicles_related_to_input_object_id_1"
+        } ],
+        "mapping" : {
+        }
+      } ],
+      "autoLoad" : true
+    } ]
+  }, {
+    "xcpId" : "column_box",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox1",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "incident_location",
+        "xtype" : "xcp_text_input",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_claim_and_re_incident_location_fieldLabel}",
+        "hstretch" : true,
+        "valueType" : "STRING"
+      }, {
+        "xcpId" : "incident_date",
+        "xtype" : "xcp_date_time_input",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_claim_and_re_incident_date_fieldLabel}",
+        "hstretch" : true,
+        "format" : {
+          "xtype" : "xcp_datetime_formatter",
+          "dateFormat" : "short",
+          "timeFormat" : "short",
+          "dateStyle" : "historical_date"
+        },
+        "valueType" : "DATETIME"
+      }, {
+        "xcpId" : "amount",
+        "xtype" : "xcp_number_input",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_claim_and_re_amount_fieldLabel}",
+        "allowDecimals" : false,
+        "hideTrigger" : true,
+        "keyNavEnabled" : false,
+        "mouseWheelEnabled" : false,
+        "autoStripChars" : true,
+        "hstretch" : true,
+        "valueType" : "INTEGER"
+      }, {
+        "xcpId" : "vehicle",
+        "xtype" : "xcp_dropdown_list",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_claim_and_re_vehicle_fieldLabel}",
+        "valueField" : "id",
+        "displayField" : "vin",
+        "store" : "vehicles_related_to",
+        "valueType" : "STRING",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xyz_create_claim_and_re_vehicle_value_1",
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      }, {
+        "xcpId" : "vehicle_in_motion",
+        "xtype" : "xcp_checkbox",
+        "fieldLabel" : "${_UI_UIStep_xyz_create_claim_and_re_vehicle_in_motion_fieldLabel}",
+        "valueType" : "BOOLEAN",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xyz_create_claim_and_re_vehicle_in_motion_value_1",
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      } ]
+    } ]
+  } ],
+  "childModelsToLoad" : [ "xyz_actionflow.Inputs" ]
+}

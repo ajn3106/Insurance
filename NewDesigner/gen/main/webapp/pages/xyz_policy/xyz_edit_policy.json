@@ -1,0 +1,587 @@
+{
+  "cls" : "xyz_policy_edit_policy",
+  "padding" : "0",
+  "border" : false,
+  "pageTitle" : "${_UI_Page_xyz_edit_policy_title}",
+  "xtype" : "xcp_form",
+  "modelImmutable" : true,
+  "models" : [ "xyz_policy" ],
+  "items" : [ {
+    "xtype" : "xcp_action_container",
+    "actions" : [ {
+      "xcpId" : "claim_related_to_po",
+      "actionModel" : "xyz_claim_related_to_po_outputs",
+      "inputModelName" : "xyz_claim_related_to_po_inputs",
+      "actionType" : "datasource",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "input_object_id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_edit_policy_claim_related_to_po_input_object_id_1",
+          "events" : [ "xyz_policy.change", "xyz_policy.load" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+        }
+      } ],
+      "autoLoad" : false,
+      "invokerEvents" : ["xyz_policy.load","create_claim_and_re_1.success" ],
+      "pageSize" : 10
+    }, {
+      "xcpId" : "vehicles_related_to",
+      "actionModel" : "xyz_vehicles_related_to_outputs",
+      "inputModelName" : "xyz_vehicles_related_to_inputs",
+      "actionType" : "datasource",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "input_object_id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_edit_policy_vehicles_related_to_input_object_id_1",
+          "events" : [ "xyz_policy.change", "xyz_policy.load" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+        }
+      } ],
+      "autoLoad" : false,
+      "invokerEvents" : ["xyz_policy.load","create_vehicle_1.success" ],
+      "pageSize" : 10
+    }, {
+      "xcpId" : "da_def_update_policy",
+      "actionModel" : "xyz_da_def_update_policy",
+      "actionType" : "update",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "new_string",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_edit_policy_da_def_update_policy_new_string_1",
+          "events" : [ "new_string.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "end_date",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_edit_policy_da_def_update_policy_end_date_1",
+          "events" : [ "end_date.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "last_name",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_edit_policy_da_def_update_policy_last_name_1",
+          "events" : [ "last_name.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "coverage",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_edit_policy_da_def_update_policy_coverage_1",
+          "events" : [ "coverage.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "first_name",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_edit_policy_da_def_update_policy_first_name_1",
+          "events" : [ "first_name.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "age",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_edit_policy_da_def_update_policy_age_1",
+          "events" : [ "age.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_edit_policy_da_def_update_policy_id_1",
+          "events" : [ "xyz_policy.change", "xyz_policy.load" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+          "new_string" : ["new_string" ],
+          "end_date" : ["end_date" ],
+          "last_name" : ["last_name" ],
+          "coverage" : ["coverage" ],
+          "first_name" : ["first_name" ],
+          "age" : ["age" ]
+        }
+      } ]
+    }, {
+      "xcpId" : "create_claim_and_re_1",
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowId" : "xyz_create_claim_and_re",
+      "objectType" : "xyz_claim",
+      "wizardConfig" : {
+        "height" : 450,
+        "width" : 640,
+        "modal" : true,
+        "autoScroll" : true,
+        "title" : "${_UI_Create_claim_and_relate_to_policy_Create_claim_and_relate_to_policy_label}"
+      },
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "policy_id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_edit_policy_create_claim_and_re_1_policy_id_1",
+          "events" : [ "xyz_policy.change", "xyz_policy.load" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "vehicle_id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_edit_policy_create_claim_and_re_1_vehicle_id_1",
+          "events" : [ "vehicles.selectionchange" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+          "vehicle_id" : ["vehicles" ]
+        }
+      } ]
+    }, {
+      "xcpId" : "create_vehicle_1",
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowId" : "xyz_create_vehicle",
+      "objectType" : "xyz_vehicle",
+      "wizardConfig" : {
+        "height" : 450,
+        "width" : 640,
+        "modal" : true,
+        "autoScroll" : true,
+        "title" : "${_UI_Create_Vehicle_Create_Vehicle_label}"
+      },
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "policy",
+          "setterFunName" : "setInputProperty",
+          "etype" : "xyz_edit_policy_create_vehicle_1_policy_1",
+          "events" : [ "xyz_policy.change", "xyz_policy.load" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+        }
+      } ]
+    } ]
+  }, {
+    "xtype" : "xcp_session_variable_container",
+    "plugins" : [ {
+      "ptype" : "xcp_expression_properties",
+      "expression" : [ {
+        "propertyId" : "xyz_last_policy_id",
+        "setterFunName" : "setSessionVariableValue",
+        "etype" : "xyz_edit_policy_xyz_last_policy_id_1",
+        "events" : [ "xyz_policy.change", "xyz_policy.load" ],
+        "disableInitialEval" : true
+      } ]
+    } ]
+  }, {
+    "xcpId" : "column_box",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "width" : "100%",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "new_string",
+        "xtype" : "xcp_text_input",
+        "fieldLabel" : "${_UI_Page_xyz_edit_policy_new_string_fieldLabel}",
+        "hstretch" : true,
+        "valueType" : "STRING",
+        "name" : "xyz_policy@new_string"
+      }, {
+        "xcpId" : "age",
+        "xtype" : "xcp_text_input",
+        "fieldLabel" : "${_UI_Page_xyz_edit_policy_age_fieldLabel}",
+        "hstretch" : true,
+        "valueType" : "STRING",
+        "name" : "xyz_policy@age"
+      }, {
+        "xcpId" : "coverage",
+        "xtype" : "xcp_number_input",
+        "fieldLabel" : "${_UI_Page_xyz_edit_policy_coverage_fieldLabel}",
+        "allowDecimals" : true,
+        "hideTrigger" : true,
+        "keyNavEnabled" : false,
+        "mouseWheelEnabled" : false,
+        "autoStripChars" : true,
+        "hstretch" : true,
+        "valueType" : "FLOAT",
+        "name" : "xyz_policy@coverage"
+      }, {
+        "xcpId" : "end_date",
+        "xtype" : "xcp_date_time_input",
+        "fieldLabel" : "${_UI_Page_xyz_edit_policy_end_date_fieldLabel}",
+        "hstretch" : true,
+        "format" : {
+          "xtype" : "xcp_datetime_formatter",
+          "dateFormat" : "short",
+          "timeFormat" : "short",
+          "dateStyle" : "datetime"
+        },
+        "valueType" : "DATETIME",
+        "name" : "xyz_policy@end_date"
+      }, {
+        "xcpId" : "first_name",
+        "xtype" : "xcp_text_input",
+        "fieldLabel" : "${_UI_Page_xyz_edit_policy_first_name_fieldLabel}",
+        "hstretch" : true,
+        "valueType" : "STRING",
+        "name" : "xyz_policy@first_name"
+      }, {
+        "xcpId" : "last_name",
+        "xtype" : "xcp_text_input",
+        "fieldLabel" : "${_UI_Page_xyz_edit_policy_last_name_fieldLabel}",
+        "hstretch" : true,
+        "valueType" : "STRING",
+        "name" : "xyz_policy@last_name"
+      }, {
+        "xcpId" : "tab_group",
+        "xtype" : "xcp_tab_group",
+        "tabPosition" : "top",
+        "minWidth" : 450,
+        "items" : [ {
+          "xcpId" : "tab",
+          "xtype" : "xcp_tab",
+          "title" : "${_UI_Page_xyz_edit_policy_tab_title}",
+          "items" : [ {
+            "xcpId" : "column_box2",
+            "xtype" : "xcp_column_box",
+            "collapsible" : false,
+            "collapsed" : false,
+            "collapseFirst" : true,
+            "border" : false,
+            "defaultMargins" : "5",
+            "layout" : "xcp_columnbox",
+            "items" : [ {
+              "xcpId" : "columnvbox1",
+              "xtype" : "xcp_columnvbox",
+              "orientation" : "Vertical",
+              "width" : "100%",
+              "overflow_x" : "hidden",
+              "labelWidth" : 150,
+              "labelAlign" : "left",
+              "halign" : "left",
+              "valign" : "top",
+              "defaultMargins" : "5",
+              "items" : [ {
+                "xcpId" : "column_box3",
+                "xtype" : "xcp_column_box",
+                "collapsible" : false,
+                "collapsed" : false,
+                "collapseFirst" : true,
+                "border" : false,
+                "defaultMargins" : "5",
+                "layout" : "xcp_columnbox",
+                "items" : [ {
+                  "xcpId" : "columnvbox2",
+                  "xtype" : "xcp_columnvbox",
+                  "orientation" : "Vertical",
+                  "width" : "100%",
+                  "overflow_x" : "hidden",
+                  "labelWidth" : 150,
+                  "labelAlign" : "left",
+                  "halign" : "left",
+                  "valign" : "top",
+                  "defaultMargins" : "5"
+                } ]
+              }, {
+                "xcpId" : "column_box4",
+                "xtype" : "xcp_column_box",
+                "collapsible" : false,
+                "collapsed" : false,
+                "collapseFirst" : true,
+                "border" : false,
+                "defaultMargins" : "5",
+                "layout" : "xcp_columnbox",
+                "items" : [ {
+                  "xcpId" : "columnhbox1",
+                  "xtype" : "xcp_columnhbox",
+                  "orientation" : "Horizontal",
+                  "width" : "100%",
+                  "overflow_x" : "hidden",
+                  "labelWidth" : 50,
+                  "defaultMargins" : "5",
+                  "labelAlign" : "left",
+                  "halign" : "right",
+                  "valign" : "top",
+                  "items" : [ {
+                    "xcpId" : "button2",
+                    "xtype" : "xcp_button",
+                    "text" : "${_UI_Page_xyz_edit_policy_button2_text}",
+                    "actionInstanceId" : "claim_related_to_po",
+                    "redirectStyle" : "current"
+                  } ]
+                } ]
+              } ]
+            } ]
+          }, {
+            "xcpId" : "claims",
+            "xtype" : "xcp_results_list",
+            "typeName" : "xyz_claim",
+            "modelName" : "xyz_claim_related_to_po_outputs",
+            "storeId" : "claim_related_to_po",
+            "initParams" : {extraParams:{input_object_id:'expression.id_from_context'}},
+            "pageSize" : 10,
+            "selectionModel" : false,
+            "enableDragDrop" : true,
+            "disableNavigationOnFirstColumn" : false,
+            "allowDeselect" : false,
+            "columns" : [ {
+              "xcpId" : "results_list_page_link_column1",
+              "xtype" : "xcp_results_list_page_link_column",
+              "text" : "${_UI_Page_xyz_edit_policy_results_list_page_link_column1_text}",
+              "width" : 150,
+              "dataIndex" : "incident_date",
+              "valueType" : "DATETIME",
+              "isRepeating" : false,
+              "format" : {
+                "xtype" : "xcp_datetime_formatter",
+                "dateFormat" : "short",
+                "timeFormat" : "short",
+                "dateStyle" : "datetime"
+              },
+              "sortable" : false,
+              "menuDisabled" : true
+            }, {
+              "xcpId" : "results_list_column3",
+              "xtype" : "xcp_results_list_column",
+              "text" : "${_UI_Page_xyz_edit_policy_results_list_column3_text}",
+              "width" : 150,
+              "dataIndex" : "incident_location",
+              "valueType" : "STRING",
+              "isRepeating" : false,
+              "sortable" : false,
+              "menuDisabled" : true
+            }, {
+              "xcpId" : "results_list_column7",
+              "xtype" : "xcp_results_list_column",
+              "text" : "${_UI_Page_xyz_edit_policy_results_list_column7_text}",
+              "width" : 150,
+              "dataIndex" : "vehicle_in_motion",
+              "valueType" : "BOOLEAN",
+              "isRepeating" : false,
+              "sortable" : false,
+              "menuDisabled" : true
+            }, {
+              "xcpId" : "results_list_column8",
+              "xtype" : "xcp_results_list_column",
+              "text" : "${_UI_Page_xyz_edit_policy_results_list_column8_text}",
+              "width" : 150,
+              "dataIndex" : "claim_status",
+              "valueType" : "xcp.picklist.xyz_claim_status",
+              "isRepeating" : false,
+              "format" : {
+                "xtype" : "xcp_integer_formatter",
+                "decimalPrecision" : 0,
+                "useThousandSeparator" : true,
+                "separatorStyle" : "LOCALE",
+                "negativeNumberStyle" : "FORMAT_MINUS_SIGN_STYLE_NONE"
+              },
+              "sortable" : false,
+              "menuDisabled" : true
+            }, {
+              "xcpId" : "results_list_column9",
+              "xtype" : "xcp_results_list_column",
+              "text" : "${_UI_Page_xyz_edit_policy_results_list_column9_text}",
+              "dataIndex" : "id",
+              "valueType" : "STRING",
+              "isRepeating" : false,
+              "sortable" : false,
+              "menuDisabled" : true
+            } ]
+          }, {
+            "xcpId" : "add_claim",
+            "xtype" : "xcp_button",
+            "text" : "${_UI_Page_xyz_edit_policy_add_claim_text}",
+            "actionInstanceId" : "create_claim_and_re_1",
+            "redirectStyle" : "none",
+            "showSuccessNotification" : true,
+            "showConfirmation" : false,
+            "pageSelectionType" : "page"
+          } ]
+        }, {
+          "xcpId" : "tab1",
+          "xtype" : "xcp_tab",
+          "title" : "${_UI_Page_xyz_edit_policy_tab1_title}"
+        } ]
+      } ]
+    } ]
+  }, {
+    "xcpId" : "vehicles",
+    "xtype" : "xcp_results_list",
+    "title" : "${_UI_Page_xyz_edit_policy_vehicles_title}",
+    "typeName" : "xyz_vehicle",
+    "modelName" : "xyz_vehicles_related_to_outputs",
+    "storeId" : "vehicles_related_to",
+    "initParams" : {extraParams:{input_object_id:'expression.id_from_context'}},
+    "pageSize" : 10,
+    "selectionModel" : false,
+    "enableDragDrop" : true,
+    "disableNavigationOnFirstColumn" : false,
+    "allowDeselect" : false,
+    "columns" : [ {
+      "xcpId" : "results_list_page_link_column",
+      "xtype" : "xcp_results_list_page_link_column",
+      "text" : "${_UI_Page_xyz_edit_policy_results_list_page_link_column_text}",
+      "width" : 150,
+      "dataIndex" : "make",
+      "valueType" : "xcp.picklist.xyz_vehicle_make",
+      "isRepeating" : false,
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_edit_policy_results_list_column_text}",
+      "width" : 150,
+      "dataIndex" : "model",
+      "valueType" : "STRING",
+      "isRepeating" : false,
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column1",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_edit_policy_results_list_column1_text}",
+      "width" : 150,
+      "dataIndex" : "vehicle_year",
+      "valueType" : "INTEGER",
+      "isRepeating" : false,
+      "format" : {
+        "xtype" : "xcp_integer_formatter",
+        "decimalPrecision" : 0,
+        "useThousandSeparator" : true,
+        "separatorStyle" : "LOCALE",
+        "negativeNumberStyle" : "FORMAT_MINUS_SIGN_STYLE_NONE"
+      },
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column2",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_edit_policy_results_list_column2_text}",
+      "width" : 150,
+      "dataIndex" : "vin",
+      "valueType" : "STRING",
+      "isRepeating" : false,
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column4",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_edit_policy_results_list_column4_text}",
+      "width" : 150,
+      "dataIndex" : "policychild_policyvehiclestart_date",
+      "valueType" : "DATETIME",
+      "isRepeating" : true,
+      "format" : {
+        "xtype" : "xcp_datetime_formatter",
+        "dateFormat" : "short",
+        "timeFormat" : "short",
+        "dateStyle" : "datetime"
+      },
+      "repeatingAttributeFormat" : {
+        "xtype" : "xcp_repeating_attribute_formatter",
+        "separatorStyle" : "NEWLINE",
+        "separator" : "COMMA"
+      },
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column5",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_edit_policy_results_list_column5_text}",
+      "width" : 150,
+      "dataIndex" : "policychild_policyvehicleend_date",
+      "valueType" : "DATETIME",
+      "isRepeating" : true,
+      "format" : {
+        "xtype" : "xcp_datetime_formatter",
+        "dateFormat" : "short",
+        "timeFormat" : "short",
+        "dateStyle" : "datetime"
+      },
+      "repeatingAttributeFormat" : {
+        "xtype" : "xcp_repeating_attribute_formatter",
+        "separatorStyle" : "NEWLINE",
+        "separator" : "COMMA"
+      },
+      "sortable" : false,
+      "menuDisabled" : true
+    }, {
+      "xcpId" : "results_list_column6",
+      "xtype" : "xcp_results_list_column",
+      "text" : "${_UI_Page_xyz_edit_policy_results_list_column6_text}",
+      "dataIndex" : "policychild_policyvehiclenotes",
+      "valueType" : "STRING",
+      "isRepeating" : true,
+      "repeatingAttributeFormat" : {
+        "xtype" : "xcp_repeating_attribute_formatter",
+        "separatorStyle" : "NEWLINE",
+        "separator" : "COMMA"
+      },
+      "sortable" : false,
+      "menuDisabled" : true
+    } ]
+  }, {
+    "xcpId" : "button1",
+    "xtype" : "xcp_button",
+    "text" : "${_UI_Page_xyz_edit_policy_button1_text}",
+    "redirectStyle" : "current"
+  }, {
+    "xcpId" : "column_box1",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnhbox",
+      "xtype" : "xcp_columnhbox",
+      "orientation" : "Horizontal",
+      "width" : "100%",
+      "overflow_x" : "hidden",
+      "labelWidth" : 50,
+      "defaultMargins" : "5",
+      "labelAlign" : "left",
+      "halign" : "right",
+      "valign" : "top",
+      "items" : [ {
+        "xcpId" : "add_vehicle",
+        "xtype" : "xcp_button",
+        "text" : "${_UI_Page_xyz_edit_policy_add_vehicle_text}",
+        "actionInstanceId" : "create_vehicle_1",
+        "redirectStyle" : "none",
+        "showSuccessNotification" : true,
+        "showConfirmation" : false,
+        "pageSelectionType" : "page"
+      }, {
+        "xcpId" : "button",
+        "xtype" : "xcp_button",
+        "text" : "${_UI_Page_xyz_edit_policy_button_text}",
+        "actionInstanceId" : "da_def_update_policy",
+        "defaultConfirmationPrompt" : "Are you sure you want to update the item?",
+        "showConfirmation" : true,
+        "redirectStyle" : "application",
+        "pageSelectionType" : "page",
+        "showSuccessNotification" : true,
+        "redirectUrl" : "application/xyz_policy_search"
+      } ]
+    } ]
+  } ]
+}
